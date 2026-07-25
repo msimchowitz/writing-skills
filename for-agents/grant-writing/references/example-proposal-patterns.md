@@ -16,13 +16,11 @@ without copying sponsor-specific claims into unrelated applications.
 
 The examples are three LaTeX proposals from the author's private corpus. The
 corpus is optional and is not stored in this repository. When the original
-files are needed, use the first available location:
-
-1. `$WRITING_SKILLS_EXAMPLES/example grants`
-2. `../Examples/example grants`, relative to the repository root
-
-If neither location exists, use this distilled analysis. Do not imply that the
-original proposals were inspected during the current task.
+files are needed, use only the directory resolved through the optional-example
+procedure in
+[grant-writing](../SKILL.md#resolve-optional-example-proposals). If no corpus
+was selected, use this distilled analysis. Do not imply that the original
+proposals were inspected during the current task.
 
 - Amazon: *Workspace Models for Long-Horizon Memory and Fleet-Level
   Adaptation*

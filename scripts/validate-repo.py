@@ -67,6 +67,16 @@ MACHINE_PATH_PATTERNS = (
         re.compile("Documents/" + "writing-skills"),
     ),
 )
+FIXED_CORPUS_LOCATOR_PATTERNS = (
+    (
+        "fixed example-corpus environment variable",
+        re.compile("WRITING_SKILLS_" + "EXAMPLES"),
+    ),
+    (
+        "repository-relative example corpus",
+        re.compile(r"(?:\.\./)+Examples(?:/|\b)"),
+    ),
+)
 
 
 class Report:
@@ -429,11 +439,19 @@ def validate_text_files(root, report):
                         f"machine-specific path ({label})",
                         line=line_number,
                     )
+            for label, pattern in FIXED_CORPUS_LOCATOR_PATTERNS:
+                if pattern.search(line):
+                    report.error(
+                        relative(path, root),
+                        f"noninteractive example-corpus locator ({label})",
+                        line=line_number,
+                    )
 
 
 def validate_human_guide(root, report):
     humans_root = root / "for-humans"
     guide = humans_root / "human-writing-guide"
+    template = humans_root / "raw-latex-template"
     if not humans_root.is_dir():
         report.error(Path("for-humans"), "missing human-artifact directory")
         return
@@ -443,6 +461,35 @@ def validate_human_guide(root, report):
             relative(skill_file, root),
             "for-humans must not contain an agent skill",
         )
+
+    required_template_files = (
+        ".gitignore",
+        "README.md",
+        "main.tex",
+        "references.bib",
+        "body/abstract.tex",
+        "body/introduction.tex",
+        "body/preliminaries.tex",
+        "body/method.tex",
+        "body/experiments.tex",
+        "body/related-work.tex",
+        "body/discussion.tex",
+        "appendix/reproducibility.tex",
+        "preamble/commands.tex",
+        "preamble/drafting.sty",
+        "preamble/project-style.sty",
+        "figures/.gitkeep",
+    )
+    if not template.is_dir():
+        report.error(relative(template, root), "missing raw LaTeX template")
+    else:
+        for template_file in required_template_files:
+            path = template / template_file
+            if not path.is_file():
+                report.error(
+                    relative(path, root),
+                    "missing raw LaTeX template file",
+                )
 
     if not guide.is_dir():
         report.error(

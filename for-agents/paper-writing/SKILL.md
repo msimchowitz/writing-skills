@@ -47,6 +47,26 @@ skill.
   Copy [latex-paper-skeleton](assets/latex-paper-skeleton) only when creating a
   new LaTeX project; adapt an existing repository in place otherwise.
 
+## Resolve Optional Example Papers
+
+The bundled paper conventions are sufficient by default. When the task calls
+for inspecting original examples, such as matching the author's established
+voice or checking a distilled convention:
+
+1. Use an example directory explicitly supplied for the current task.
+2. If no directory was supplied, ask: "Where is the folder containing the
+   example papers for this task? You can say `none` to use the bundled
+   conventions."
+3. Accept a direct corpus directory under any name. Also accept a parent
+   directory containing the conventional `example-papers` child.
+4. Confirm that the resolved directory is readable before relying on it.
+5. If the user answers `none` or the directory is unavailable, use
+   [group-paper-conventions.md](references/group-paper-conventions.md) and say
+   that the original papers were not inspected.
+
+Do not search above the repository, infer a location from the user's home
+directory, or copy private examples into this repository.
+
 ## Build The Argument Before The Prose
 
 1. State the practical or scientific problem in one sentence.

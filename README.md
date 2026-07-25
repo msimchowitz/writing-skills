@@ -1,14 +1,15 @@
 # Writing Skills
 
-This repository contains reusable writing skills for agents and a separate
-research-paper guide for people. It is designed to be shared within a lab:
-students can install the skills from their own copy, edit that copy, and
-validate changes without depending on one person's directory layout.
+This repository contains reusable writing skills for agents, a research-paper
+guide for people, and a standalone LaTeX starter. It is designed to be shared
+within a lab: students can install the skills from their own copy, edit that
+copy, and validate changes without depending on one person's directory layout.
 
 The repository separates its audiences:
 
 - `for-agents/` contains every installable skill.
-- `for-humans/` contains finished guides and their editable source.
+- `for-humans/` contains finished guides, editable source, and a raw LaTeX
+  template.
 - Repository documentation and maintenance scripts remain at the top level.
 
 ## Quick start
@@ -68,24 +69,26 @@ The repository includes distilled lessons from the lab's example papers and
 grants, but not the private source corpus. A student can use every skill without
 those files.
 
-When access to the corpus is appropriate, set `WRITING_SKILLS_EXAMPLES` to an
-`Examples` directory:
+When original examples would help, `paper-writing` or `grant-writing` uses a
+directory supplied in the request. If none was supplied, the skill asks where
+the relevant example folder lives; answer `none` to use only the bundled
+analysis. The path may name the corpus directory itself or a parent containing
+`example-papers` or `example grants`.
 
-```sh
-export WRITING_SKILLS_EXAMPLES="$HOME/path/to/Examples"
-```
+The skills do not infer an example location from the repository layout. Keep
+private proposals, downloaded arXiv trees, and large local corpora outside this
+repository.
 
-The expected subdirectories are `example-papers` and `example grants`. If the
-variable is unset, agents may also look for a sibling `../Examples` directory
-relative to this repository. Do not add private proposals, downloaded arXiv
-trees, or large local corpora to this repository.
-
-## Human guide
+## For people
 
 [`human-writing-guide`](for-humans/human-writing-guide/README.md)
 is a LaTeX project and finished PDF for people. It is intentionally not an
 agent skill and must not contain a `SKILL.md`. Its README documents the build
 and publication workflow.
+
+[`raw-latex-template`](for-humans/raw-latex-template/README.md) is a clean,
+standalone paper project with modular section files, semantic macros, and
+optional drafting comments. Copy the directory to start a new paper.
 
 ## Improving the skills
 
@@ -98,7 +101,7 @@ python3 scripts/validate-repo.py
 ```
 
 The validator checks skill metadata, local links, portable paths, instruction
-size, and the published human-guide PDF.
+size, the human-facing template, and the published human-guide PDF.
 
 ## License and acknowledgments
 

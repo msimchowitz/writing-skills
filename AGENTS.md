@@ -42,15 +42,17 @@ These instructions apply to the whole repository.
 
 ## Optional corpora
 
-Resolve private examples in this order:
+Keep private corpora outside this repository. When a task would benefit from
+original examples, use a directory the user supplied for that task. If no
+directory was supplied, ask where the relevant example folder lives and make
+clear that the user can answer `none`.
 
-1. `$WRITING_SKILLS_EXAMPLES`
-2. The sibling `../Examples` directory relative to the repository root
-3. The distilled references bundled with the relevant skill
-
-Do not fail merely because the private corpus is absent. Use the bundled
-analysis and say when an original artifact was not inspected. Never copy
-private corpus content into a contribution without explicit permission.
+Accept either the corpus directory itself or a parent containing the relevant
+`example-papers` or `example grants` directory. Do not search above the
+repository or assume a home-directory layout. If the corpus is unavailable,
+use the distilled reference bundled with the relevant skill and say that the
+original artifacts were not inspected. Never copy private corpus content into
+a contribution without explicit permission.
 
 ## Cross-skill behavior
 

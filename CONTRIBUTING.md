@@ -78,9 +78,11 @@ a relative sibling reference so the installer can include the dependency.
 
 ## Use example corpora
 
-Private examples are optional. Set `WRITING_SKILLS_EXAMPLES` to the parent
-directory containing `example-papers` and `example grants`, or place an
-`Examples` directory beside the repository. Do not commit the corpus.
+Private examples are optional and may live anywhere outside this repository.
+Supply either the relevant corpus directory or a parent containing
+`example-papers` or `example grants`. If a task needs original examples and no
+path was supplied, the relevant skill must ask for one instead of guessing.
+Do not commit the corpus.
 
 When extracting a convention:
 

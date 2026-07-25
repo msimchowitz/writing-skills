@@ -22,6 +22,26 @@ problem before asking them to evaluate a technical intervention.
   separately. Apply the ordered prose pass only after the argument, evidence,
   and sponsor fit are settled.
 
+## Resolve optional example proposals
+
+The bundled proposal patterns are sufficient by default. When the task calls
+for inspecting original examples, such as matching the author's established
+grant voice or checking how prior achievements were used:
+
+1. Use an example directory explicitly supplied for the current task.
+2. If no directory was supplied, ask: "Where is the folder containing the
+   example proposals for this task? You can say `none` to use the bundled
+   proposal patterns."
+3. Accept a direct corpus directory under any name. Also accept a parent
+   directory containing the conventional `example grants` child.
+4. Confirm that the resolved directory is readable before relying on it.
+5. If the user answers `none` or the directory is unavailable, use
+   [example-proposal-patterns.md](references/example-proposal-patterns.md) and
+   say that the original proposals were not inspected.
+
+Do not search above the repository, infer a location from the user's home
+directory, or copy private examples into this repository.
+
 ## Start with the funder and constraints
 
 1. Read the solicitation, evaluation criteria, instructions, templates, and

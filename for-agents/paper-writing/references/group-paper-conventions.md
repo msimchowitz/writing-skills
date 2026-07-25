@@ -10,14 +10,12 @@ This guide distills recurring choices from four papers and their arXiv source:
 | *OGPO: Sample Efficient Full-Finetuning of Generative Control Policies* | 2605.03065v4 | Empirical method and study | Deployment bottleneck -> sample-cost asymmetry -> decoupled method -> stabilization -> comparisons -> mechanism |
 
 The source corpus is optional and is not stored in this repository. When the
-original papers are needed, use the first available location:
-
-1. `$WRITING_SKILLS_EXAMPLES/example-papers`
-2. `../Examples/example-papers`, relative to the repository root
-
-If neither location exists, use this distilled guide and state that the
-original papers were not inspected during the current task. When the corpus is
-available, treat it as evidence about a house style, not as text to copy.
+original papers are needed, use only the directory resolved through the
+optional-example procedure in
+[paper-writing](../SKILL.md#resolve-optional-example-papers). If no corpus was
+selected, use this distilled guide and state that the original papers were not
+inspected during the current task. When the corpus is available, treat it as
+evidence about a house style, not as text to copy.
 
 ## Shared Argument Pattern
 
