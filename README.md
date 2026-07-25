@@ -100,9 +100,9 @@ python3 scripts/validate-repo.py
 The validator checks skill metadata, local links, portable paths, instruction
 size, and the published human-guide PDF.
 
-## Licensing
+## License and acknowledgments
 
-The `for-agents/humanizer` and `for-agents/general-writing` directories include
-their own license files. Preserve those files and their attribution. This
-repository does not currently declare one license for all remaining material;
-confirm permission before redistributing it outside the lab.
+This repository is released under the [MIT License](LICENSE). Components that
+include their own MIT license notices retain those notices and copyright
+statements. See [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) for the projects and
+communities this work builds on.
