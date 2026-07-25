@@ -1,0 +1,195 @@
+%!TEX root = ../main.tex
+
+\iftoggle{arxiv}
+{
+\newcommand{\togglepar}[1]{\colorpar{#1}}
+}
+{
+\newcommand{\togglepar}[1]{\textbf{#1}}
+}
+
+%Text Formatting
+\newcommand{\email}[1]{\texttt{#1}}
+\newcommand{\sftext}[1]{{\normalfont \textsf{#1}}}
+\newcommand{\normtext}[1]{{\normalfont \text{#1}}}
+\newcommand{\algcomment}[1]{\texttt{\color{blue} #1}}
+\newcommand{\textnorm}[1]{\text{\normalfont #1}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\FigureOut}{{\color{blue} (\mathrm{FigureOut}) }}
+\newcommand{\dbtilde}[1]{\tilde{\raisebox{0pt}[0.85\height]{$\tilde{#1}$}}}
+\newcommand{\newlytyped}[1]{{\color{green}#1}}
+\newcommand{\remind}[1]{{\color{blue}#1}}
+
+%% Delimiters
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} %
+\DeclarePairedDelimiter{\brk}{[}{]}
+\DeclarePairedDelimiter{\crl}{\{}{\}}
+\DeclarePairedDelimiter{\prn}{(}{)}
+\DeclarePairedDelimiter{\nrm}{\|}{\|}
+\DeclarePairedDelimiter{\tri}{\langle}{\rangle}
+\DeclarePairedDelimiter{\dtri}{\llangle}{\rrangle}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+%% Decorators 
+
+\renewcommand{\t}[1]{\smash{\tilde{#1}}}
+\newcommand{\wt}[1]{\smash{\widetilde{#1}}}
+\newcommand{\wh}[1]{\smash{\widehat{#1}}}
+\newcommand{\OO}[1]{\O\lr{#1}}
+\newcommand{\tTheta}{\wt{\Theta}}
+
+%% Operators
+
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\tsum}{\sum\nolimits}
+\newcommand{\ind}[1]{\mathbb{I}\!\lrset{#1}}
+\newcommand{\non}{\nonumber}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\conv}{conv}
+\DeclareMathOperator*{\supp}{supp}
+
+\DeclareMathOperator*{\Expop}{\mathbb{E}}
+
+%% Asymptotics
+
+\newcommand{\poly}{\mathrm{poly}}
+\newcommand{\BigOhSt}[1]{\BigOm^*\left({#1}\right)}
+\DeclareMathOperator{\BigOm}{{O}}
+\newcommand{\BigOhPar}[2] {\BigOm_{#1}\left({#2}\right)}
+\newcommand{\BigOh}[1]{\BigOm\left({#1}\right)}
+\DeclareMathOperator{\BigOmtil}{\widetilde{\mathcal{O}}}
+\newcommand{\BigOhTil}[1]{\BigOmtil\left({#1}\right)}
+\DeclareMathOperator{\BigTm}{\Theta}
+\newcommand{\BigTheta}[1]{\BigTm\left({#1}\right)}
+\DeclareMathOperator{\BigWm}{\Omega}
+\newcommand{\BigThetaTil}[1]{\widetilde{\BigTm}\left({#1}\right)}
+\newcommand{\BigOmega}[1]{\BigWm\left({#1}\right)}
+\newcommand{\BigOmegaSt}[1]{\BigWm^*\left({#1}\right)}
+\newcommand{\BigOmegaTil}[1]{\widetilde{\BigWm}\left({#1}\right)}
+\newcommand{\bigohst}[1]{\mathcal{O}(#1)}
+\newcommand{\bigomst}[1]{\Omega(#1)}
+
+
+
+%% Probability and Measure Theory
+
+\let\Pr\relax
+\DeclareMathOperator{\Pr}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Exp}{\mathbb{E}}
+\newcommand{\EE}[1]{\E\lrbra{#1}}
+\newcommand{\var}{\mathrm{Var}}
+\newcommand{\Leb}{\mathrm{Leb}}
+\newcommand{\Unif}{\Dist_{\mathrm{unif}}}
+
+\iftoggle{arxiv}{
+\newcommand{\Normal}{\mathrm{N}}
+}{
+\newcommand{\Normal}{\mathcal{N}}
+}
+\newcommand{\iidsim}{\overset{\mathrm{i.i.d}}{\sim}}
+
+
+%% Linear Algebra
+
+\newcommand{\eye}{\mathbf{I}}
+\newcommand{\trn}{\intercal}
+\renewcommand{\sp}{\mathrm{span}}
+\newcommand{\trace}{\mathrm{tr}}
+
+
+
+%% Metric Space Quantities
+
+\newcommand{\ballk}[1][k]{\cB_{#1}}
+\newcommand{\ballkr}[1][r]{\cB_{k}(r)}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\fro}{\mathrm{F}}
+
+
+%% Differential Operators
+
+\def\hestinv{\tilde{\nabla}^{-2}}
+\def\hest{\tilde{\nabla}^{2}}
+\def\hessinv{\nabla^{-2}}
+\def\hess{\nabla^2}
+\def\grad{\nabla}
+\newcommand{\nablatwo}{\nabla^{\,2}}
+\def\ntil{\tilde{\nabla}}
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\Diag}{\mathrm{Diag}}% notation
+\newcommand{\Differential}{\mathsf{D}}
+\newcommand{\re}{{\text{Re}}}
+
+%%Statistical Learning
+
+\newcommand{\fst}{f^\star}
+\newcommand{\gst}{g^\star}
+\newcommand{\Gclass}{\cG}
+\newcommand{\Regret}{\mathrm{Regret}}
+\def\regret{\mbox{{Regret\ }}}
+\newcommand{\ftil}{\tilde{f}}
+\newcommand{\mH}{\mathcal{H}}
+\def\X{{\mathcal X}}
+\def\U{{\mathcal U}}
+\def\H{{\mathcal H}}
+\def\Y{{\mathcal Y}}
+
+
+
+%% Logical Operators
+
+\newcommand{\True}{\mathsf{True}}
+\newcommand{\False}{\mathsf{False}}
+
+%% Assorted Characters
+
+\newcommand{\nicehalf}{\nicefrac{1}{2}}
+\newcommand{\veps}{\varepsilon}
+\DeclareMathSymbol{\shortminus}{\mathbin}{AMSa}{"39}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\defeq}{:=}
+\def\ytil{\tilde{{y}}}
+\def\yhat{\hat{{y}}}
+\def\what{\hat{{\bw}}}
+\def\xhat{\hat{\mathbf{x}}}
+\def\xbar{\bar{\mathbf{x}}}
+
+
+
+
+
+
+%% Cases
+
+\newcommand{\mycases}[4]{{
+\left\{
+\begin{array}{ll}
+    {#1} & {\;\text{#2}} \\[1ex]
+    {#3} & {\;\text{#4}}
+\end{array}
+\right. }}
+
+\newcommand{\mythreecases}[6] {{
+\left\{
+\begin{array}{ll}
+    {#1} & {\;\text{#2}} \\[1ex]
+    {#3} & {\;\text{#4}} \\[1ex]
+    {#5} & {\;\text{#6}}
+\end{array}
+\right. }}
+
+%%% Deprecated
+
+    %\newcommand{\lrp}[1]{\!\left(#1\right)\!}
+    %\newcommand{\lrbig}[1]{\big(#1\big)}
+    %\newcommand{\lrBig}[1]{\Big(#1\Big)}
+    %\newcommand{\lrbra}[1]{\!\left[#1\right]\!}
+    %\newcommand{\lrnorm}[1]{\left\|#1\right\|}
+    %\newcommand{\lrset}[1]{\left\{#1\right\}}
+    %\newcommand{\lrabs}[1]{\left|#1\right|}
+    %\newcommand{\norm}[1]{\|#1\|}

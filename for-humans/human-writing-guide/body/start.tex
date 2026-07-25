@@ -1,0 +1,88 @@
+\section{Start with the paper's question}
+\label{sec:start}
+
+A paper becomes difficult to write when its authors have not decided what the
+reader should learn. Polishing cannot settle that question. Before drafting,
+state the scientific problem and the paper's answer in ordinary language.
+
+\subsection{Write the paper's contract}
+
+Write four sentences before writing any section:
+
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+    \item \textbf{Problem.} What practical or scientific problem does the paper
+    address?
+    \item \textbf{Gap.} Why does the strongest current method or explanation
+    leave that problem unresolved?
+    \item \textbf{Claim.} What does this paper establish?
+    \item \textbf{Boundary.} Where does the claim stop, and what important
+    question remains open?
+\end{enumerate}
+
+These sentences form a contract with the reader. The introduction may motivate
+the problem and the body may develop the details, but neither should quietly
+change the contract. The boundary sentence matters as much as the central
+claim. It prevents a result in one regime from becoming a claim about every
+regime. It also keeps a measured effect separate from the explanation proposed
+for it.
+
+A useful one-sentence test is:
+
+\begin{quote}
+We study \emph{[problem]} because \emph{[current limitation]}; we show
+\emph{[central result]} under \emph{[scope]}, while \emph{[limitation]} remains
+open.
+\end{quote}
+
+The finished sentence need not appear in the paper. Its purpose is to expose
+disagreement among the authors. If two plausible versions imply different
+experiments or different section orders, settle that disagreement before
+line-editing the introduction.
+
+\subsection{Map claims to evidence}
+
+List every claim that a reader must accept for the paper's conclusion to hold.
+Then assign each claim a visible piece of evidence. A theorem supports a formal
+statement under its assumptions. A controlled comparison supports a
+comparative claim. An ablation isolates a design choice. A mechanism study
+tests an explanation. A qualitative result can make a failure mode concrete,
+but it rarely establishes frequency on its own.
+
+\begin{center}
+\begin{tabular}{p{0.20\linewidth}p{0.31\linewidth}p{0.31\linewidth}}
+\toprule
+\textbf{Claim} & \textbf{Evidence needed} & \textbf{Boundary to state} \\
+\midrule
+Headline result &
+Theorem or controlled benchmark &
+Assumptions, tasks, metrics, and uncertainty \\
+\addlinespace
+Mechanism &
+Diagnostic intervention or measured intermediate behavior &
+Alternative explanations that remain possible \\
+\addlinespace
+Practical value &
+Cost, deployment result, or stress test &
+Resources and settings not yet tested \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This map should reveal weak links. A contribution with no evidence is a
+proposal, not a result. Evidence with no role in the central argument may still
+belong in the appendix, but it should not dictate the main paper. When a claim
+depends on a missing control, record the gap instead of drafting around it.
+
+\subsection{Choose the level of the contribution}
+
+Papers make different kinds of contributions. A method paper may show that a
+new procedure resolves a concrete tradeoff. A mechanism paper may overturn a
+popular explanation through controlled tests. A theory paper may identify a
+failure and prove when it disappears. Some papers combine these forms, but one
+usually carries the main argument.
+
+Name that primary contribution early. It determines which evidence deserves
+space and what Figure~1 must show. It should also govern the title and
+abstract. A paper centered on explanation should not market itself as an
+algorithm paper because it happens to introduce a diagnostic model. A paper
+centered on a theorem should not bury the regime in which the theorem applies.

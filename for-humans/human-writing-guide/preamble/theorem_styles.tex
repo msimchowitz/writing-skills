@@ -1,0 +1,178 @@
+%!TEX root = ../main.tex
+
+\usepackage{thmtools}
+
+\Crefname{equation}{Eq.}{Eqs.}
+\Crefname{assumption}{Assumption}{Assumptions}
+
+\Crefname{component}{Component}{Components}
+\Crefname{condition}{Condition}{Conditions}
+\Crefname{claim}{Claim}{Claims}
+\Crefname{property}{Property}{Properties}
+\Crefname{construction}{Construction}{Constructions}
+
+
+
+
+
+%Informal Theorems
+\iftoggle{customthms}
+{
+\declaretheoremstyle[
+    headformat=\normalfont\textcolor{\thmcolordark}{\bfseries\NAME\,\NUMBER}\NOTE,%
+    notefont={\normalfont\textcolor{\thmcolordark}{\bfseries}}, 
+    notebraces={}{},
+    bodyfont=\normalfont\itshape,
+    spaceabove = 6pt,
+    spacebelow = 6pt,
+    ]{coloredthmversion}
+
+\declaretheoremstyle[
+    headformat=\normalfont\textcolor{\thmcolordark}{\bfseries\NAME\,\NUMBER}\NOTE,%
+    bodyfont=\normalfont\itshape,
+    spaceabove = 6pt,
+    spacebelow = 6pt,
+    ]{coloredthm}
+
+\declaretheoremstyle[
+    headformat=\normalfont\textcolor{\thmcolordark}{\bfseries\NAME\,\NUMBER}\NOTE,%
+    bodyfont=\normalfont,
+    spaceabove = 6pt,
+    spacebelow = 6pt,
+    ]{coloreddef}
+    \theoremstyle{coloredthmversion}
+    \newtheorem*{thminformalversion}{Informal Version of}
+
+}
+{}
+
+
+
+\iftoggle{customthms}{
+  \theoremstyle{coloredthm}
+  \newtheorem{theorem}{Theorem}
+  
+  \newtheorem{lemma}{Lemma}[section]
+  \newtheorem{corollary}{Corollary}[section]
+  \newtheorem{proposition}[lemma]{Proposition}
+  \newtheorem{thminformal}{Informal Theorem}
+  \newtheorem{problem}{Problem}[section]
+    \newtheorem*{thminformal*}{Informal Theorem}
+\newtheorem{claim}[lemma]{Claim}
+\newtheorem{oracle}{Oracle}[section]
+}
+{
+  \newtheorem{lemma}{Lemma}[section]
+
+}
+
+
+
+\newtheorem{openq}{Open Question}
+\newtheorem{fact}[lemma]{Fact}
+\newtheorem{question}{Question}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+
+\newtheorem{goal}{Goal}[section]
+\iftoggle{customthms}{
+    \theoremstyle{coloreddef}
+    \newtheorem{definition}{Definition}[section]
+    \newtheorem{example}{Example}[section]
+    \newtheorem{remark}{Remark}[section]
+    \newtheorem{property}{Property}[section]
+}
+{
+  \newtheorem{property}{Property}[section]
+}
+
+\newtheorem{observation}[lemma]{Observation}
+\newtheorem{construction}{Construction}[section]
+\newtheorem{contribution}{Contribution}
+
+
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{condition}{Condition}[section]
+\newtheorem{component}{Component}
+\makeatletter
+\newcommand{\neutralize}[1]{\expandafter\let\csname c@#1\endcsname\count@}
+\makeatother
+
+
+
+%%%Informal Theorems
+\iftoggle{customthms}{
+    \newtheoremstyle{named}{}{}{\itshape}{}{\bfseries}{}{.5em}{\Cref{#3} {\normalfont (informal)} }{}
+    \theoremstyle{named}
+    \newtheorem*{informaltheorem}{Theorem}
+    \theoremstyle{plain}
+}
+{}
+
+\newenvironment{repthm}[2][]{%
+  \def\theoremauxref{\cref{#2}}
+  \begin{theoremaux}[#1]
+}{%
+  \end{theoremaux}
+}
+
+
+% Modified Theorems
+
+\newenvironment{lemmod}[2]
+  {\renewcommand{\thelemma}{\ref*{#1}#2}%
+   \neutralize{lemma}\phantomsection
+   \begin{lemma}}
+  {\end{lemma}}
+
+
+\newenvironment{thmmod}[3]
+  {\renewcommand{\thetheorem}{\ref*{#1}#2}%
+   \neutralize{theorem}\phantomsection
+   \begin{theorem}[#3]}
+  {\end{theorem}}
+
+
+    \newenvironment{propmod}[2]
+  {\renewcommand{\theproposition}{\ref*{#1}#2}%
+   \neutralize{proposition}\phantomsection
+   \begin{proposition}}
+  {\end{proposition}}
+
+     \newenvironment{defnmod}[2]
+  {\renewcommand{\thedefinition}{\ref*{#1}#2}%
+   \neutralize{definition}\phantomsection
+   \begin{definition}}
+  {\end{definition}}
+
+   \newenvironment{asmmod}[2]
+  {\renewcommand{\theassumption}{\ref*{#1}#2}%
+   \neutralize{assumption}\phantomsection
+   \begin{assumption}}
+  {\end{assumption}}
+
+  \newenvironment{cormod}[2]
+  {\renewcommand{\thecorollary}{\ref*{#1}#2}%
+   \neutralize{corollary}\phantomsection
+   \begin{corollary}}
+  {\end{corollary}}
+  
+   \newenvironment{condmod}[2]
+  {\renewcommand{\thecondition}{\ref*{#1}#2}%
+   \neutralize{condition}\phantomsection
+   \begin{condition}}
+  {\end{condition}}
+
+%Unlabeled Theorems
+\iftoggle{customthms}
+{
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{fact*}{Fact}
+\newtheorem*{observation*}{Observation}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{example*}{Example}
+}{}

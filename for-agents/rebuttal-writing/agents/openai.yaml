@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rebuttal Writing"
+  short_description: "Draft concise evidence-led responses to reviewers"
+  default_prompt: "Use $rebuttal-writing to draft a precise response to these reviewer comments."

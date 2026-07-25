@@ -1,0 +1,84 @@
+\section{Build the argument before the prose}
+\label{sec:architecture}
+
+The section list should follow the logic of the evidence. A fixed outline can
+hide the paper's strongest result under routine setup or give equal space to
+claims of very different importance. Decide what the reader must understand
+first and which evidence establishes each step. Section titles and paragraph
+topics follow from that sequence.
+
+\subsection{Choose the structure from the evidence}
+
+The example papers use three recurring architectures.
+
+\paragraph{Empirical method papers.}
+\emph{DPPO}~\citep{ren2024diffusion} and
+\emph{OGPO}~\citep{patil2026ogpo} begin with an operational bottleneck,
+identify a tradeoff in current methods, and introduce a method that changes
+that tradeoff. Headline comparisons establish the main result. Later
+experiments test the proposed explanation. They also show where performance
+breaks and whether it survives deployment. This architecture works when
+performance is the central claim but mechanism and reliability determine
+whether the result is convincing.
+
+\paragraph{Empirical mechanism papers.}
+\emph{Much Ado About Noising}~\citep{pan2025muchado} organizes the paper
+around competing explanations. Controlled tests first show which explanations
+do not account for the observed performance. A minimal replacement then
+isolates the components that do matter, and later experiments examine their
+mechanism. This architecture fits a paper whose contribution is a corrected
+understanding. The negative and positive findings must remain distinct:
+rejecting one explanation does not prove another.
+
+\paragraph{Theory-led papers.}
+\emph{Action Chunking}~\citep{zhang2025actionchunking} starts from a failure
+in continuous-control behavior cloning and studies two interventions in
+different regimes. The formal results explain when each intervention is
+sufficient, while experiments test the predictions that matter outside the
+model. This architecture fits a paper that moves from a failure or
+impossibility to guarantees under stated conditions. The regime should appear
+before the guarantee, both in prose and in section titles.
+
+Treat these as shapes. A new paper may need a different order. All four
+examples open with a concrete problem. Each then exposes a mismatch in current
+thinking and resolves it as far as the evidence allows. The test is whether
+each section resolves a question created by the previous one.
+
+\subsection{Order results by argumentative value}
+
+In an empirical paper, show the headline result before low-level ablations.
+The reader needs to know that the method changes the outcome before learning
+which regularizer or schedule matters. Mechanism studies should follow the
+performance claim unless mechanism is itself the main claim.
+
+In a theory paper, present the motivating failure before the intervention.
+State assumptions before the result that uses them, but avoid a long block of
+notation that the reader will not need for several pages. Definitions are
+easier to absorb when they arrive close to the question they answer.
+
+Related work can appear early or late. Place it early when the reader must
+distinguish the method from close alternatives before understanding the
+formulation. Place it after the main results when a literature survey would
+delay the paper's question and answer. In either case, organize related work by
+technical distinction. A chronological list of papers does not explain what
+remains unresolved.
+
+\subsection{Draft the evidence before the framing}
+
+The order of the paper need not be the order of writing. A reliable drafting
+sequence is:
+
+\begin{enumerate}[leftmargin=*]
+    \item settle the claim--evidence map;
+    \item draft the central figures, tables, theorem statements, and captions;
+    \item write the results that interpret that evidence;
+    \item write the setup and method needed to understand those results;
+    \item write the introduction once the contribution hierarchy is stable;
+    \item write the abstract and title last.
+\end{enumerate}
+
+This sequence reduces a common source of churn. An early abstract often
+commits the paper to claims that the final evidence does not support. An early
+introduction can also turn provisional organization into a constraint. The
+abstract should summarize the paper that exists, not the paper the authors
+first imagined.

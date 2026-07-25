@@ -1,0 +1,99 @@
+\section{Build the argument into the figures}
+\label{sec:figures}
+
+Readers often meet the evidence through figures before they read the full
+paper. The figure sequence should make the same argument in shorter form. A
+reader who scans the title, abstract, and figures should understand the problem
+and the main result. If the paper proposes an explanation, the figures should
+show the evidence for it.
+
+\subsection{Use Figure 1 to summarize the paper}
+
+Figure~1 should identify the new intervention and show its main effect. If the
+paper makes a mechanism claim, the figure should also show the evidence that
+motivates it. Most first figures pair a method diagram with one headline
+result. Add a task image or mechanism sketch only when it supplies necessary
+context.
+
+The example papers make different choices because their claims differ.
+\emph{Action Chunking} places its two interventions in one conceptual frame.
+\emph{DPPO} joins the nested decision process to robot tasks and the properties
+it studies. \emph{Much Ado About Noising} uses a component taxonomy to reject
+prevailing explanations and introduce a minimal replacement. \emph{OGPO}
+places the algorithm beside sample-efficiency curves, then uses its final
+panel to motivate the mechanism study. In each case, the first figure reflects
+the paper's main claim rather than a standard figure template.
+
+Design Figure~1 after the claim--evidence map is stable. If the figure requires
+a claim that the paper does not test, change the figure or collect the missing
+evidence. If the figure cannot state the contribution without several
+paragraphs of caption, the contribution hierarchy may still be unsettled.
+
+\subsection{Give later figures distinct roles}
+
+A later figure should resolve one question left open by Figure~1. Common roles
+include:
+
+\begin{description}[leftmargin=*,style=nextline]
+    \item[\textbf{Concept figure.}]
+    Makes a theoretical object, information flow, or mechanism visible.
+    \item[\textbf{Controlled comparison.}]
+    Changes one disputed component while holding the relevant alternatives
+    fixed.
+    \item[\textbf{Headline benchmark.}]
+    Establishes the main comparison across representative regimes.
+    \item[\textbf{Mechanism figure.}]
+    Shows trajectories, distributions, gradients, or intermediate
+    computations that bear on an explanation.
+    \item[\textbf{Qualitative sequence.}]
+    Displays an ordered success or failure with the event of interest marked.
+    \item[\textbf{Ablation.}]
+    Removes or varies one design decision and reports the resulting change.
+\end{description}
+
+Do not ask every figure to perform all of these jobs. A benchmark grid becomes
+hard to read when it also contains the method diagram, ablation, and mechanism
+claim. Separate figures let the prose distinguish performance from
+explanation.
+
+\subsection{Use one visual language}
+
+Assign colors by meaning and keep those assignments stable. Use neutral gray
+for context and most baselines, then reserve one or two accent colors for the
+method and the main alternative. Learning curves should state the uncertainty
+shown and the number of seeds or trials. Direct labels are often easier to read
+than a distant legend. Panel headings should name the comparison, not merely
+``left'' and ``right.''
+
+Diagrams need a visible direction of travel. Give each arrow one meaning and
+state that meaning in the caption. Task images can ground an abstract diagram,
+but they should show the actual task or failure under discussion. A decorative
+image does not supply evidence.
+
+Inspect every figure at its final column width. Check every label and
+annotation at that size. Lines must remain distinguishable on a printed page,
+including in grayscale and under common forms of color-vision deficiency.
+
+\subsection{Write captions as evidence summaries}
+
+Start the caption with the figure's claim or purpose. Walk through the panels
+in reading order. Then report the comparison and main observation before
+giving the narrowest interpretation the figure supports. Point to setup
+details when they are not visible nearby.
+
+A useful caption order is:
+
+\begin{enumerate}[leftmargin=*]
+    \item claim or purpose;
+    \item panel-by-panel setup;
+    \item comparison and metric;
+    \item main observation;
+    \item narrow interpretation or caveat;
+    \item pointer to complete details.
+\end{enumerate}
+
+The caption and results paragraph should agree. A caption cannot say that an
+ablation ``demonstrates the mechanism'' while the text calls it suggestive.
+Define nonstandard symbols and uncertainty either in the caption or in the
+adjacent prose. The reader should not need to search the appendix to learn what
+an error band means.

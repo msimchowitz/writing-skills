@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Improving"
+  short_description: "Clarify and rewrite prompts in your natural style"
+  default_prompt: "Use $prompt-improving to improve \"your prompt here\" in my prompting style."

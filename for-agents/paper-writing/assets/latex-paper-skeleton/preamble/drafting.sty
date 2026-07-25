@@ -1,0 +1,7 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{drafting}[2026/07/25 Draft-only author comments]
+
+\RequirePackage{xcolor}
+\newcommand{\authorcomment}[2]{%
+  \textcolor{red!70!black}{[\textbf{#1:} #2]}%
+}

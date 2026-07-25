@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grant Writing"
+  short_description: "Write motivated grants for corporate or nonprofit funders"
+  default_prompt: "Use $grant-writing to identify the funder type, center the core problem, and draft a motivated proposal in my established voice."

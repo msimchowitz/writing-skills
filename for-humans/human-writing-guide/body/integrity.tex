@@ -1,0 +1,90 @@
+\section{Match every claim to the evidence}
+\label{sec:integrity}
+
+Technical editing begins with preservation. Keep every theorem condition and
+reported value intact. Preserve the notation, citations, and stated
+uncertainty. Do not make a sentence cleaner by deleting the fact that limits
+it.
+
+All examples in this section are schematic. Their theorem conditions, task
+names, and reported values are invented to demonstrate an editing decision.
+
+\subsection{Check the source before strengthening prose}
+
+Read the manuscript passage and the evidence it cites before editing a claim.
+Check a figure together with its caption, then consult the appendix for omitted
+conditions. A result that appears broad in the introduction may depend on a
+narrow metric or a specific initialization. A theorem may use a stronger
+assumption than the surrounding discussion.
+
+Never invent evidence or imply that planned work is complete. Preserve every
+theorem condition and quantitative result. Mark a missing citation, fact, or
+control for the authors. Words cannot replace the missing evidence.
+
+\begin{quote}
+\textbf{Too broad:} Theorem~3 shows that action chunking prevents compounding
+error.
+
+\textbf{Faithful:} Under open-loop stability and bounded disturbances,
+Theorem~3 bounds rollout error for horizons up to $H$.
+\end{quote}
+
+\subsection{Trace each promise to evidence}
+
+Each abstract claim should appear in the main paper. Contributions in the
+introduction should point to visible evidence. A figure caption should make
+the same claim as the paragraph that interprets it, and the conclusion should
+follow from results already presented.
+
+Run these checks in both directions. A promised contribution with no evidence
+is an overclaim. A decisive result that never appears in the abstract or
+introduction may mean the paper's contribution hierarchy is wrong. Repair the
+hierarchy before polishing sentences.
+
+\begin{quote}
+\textbf{Unsupported promise:} Method A consistently outperforms prior methods
+across diverse environments.
+
+\textbf{Promise matched to evidence:} At 100{,}000 interactions, Method A
+improves mean return over Method B on two of three simulated locomotion tasks
+and matches it on the third (Figure~2).
+\end{quote}
+
+\subsection{State comparison rules}
+
+State a comparison well enough that a reader can reconstruct its logic. Name
+the comparator, metric, and task. Then record any difference in budget,
+initialization, or data source. Mechanism claims require tighter controls than
+broad performance comparisons because they aim to isolate a cause.
+
+Report failures and negative results with the same precision as successes.
+They can identify the regime boundary, reveal sensitivity, or reject an
+explanation. Do not hide them in vague limitation language.
+
+\begin{quote}
+\textbf{Incomplete:} Method A improves success by eight percentage points.
+
+\textbf{Reconstructable:} Compared with Method B on Task Q, Method A raises
+mean success from 68\% to 76\% over 20 evaluation seeds. Both methods use
+100{,}000 environment interactions and the same initialization distribution.
+\end{quote}
+
+\subsection{Treat limitations as part of the result}
+
+A limitation is useful when it changes how the result should be applied or
+interpreted. Name the condition that creates the limit and say what remains
+supported. If several limits matter, explain each one separately.
+
+Do not use a broad limitations paragraph to excuse a broad claim. Narrow the
+claim where it first appears. Readers should not need to reach the final page
+to learn that the central result holds only in one setting.
+
+\begin{quote}
+\textbf{Limit buried later:} The method is robust to distribution shift. The
+limitations section later reveals that the tests changed only image texture
+in simulation.
+
+\textbf{Limit in the claim:} The method maintains its success rate under the
+simulated texture shifts tested here. Robustness to dynamics shifts and
+real-world observations remains unknown.
+\end{quote}

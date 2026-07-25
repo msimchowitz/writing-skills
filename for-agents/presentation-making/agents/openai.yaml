@@ -1,0 +1,4 @@
+interface:
+  display_name: "Presentation Making"
+  short_description: "Plan, build, and review clear presentation decks"
+  default_prompt: "Use $presentation-making to turn this source material into a clear, visually reviewed presentation."

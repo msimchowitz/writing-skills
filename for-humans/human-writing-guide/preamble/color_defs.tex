@@ -1,0 +1,51 @@
+%!TEX root = ../main.tex
+
+
+%Definitions of colors used in links, bolds, and theorem statements
+
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\tcbset{
+  aibox/.style={
+      width=\linewidth,
+      top=6pt,
+      bottom=0pt,
+      left=3.5pt,
+      right=1.5pt,
+colback=blue!60!gray!5,
+      % colback=blue!6!white,colback=rliableolive!13!white,
+      colframe=black,
+      colbacktitle=black,
+      enhanced,
+      center,
+      attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
+      boxed title style={boxrule=0pt,colframe=white,},
+    }
+}
+\newtcolorbox{AIbox}[2][]{aibox,title=#2,#1}
+
+\definecolor{primalcolor}{HTML}{A60000}
+\definecolor{contrarycolor}{HTML}{00A6A6}
+\definecolor{darkcontrarycolor}{HTML}{004C4C}
+% \definecolor{purpleblend}{HTML}{800080}
+\definecolor{lightblue}{HTML}{2970CC}
+\definecolor{lightpurple}{HTML}{673147}
+\definecolor{ForestGreen}{HTML}{FF5733}
+\definecolor{myred}{HTML}{AA4A44}
+\definecolor{hyppurple}{HTML}{800080}
+\newcommand{\niceblue}{blue!60!black}
+\newcommand{\linkcolor}{darkcontrarycolor}
+\newcommand{\urlcolor}{darkcontrarycolor}
+\newcommand{\citecolor}{darkcontrarycolor}
+
+%{blue!70!black}
+\newcommand{\thmcolor}{red!40!black}
+\newcommand{\thmcolordark}{red!30!black}
+
+\newcommand{\termcolordark}{red!65!black}
+\newcommand{\termbold}[1]{{\color{\termcolordark} {\textbf{#1}}}}
+
+\newcommand{\takeawaycolor}{red!40!black}
+\newcommand{\takeawaybold}[1]{{\color{\takeawaycolor} {\textbf{#1}}}}

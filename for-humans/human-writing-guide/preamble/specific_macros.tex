@@ -1,0 +1,180 @@
+%!TEX root = ../main.tex
+
+\newcommand{\thetaema}{\theta_{\textsc{ema}}}
+\newcommand{\flagfont}[1]{\texttt{#1}}
+\newcommand{\flagvalfont}[1]{\textbf{\texttt{#1}}}
+\newcommand{\Qtarg}{Q_{\mathrm{targ}}}
+    \newcommand{\Buffer}{\cB}
+    \newcommand{\criticflag}{\flagfont{critic\_flag}}
+    \newcommand{\criticflagmean}{\flagvalfont{mean}}
+    \newcommand{\criticflagmin}{\flagvalfont{min}}
+    \newcommand{\criticflagsub}{\flagvalfont{subsample}}
+
+\iftoggle{arxiv}
+{\newcommand{\Lcritic}{L_{\mathrm{critic}}}}
+{\newcommand{\Lcritic}{L_{Q}}}
+
+\newcommand{\aresid}{a^{\mathrm{res}}}
+\newcommand{\piresid}{\pi^{\mathrm{res}}}
+
+\newcommand\mdpenv{M_\textsc{Env}}
+\newcommand{\Jcost}{J}
+\newcommand{\mdpigp}{M_\textsc{Igp}}
+\newcommand{\pidemo}{\pi^{\textsc{Demo}}}
+
+\newcommand{\piigp}[1][\theta]{\bar{\pi}_{#1}}
+\newcommand{\igpfirst}{K}
+\newcommand{\igpnext}{K-1}
+\newcommand{\igppen}{1}
+\newcommand{\st}{s_t}
+\newcommand{\stnext}{s_{t+1}}
+\newcommand{\igplast}{0} 
+\newcommand{\igpiter}{k} 
+
+\newcommand{\igpnegiter}{K-k}
+\newcommand{\igpinc}{k-1}
+\newcommand{\igpdec}{k+1}
+
+\newcommand{\xfirst}{x_{\igpfirst}}
+\newcommand{\xnext}{x_{\igpnext}}
+\newcommand{\xpen}{x_{\igppen}}
+\newcommand{\xlast}{x_{\igplast}}
+\newcommand{\xiter}{x_{\igpiter}}
+\newcommand{\xinc}{x_{\igpinc}}
+\newcommand{\xdec}{x_{\igpdec}}
+\newcommand{\xitert}[1][t]{x_{#1,\igpiter}}
+\newcommand{\xinct}[1][t]{x_{#1,\igpinc}}
+\newcommand{\xdect}[1][t]{x_{#1,\igpdec}}
+
+
+\newcommand{\gaussinit}{\mathrm{N}(0, \mathrm{I})}
+
+\newcommand{\afirst}{a_{\igpfirst}}
+\newcommand{\anext}{a_{\igpnext}}
+\newcommand{\apen}{a_{\igppen}}
+\newcommand{\alast}{a_{\igplast}}
+\newcommand{\aiter}{a_{\igpiter}}
+\newcommand{\ainc}{a_{\igpinc}}
+\newcommand{\aitert}[1][t]{a_{#1,\igpiter}}
+\newcommand{\ainct}[1][t]{a_{#1,\igpinc}}
+
+\newcommand{\aplant}{a_{\textsc{BoN},t}}
+\newcommand{\abont}{a_{\mathrm{BoN},t}}
+
+\newcommand{\afirstt}[1][t]{a_{#1,\igpfirst}}
+\newcommand{\anextt}[1][t]{a_{#1,\igpnext}}
+\newcommand{\apent}[1][t]{a_{#1,\igppen}}
+\newcommand{\alastt}[1][t]{a_{#1,\igplast}}
+\newcommand{\afinal}{a_{\mathrm{final}}}
+\newcommand{\aexec}{a_{\mathrm{exec}}}
+\newcommand{\aexect}[1][t]{a_{#1,\mathrm{exec}}}
+\newcommand{\GCP}{GCP}
+\newcommand{\afinalt}[1][t]{a_{#1,\mathrm{final}}}
+\newcommand{\alastnextt}[1][t+1]{a_{#1,\igplast}}
+\newcommand{\ddpmpred}{\epsilon_\theta(\xiter,\igpiter)}
+\newcommand{\dppred}{\epsilon_\theta(\xiter,s,\igpiter)}
+\newcommand{\fmpred}{v_\theta(\xiter, \igpiter)}
+\newcommand{\fmppred}{v_\theta(\xiter, s, \igpiter)}
+
+\newcommand{\residualgauss}{\pi^{\mathrm{res}}_\psi(\cdot \mid s_t)}
+\newcommand{\InferenceAlg}{{\mathrm{inference}}}
+\newcommand{\useoffline}{\texttt{use}\_\texttt{offline}}
+
+\newcommand{\piigpbc}{\piigp^{\mathrm{BC}}}
+\newcommand{\targ}{\mathrm{targ}}
+\newcommand{\sample}{\textsc{Take}\_\textsc{Step}}
+\newcommand{\updateq}{{\normalfont\textsc{UpdateQ}}}
+\newcommand{\updateigp}{{\normalfont\textsc{UpdateGCP}}}
+\newcommand{\transition}{\texttt{transition}}
+\newcommand{\done}{\texttt{done}}
+\newcommand{\rb}{\mathcal{D}_{\text{roll}}}
+\newcommand{\succb}{\mathcal{D}_{\text{succ}}}
+\newcommand{\rboff}{\mathcal{D}_{\text{off}}}
+\newcommand{\rbbatch}{\textsc{B}_{\text{itr}}}
+\newcommand{\sbbatch}{\textsc{B}_{\text{succ}}}
+\newcommand{\stsucc}{\st^{\text{succ}}}
+\newcommand{\atsucc}{\alastt^{\text{succ}}}
+\newcommand{\epoch}{{\normalfont\mathrm{epoch}}}
+\newcommand{\polDelay}{{\normalfont\mathrm{policy}\_\mathrm{delay}}}
+
+\newcommand{\ratio}{\omega_\theta}
+\newcommand{\group}{\textsc{G}}
+\newcommand{\advgrpo}{\hat{A}^\group}
+\newcommand{\advawr}{\hat{A}_{\mathrm{AWR}}^\group}
+\newcommand{\Lbc}{L_{\texttt{BC}}}
+\newcommand{\Lppo}{L_{\texttt{PPO}}}
+\newcommand{\Ltotal}{L_{\texttt{Total}}}
+
+\newcommand{\nwarmup}{N_\mathrm{warmup}}
+\newcommand{\sampletau}{\tau \sim \pi_\theta(\tau)}
+\newcommand{\piold}{\pi_{\theta_{\mathrm{old}}}}
+
+\newcommand{\initialize}{\textsc{Initialize}}
+\newcommand{\useofflinerl}{\texttt{use\_calql}}
+\newcommand{\warmupcritic}{\texttt{warmup\_critic}}
+\newcommand{\utd}{\texttt{utd}}
+\newcommand{\offlineratio}{\texttt{r}_\texttt{offline}}
+
+
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\pmark}{\textcolor{gray}{\ding{51}}}
+\newcommand{\pcmark}{%
+  \raisebox{0.7ex}{%
+    \makebox[0pt][l]{\textcolor{black}{\rule{1.7ex}{1pt}}}%
+  }\textcolor{black}{\cmark}%
+}
+
+\newcommand{\yesyes}{\cmark\,\cmark}
+\newcommand{\nono}{\xmark\,\xmark}
+\newcommand{\kindakinda}{\pmark\,\pmark}
+
+\newcommand{\yesno}{\cmark\,\xmark}
+\newcommand{\noyes}{\xmark\,\cmark}
+\newcommand{\yeskinda}{\cmark\,\pmark}
+\newcommand{\kindayes}{\pmark\,\cmark}
+\newcommand{\kindano}{\pmark\,\xmark}
+\newcommand{\nokinda}{\xmark\,\pmark}
+
+\newcommand{\mehyes}{\pcmark\,\cmark}
+\newcommand{\yesmeh}{\cmark\,\pcmark}
+\newcommand{\mehkinda}{\pcmark\,\pmark}
+\newcommand{\kindameh}{\pmark\,\pcmark}
+\newcommand{\mehno}{\pcmark\,\xmark}
+\newcommand{\nomeh}{\xmark\,\pcmark}
+
+\newcommand{\omegaslow}{\omega_{\theta,\mathrm{slow}}}
+\newcommand{\Pslow}{P_\mathrm{slow}}
+
+\newcommand{\maxret}{R_{\mathrm{max}}}
+\newcommand{\piref}{\pi_\mathrm{slow}}
+\newcommand{\tauref}{\tau_\mathrm{slow}}
+
+\newcommand{\pifive}{\pi0.5}
+
+\newcommand{\aindex}{j}
+\newcommand{\advcons}{\hat{A}^\mathrm{cons}}
+\newcommand{\advindie}{A_{\aindex,m}}
+\newcommand{\safemax}{\scalefont{0.9}{\texttt{SafeMax}}}
+
+\newcommand{\fk}{\textsc{Franka-Kitchen}}
+\newcommand{\fkcomplete}{\textsc{Kitchen-Complete}}
+\newcommand{\fkpartial}{\textsc{Kitchen-Partial}}
+\newcommand{\fkmixed}{\textsc{Kitchen-Mixed}}
+\newcommand{\robomimic}{\textsc{Robomimic}}
+\newcommand{\rmsquare}{\textsc{Square}}
+\newcommand{\rmtoolhang}{\textsc{Toolhang}}
+\newcommand{\rmtransport}{\textsc{Transport}}
+\newcommand{\adroithand}{\textsc{AdroitHand}}
+\newcommand{\libero}{\textsc{LIBERO}}
+\newcommand{\liberospatial}{\textsc{Libero-Spatial}}
+\newcommand{\liberoobject}{\textsc{Libero-Object}}
+\newcommand{\liberogoal}{\textsc{Libero-Goal}}
+\newcommand{\liberolng}{\textsc{Libero-Long}}
+\newcommand{\liberoonehundred}{\textsc{Libero-100}}
+\newcommand{\rwsausage}{\textsc{SausageInPot}}
+\newcommand{\rwmug}{\textsc{MugHang}}
+\newcommand{\LAWR}{\hat L_{\mathrm{AWR}}}
+\newcommand{\LCFM}{\hat L_{\mathrm{CFM}}}
+\newcommand{\ratiofpo}{\hat r_{\mathrm{FPO}}}

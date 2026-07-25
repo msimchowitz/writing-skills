@@ -1,0 +1,200 @@
+\section{Write direct technical prose}
+\label{sec:sentences}
+
+Good technical prose lets the argument remain visible at sentence scale. Put
+the main subject and verb near the front. The example papers use first-person
+verbs to mark what the authors did. ``We compare'' names an experimental
+choice, while ``we find'' reports its result. They reserve ``we hypothesize''
+for an interpretation. Use the technical object as the subject when the
+behavior belongs to the object.
+
+\begin{quote}
+\textbf{Author action:} We compare the two methods under a shared
+initialization.
+
+\textbf{Technical behavior:} Action chunking limits compounding error under
+the stated stability condition.
+\end{quote}
+
+Direct prose does not require short sentences. A long sentence works when
+every clause serves one relation. A short sentence fails when it adds drama
+but no claim.
+
+\subsection{Put conditions where they matter}
+
+A fronted clause should change how the main claim is understood:
+
+\begin{quote}
+Although the estimator is biased, its error does not grow with the horizon in
+this regime.
+
+When the system is open-loop stable, action chunking gives the stated bound.
+
+Because the critic supplies the terminal reward, the method can reuse
+environment data off policy.
+\end{quote}
+
+Openings such as ``while'' and ``although'' become clutter when they provide
+generic scene-setting. If the clause does not change how the main statement
+should be read, lead with the statement.
+
+\subsection{Make one main inference per sentence}
+
+A sentence may contain a result and its essential condition or qualification.
+Split it as soon as a second inference enters. The method, result, and proposed
+explanation rarely belong in the same sentence.
+
+\begin{quote}
+OGPO reuses environment data through an off-policy critic. It spends additional
+computation on denoising trajectories instead of collecting new environment
+interactions.
+\end{quote}
+
+The two sentences describe related parts of the same idea, but each has one
+main job. This separation also makes technical review easier. A coauthor can
+challenge the data-reuse claim without untangling three other claims from the
+same sentence.
+
+\subsection{Give each paragraph one inference}
+
+Most technical paragraphs make three or four moves:
+
+\begin{enumerate}[leftmargin=*]
+    \item state the claim;
+    \item give the reason or technical distinction;
+    \item present the theorem, comparison, measurement, or example;
+    \item state the supported consequence or boundary.
+\end{enumerate}
+
+Use only the moves the paragraph needs. A two-sentence paragraph can be
+complete. Vary sentence length and syntax so that paragraphs do not read as
+filled-in forms. End on a consequence, limit, or transition that creates the
+next question. A final sentence that merely repeats the first can usually be
+deleted.
+
+Paragraphs should also have explicit agents. Write ``we compare'' instead of
+``a comparison is conducted,'' and ``the policy fails'' instead of ``a failure
+is exhibited by the policy.'' Nominalizations hide the action and lengthen the
+sentence. Direct verbs leave more room for the scientific detail.
+
+\subsection{Report numbers in a fixed logical order}
+
+For a quantitative result, lead with the comparator and metric. Then report the
+value under the exact setting, including uncertainty, before interpreting it:
+
+\begin{quote}
+Compared with [baseline], [method] improves [metric] from [A] to [B] on
+[setting], averaged over [seeds or trials]. This supports [narrow inference].
+\end{quote}
+
+Use the available numbers. ``Substantially better'' is less useful than the
+measured difference. Reserve ``significant'' for a defined statistical claim.
+If the paper reports uncertainty, say what it represents. If two methods use
+different budgets, data, or initializations, expose that difference before the
+reader reaches the result.
+
+\subsection{Separate formal results from interpretation}
+
+State the regime before a theorem's consequence:
+
+\begin{quote}
+Under [assumptions], [intervention] guarantees [bound].
+\end{quote}
+
+Then interpret the statement in a separate sentence:
+
+\begin{quote}
+Theorem~2 bounds [quantity] by [rate]. Thus, in [regime], the error does not
+grow with [variable].
+\end{quote}
+
+Preserve every quantifier and condition. Keep the asymptotic rate and scope
+exact. A clean sentence with a missing assumption is wrong. If an intuitive
+explanation is not part of the theorem, label it as intuition rather than
+folding it into the formal claim.
+
+\subsection{Calibrate mechanism language}
+
+Observation and explanation are different sentence types:
+
+\begin{quote}
+We observe [measured behavior]. We hypothesize that [mechanism] produces this
+behavior because [support].
+\end{quote}
+
+Use ``shows'' or ``demonstrates'' for direct evidence. Use ``supports'' for
+partial evidence. Use ``suggests'' or ``is consistent with'' for an
+interpretation that remains uncertain. ``We believe'' does not supply evidence
+for a hypothesis.
+
+A controlled intervention can support a causal statement when the relevant
+alternatives are held fixed. A visualization can reveal structure without
+proving cause; the same is true of a correlation. The verb should make that
+distinction visible.
+
+\subsection{Use contrast to state scientific distinctions}
+
+Contrast is useful when it identifies a real scientific distinction. Sample
+efficiency differs from cheap computation; performance evidence differs from
+mechanism evidence. State both sides in one clear relation.
+
+Repeated formulas such as ``This is not X. It is Y'' or ``not only X but also
+Y'' make the prose sound rehearsed. They also encourage false binaries. Write
+the scientific distinction directly:
+
+\begin{quote}
+Current methods trade off sample efficiency and full-policy improvement.
+\end{quote}
+
+When evidence rules out one explanation but does not prove another, say both
+facts without turning them into a slogan.
+
+\subsection{Replace abstract wrappers with verbs}
+
+Phrases such as ``the mechanism behind X,'' ``the role of Y in Z,'' and ``the
+interplay between A and B'' name a relationship without saying what happens.
+Use a direct verb when the evidence supports one:
+
+\begin{quote}
+\textbf{Abstract:} We study the mechanisms behind \emph{OGPO}'s stability.
+
+\textbf{Direct:} We test whether conservative advantages prevent critic
+exploitation.
+\end{quote}
+
+Sometimes the relationship itself is the question. State that question
+precisely. ``We test whether stochastic supervision causes manifold
+adherence'' is clearer than ``we study the role of stochasticity in manifold
+adherence,'' and it does not claim that the test has already succeeded.
+
+\subsection{Use lists only when the set matters}
+
+A sentence is not difficult because it is long. It becomes difficult when
+commas hold together several claims that have no hierarchy. The example papers
+often use long sentences to develop one contrast or causal relation. Follow
+that pattern.
+
+Keep a full list when its members form a taxonomy, a set of assumptions, or a
+checklist. In ordinary prose, decide how the items relate. Group them by role
+or split the sentence:
+
+\begin{quote}
+\textbf{Packed:} We evaluate stability, robustness, efficiency, and
+generalization.
+
+\textbf{Grouped:} We first measure training stability and sample efficiency.
+Separate deployment tests measure robustness and generalization.
+\end{quote}
+
+\subsection{Keep terms stable and use punctuation for grammar}
+
+Introduce a technical term once, then give its operational meaning. Repeat the
+canonical term instead of cycling through synonyms. Use a pronoun only when
+its referent is obvious. Semantic LaTeX macros help keep method names and
+symbols stable across authors and sections.
+
+Use punctuation to expose the grammar. Commas mark real clause boundaries.
+Semicolons join closely related claims; colons introduce definitions or lists.
+Parentheses should contain secondary detail. Research questions belong in the
+prose when the question organizes the paper, not as a routine rhetorical
+setup. No sentence should depend on punctuation for drama.

@@ -1,0 +1,99 @@
+\section{Keep the LaTeX source easy to reason about}
+\label{sec:latex}
+
+The source tree determines how easily authors can revise the paper. A clear
+project prevents duplicated text and accidental notation changes. It also lets
+several authors work without breaking a submission mode.
+
+\subsection{Use the entry point as an outline}
+
+Keep \texttt{main.tex} short enough to read as the manuscript's table of
+contents. It should show the build mode and manuscript order at a glance. Put
+prose in section files:
+
+\begin{verbatim}
+paper/
+|-- main.tex
+|-- references.bib
+|-- body/
+|   |-- abstract.tex
+|   |-- introduction.tex
+|   |-- method.tex
+|   `-- experiments.tex
+|-- appendix/
+|-- figures/
+`-- preamble/
+\end{verbatim}
+
+This guide preserves the complete preamble and title structure from
+OGPO~\citep{patil2026ogpo} so that the original formatting remains inspectable.
+A new paper should keep the modular structure but remove unused
+project-specific commands. Source-specific macro sprawl makes later revisions
+harder to audit. Delete duplicate package loads and commented-out manuscripts.
+
+\subsection{Separate presentation from meaning}
+
+Stable package and layout choices belong in a style file. Put paper-specific
+notation in a commands file, including method names and operators. Keep author
+comments and colored revisions in a drafting file that can be disabled before
+release.
+
+Keep venue \texttt{.sty} and \texttt{.cls} files unmodified. Load the venue
+style once, before project-specific styling, and record its version. Do not
+hide notation, spacing fixes, or author comments inside vendor code.
+
+Use macros for semantic objects:
+
+\begin{verbatim}
+\newcommand{\method}{\textsc{Method}\xspace}
+\newcommand{\state}{s}
+\DeclareMathOperator*{\argmaxop}{arg\,max}
+\end{verbatim}
+
+A method rename should require one edit. Avoid macros that conceal a whole
+sentence or arbitrary formatting. Source should remain understandable without
+opening several files for each line.
+
+\subsection{Give each toggle one responsibility}
+
+Build toggles are useful when a release changes presentation. Use them for
+anonymous and public author blocks or arXiv metadata. They can also control
+acknowledgments, appendix length, and venue-approved theorem styles. They
+should not select different claims or experimental values. Two build modes
+with different science will drift.
+
+Keep toggles near the top of \texttt{main.tex}. Build every supported mode
+before release. The public and anonymous versions may look different, but they
+should make the same scientific claims.
+
+\subsection{Keep figure sources reproducible}
+
+Store final vector diagrams and plots as PDF when possible, and raster task
+images as PNG. Keep a documented generation path for assets produced from
+code. Use stable descriptive filenames and labels. Place the figure and its
+caption in the section that argues from it.
+
+Do not tune layout with repeated negative \texttt{\textbackslash vspace}
+commands while the content is moving. Settle the figure, caption, and section
+order first. Local spacing patches are difficult to maintain and often break
+under another venue style.
+
+\subsection{Compile as part of writing}
+
+Compile after each meaningful change. A practical loop is:
+
+\begin{enumerate}[leftmargin=*]
+    \item run \texttt{latexmk} with errors treated as failures;
+    \item inspect undefined references, citations, missing files, and boxes
+    that exceed the margin;
+    \item render the PDF and inspect every page at final size;
+    \item repeat after changes to figures, tables, title blocks, or build
+    modes.
+\end{enumerate}
+
+Before submission, build from a clean directory. Remove TODOs, author comments,
+and revision colors. Treat missing references and undefined citations as
+errors. Confirm that the source bundle contains every figure and bibliography
+file. A successful compiler exit is necessary, but it does not catch a clipped
+label or an unreadable plot. It also cannot tell you that a page is empty or a
+title crosses the margin.

@@ -1,0 +1,52 @@
+\makeatletter
+    \renewcommand{\abstractname}{\normalsize Abstract}
+    \makeatother
+    
+    \makeatletter
+    \renewcommand{\maketitle}{
+    \newpage
+    \null
+    %\vskip 2em
+    \begingroup
+    \raggedright
+    %\let\footnote\@gobble
+    {\LARGE \bfseries \@title \par}
+    \vskip 1.5em
+    {\large
+    \lineskip .5em
+    \begin{tabular}[t]{l}
+    \@author
+    \end{tabular}\par}
+    \vskip 1em
+    {\large \@date \par}
+    \endgroup
+    \par
+    \vskip 1.5em
+}
+\makeatother
+
+
+% Metadata commands (inspired by fairmeta.cls)
+\makeatletter
+% Helper command to add items to a list
+\newcommand\addtometadatalist[5][]{%
+  \begingroup
+  \if\relax#3\relax\def\sep{}\else\def\sep{#5}\fi
+  \let\protect\@unexpandable@protect
+  \xdef#3{\expandafter{#3}\sep #4[#1]{#2}}%
+  \endgroup
+}
+
+% Metadata list and format
+\newcommand\metadatalist{}
+\newcommand\metadataformat[2][]{{\small \textbf{#1:} #2}}
+\newcommand\metadata[2][]{\addtometadatalist[#1]{#2}{\metadatalist}{\metadataformat}{\\}}
+\makeatother
+
+% Convenience commands for common metadata
+\newcommand{\paperwebsite}[1]{\metadata[Website]{\url{#1}}}
+\newcommand{\papercode}[1]{\metadata[{\includegraphics[height=1em]{logos/github.pdf}} Code]{{\scalefont{.9}\url{#1}}}}
+\newcommand{\paperdocs}[1]{\metadata[Documentation]{\url{#1}}}
+\newcommand{\paperblog}[1]{\metadata[{\includegraphics[height=1em]{logos/logo.pdf}} Blog]{{\scalefont{.9}\url{#1}}}}
+\newcommand{\papermodels}[1]{\metadata[{\includegraphics[height=1em]{logos/hf.pdf}} Models]{{\scalefont{.9}\url{#1}}}}
+\newcommand{\paperdate}[1]{\metadata[Date]{#1}}

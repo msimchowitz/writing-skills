@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grant Planning"
+  short_description: "Plan motivated feasible grant stories before drafting"
+  default_prompt: "Use $grant-planning to develop and compare motivated grant stories before drafting the application."

@@ -1,0 +1,120 @@
+\section{Give each section one job}
+\label{sec:sections}
+
+A section should answer one question; a paragraph should make one inference.
+This rule is more useful than a target page count because it makes duplication
+visible. When two sections answer the same question, combine them or decide
+which one owns the claim. When a section answers no question, remove it or move
+its useful details to the appendix.
+
+\subsection{The introduction establishes the argument}
+
+Open on the concrete task and explain why current methods or theory fail on it.
+Narrow quickly to the exact failure. The reader should understand the tension
+before seeing the solution.
+
+Then state the central insight in ordinary language. The method name and
+technical machinery can follow. A reader who does not yet know the notation
+should still be able to say what changed and why that change might matter.
+
+Present contributions as supported claims:
+
+\begin{quote}
+\textbf{Sample efficiency.} We compare the method with [baselines] under
+[controlled setting] and find [result] on [tasks or regimes].
+\end{quote}
+
+The heading names the claim, while the sentence gives the comparison and
+evidence. ``We introduce a new algorithm,'' ``we run extensive experiments,''
+and ``we provide theory'' describe work performed. They do not tell the reader
+what the work established.
+
+Close the introduction with the paper's conceptual takeaway and its scope.
+Do not repeat the same contribution in several formats. Choose one primary
+signposting device and let the other elements add information.
+
+\subsection{Include only setup that a result needs}
+
+Preliminaries should define only what the first substantive result uses. Keep
+standard material short. Spend space on the assumption or distinction that
+later carries a claim, especially when two methods use similar notation but
+optimize different objects.
+
+A method section should explain the conceptual move before presenting every
+implementation choice. Start from the limitation identified in the
+introduction. Show exactly what computation changes and why that change
+addresses the limitation. Then give the formal definition and practical
+variants.
+
+A theory section should state the regime and result before a long derivation.
+Readers need to know why a theorem is being proved and what question it
+answers. Keep the main proof idea near the theorem when it carries scientific
+insight. Move routine algebra and complete technical cases to the appendix.
+Never promote an intuition to theorem language, and never omit a condition
+because it makes the statement less elegant.
+
+\subsection{Experiments answer named questions}
+
+Begin the experimental section with the questions the experiments will answer.
+Explain how each task and metric distinguishes possible answers. Then justify
+the baselines and state what is held fixed. A comparison cannot support a clean
+mechanism claim when the architecture, training objective, and initialization
+all change at once.
+
+The usual order is:
+
+\begin{enumerate}[leftmargin=*]
+    \item evaluation regimes and controlled comparison rules;
+    \item headline performance;
+    \item stress tests or deployment;
+    \item mechanism studies;
+    \item ablations of design decisions;
+    \item efficiency, failures, and limitations.
+\end{enumerate}
+
+Change this order when the scientific question requires it. A mechanism paper
+may need a controlled falsification before any broad benchmark. A paper about
+sample cost should report environment interactions before wall-clock
+convenience. The metric must match the claim.
+
+State a result as a comparison. Name the metric and setting before offering an
+explanation. Separate a performance comparison from a mechanism test.
+``Method A outperforms Method B'' and ``component X causes the improvement''
+are different claims and need different evidence.
+
+\subsection{Related work explains distinctions}
+
+Group prior work by the technical choices that matter for the current paper.
+For each group, explain its aim and the assumption that separates it from the
+current paper. End with the point that remains unresolved. Cite the closest
+alternatives directly. Broad claims such as ``few works consider this
+setting'' require a careful search and a clear definition of the setting.
+
+Related work should not become a second introduction. Its job is to place the
+paper's contribution accurately, including work that weakens the novelty
+claim. A narrow, correct distinction is more credible than a broad claim of
+being first.
+
+\subsection{Discussion states what follows and what does not}
+
+Use the discussion to interpret the evidence at the right level. State the
+regimes in which the result should change practice or understanding. Then name
+the limitation that most affects that conclusion. Untested environments may
+narrow the result's breadth; a strong assumption may change where it applies.
+
+The conclusion should not introduce a new contribution. It can state the
+central result, its consequence, and the open question that now matters. A
+generic recap weakens the ending. End on the most precise supported implication
+or boundary.
+
+\subsection{The appendix should be usable}
+
+A long appendix benefits from a table of contents and an order designed for
+readers. Put complete proofs and the details needed for reproduction there.
+Practitioner guidance and qualitative failure analysis also belong in the
+appendix when they help readers reuse the work.
+
+The main paper must still support its central claim. Do not move a decisive
+control or a condition that changes the theorem's meaning to the appendix
+merely to save space. Move details that permit verification and reuse while
+keeping the argument itself visible.

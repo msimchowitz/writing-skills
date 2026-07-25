@@ -1,0 +1,393 @@
+\section{Use the included LaTeX template}
+\label{sec:template}
+
+The source for this guide retains the preamble used by
+OGPO~\citep{patil2026ogpo}. It is a working paper archive, not a generic LaTeX
+package. That distinction matters. The template contains reusable theorem,
+reference, color, and editing machinery, but it also contains OGPO-specific
+algorithm names and notation. Keep the former. Replace the latter before
+starting a new paper.
+
+Begin with a clean copy of the project. Replace the files in \path{body/} and
+\path{appendix/}, clear the bibliography, and update the title block in
+\path{main.tex}. Then remove unused definitions from
+\path{specific_macros.tex} and \path{algnames.tex}. A copied macro that never
+appears in the new paper is not harmless: it makes collisions and stale
+terminology harder to find.
+
+\subsection{Know which file owns each choice}
+
+The include order lives in \path{preamble/_preamble_includes.tex}. Keep that
+order until there is a specific reason to change it. The files have different
+jobs:
+
+\begin{description}[leftmargin=*,style=nextline]
+    \item[\texttt{color\_defs.tex}]
+    Defines link colors, theorem colors, emphasis colors, and the
+    \texttt{AIbox} environment. It loads before files that use those colors.
+
+    \item[\texttt{header.tex}]
+    Loads common packages and defines page geometry, citations, cross
+    references, algorithms, and the arXiv-dependent heading commands.
+
+    \item[\texttt{theorem\_styles.tex}]
+    Defines theorem-like environments and their appearance.
+
+    \item[\texttt{characters.tex} and \texttt{general\_macros.tex}]
+    Define reusable mathematical characters, delimiters, operators, and
+    formatting commands.
+
+    \item[\texttt{specific\_macros.tex}]
+    Holds notation that belongs to one paper. This file should change
+    substantially when the project changes.
+
+    \item[\texttt{algnames.tex}]
+    Defines method names, method colors, task names, and the algorithm font.
+    Treat it as a paper-specific legend.
+
+    \item[\texttt{color-edits.sty} and \texttt{comment\_macros.tex}]
+    Define temporary author edits, comments, deletion marks, and drafting
+    flags.
+
+    \item[\texttt{arxiv\_title.tex}]
+    Defines the public title layout and metadata commands for websites, code,
+    documentation, models, and dates.
+\end{description}
+
+The preamble is easiest to maintain when each new command goes into the
+narrowest file that owns it. A task name does not belong in
+\texttt{header.tex}. A package import does not belong in
+\texttt{specific\_macros.tex}.
+
+\subsection{Use the theorem environments that are actually defined}
+
+With \texttt{customthms} enabled, choose an environment by its role:
+
+\begin{itemize}[leftmargin=*]
+    \item Use \texttt{theorem}, \texttt{lemma}, \texttt{corollary},
+    \texttt{proposition}, or \texttt{claim} for results.
+    \item Use \texttt{definition}, \texttt{assumption}, or
+    \texttt{condition} for definitions and conditions.
+    \item Use \texttt{remark} or \texttt{example} for commentary and
+    examples.
+\end{itemize}
+
+The template defines several less common environments as well. Use the full
+names \texttt{definition} and \texttt{theorem}; it does not define
+\texttt{defn} or \texttt{thm}.
+
+\begin{verbatim}
+\begin{definition}[Stable rollout]\label{def:stable-rollout}
+A rollout is stable if ...
+\end{definition}
+
+\begin{theorem}[Main guarantee]\label{thm:main}
+Under \Cref{def:stable-rollout}, ...
+\end{theorem}
+
+By \Cref{thm:main}, the error ...
+\end{verbatim}
+
+Put the label immediately after the opening environment. Use
+\texttt{\textbackslash Cref} at the beginning of a sentence and
+\texttt{\textbackslash cref} within one. The template already names equations,
+assumptions, conditions, and components for \texttt{cleveref}. Equations are
+numbered by section.
+
+Starred forms such as \texttt{theorem*}, \texttt{definition*}, and
+\texttt{remark*} suppress numbering. Use them only when no later sentence
+will need to cite the statement. \texttt{thminformal} provides a numbered
+informal theorem. An informal statement should still match the assumptions
+and conclusion of its formal counterpart.
+
+The template also contains helpers for lettered variants of an existing
+result. For example:
+
+\begin{verbatim}
+\begin{thmmod}{thm:main}{b}{Finite-sample form}
+...
+\end{thmmod}
+\end{verbatim}
+
+This prints a theorem number based on \texttt{thm:main} with the suffix
+\texttt{b}. Related helpers include \texttt{lemmod}, \texttt{propmod},
+\texttt{defnmod}, \texttt{asmmod}, \texttt{cormod}, and \texttt{condmod}.
+Use them only when the new statement is genuinely a named variant of an
+existing result. Several other inherited helpers assume definitions from the
+original project and are not a stable public interface. Compile a minimal
+example before relying on one.
+
+When \texttt{customthms} is false, the template does not define the full set of
+environments. That branch assumes the venue style provides them. Do not turn
+the toggle off in a plain \texttt{article} build and expect an identical
+theorem system.
+
+\subsection{Choose build toggles by responsibility}
+
+The toggles appear near the top of \texttt{main.tex}:
+
+\begin{verbatim}
+\newtoggle{arxiv}
+\toggletrue{arxiv}
+\newtoggle{customthms}
+\toggletrue{customthms}
+\end{verbatim}
+
+\texttt{arxiv} controls the public title, geometry, fonts, page style,
+algorithm packages, and colored paragraph heads. The false branch is a hook
+for a venue build, not a complete venue style by itself. In particular, the
+template loads \texttt{algorithm} and \texttt{algorithmic} only in the arXiv
+branch. A conference style must supply compatible algorithm support before
+the same source will compile.
+
+\texttt{customthms} controls the colored theorem definitions. The
+\texttt{toreturn} toggle controls whether return notes are visible; those
+notes use \texttt{\textbackslash RETURNN}. The inherited \texttt{icml} and
+\texttt{colt} toggles should remain only if the new paper still has those
+build modes. Remove a dead toggle rather than leaving a branch no one compiles.
+
+The arXiv title macros also exist only when the arXiv title file is loaded.
+Calls such as \texttt{\textbackslash paperdate} and direct access to
+\texttt{\textbackslash metadatalist} must therefore stay inside the public
+build or receive venue-side definitions. The same rule applies to
+\texttt{\textbackslash fancyhead}, because \texttt{fancyhdr} is loaded in the
+arXiv branch.
+
+\subsection{Use paragraph and emphasis commands deliberately}
+
+Three commands make emphasis change with the build mode:
+
+\begin{description}[leftmargin=*,style=nextline]
+    \item[\texttt{\textbackslash colorpar\{Heading.\}}]
+    Creates a paragraph heading in both modes. The heading is colored in the
+    arXiv build and plain in the venue branch.
+
+    \item[\texttt{\textbackslash togglepar\{Heading.\}}]
+    Calls \texttt{colorpar} in the arXiv build, but becomes inline bold text in
+    the venue branch. Use it for a compact run-in heading that can lose the
+    paragraph command under a tight style.
+
+    \item[\texttt{\textbackslash colorbold\{Text\}}]
+    Produces colored bold text in the arXiv build and ordinary bold text in the
+    venue branch.
+\end{description}
+
+\begin{verbatim}
+\togglepar{Experimental setup.} We compare ...
+
+\colorpar{Failure under distribution shift.}
+The policy fails when ...
+
+\colorbold{Main finding.} The intervention ...
+\end{verbatim}
+
+The period belongs inside the heading argument. Do not use these commands to
+make every paragraph look important. A paragraph heading should expose a real
+change in role: setup, result, mechanism, boundary, or implication.
+
+\texttt{\textbackslash termbold} and
+\texttt{\textbackslash takeawaybold} use fixed semantic colors rather than a
+build toggle. They are appropriate only when the chosen venue permits that
+color. The paper must remain understandable when all emphasis is printed in
+grayscale.
+
+\subsection{Define method names and colors once}
+
+\texttt{algnames.tex} pairs a typographic method name with a stable color.
+The base helpers are:
+
+\begin{verbatim}
+\newcommand{\algofont}[1]{%
+  {\scalefont{1.0}{\texttt{\textbf{#1}}}}}
+\newcommand{\algofonttitle}[1]{%
+  {\scalefont{1.08}{\textbf{\texttt{#1}}}}}
+\end{verbatim}
+
+For a new method, define the color, a neutral name, a colored prose name, and
+a title form:
+
+\begin{verbatim}
+\definecolor{methodcol}{HTML}{A60000}
+\newcommand{\Methodcolor}{methodcol}
+\newcommand{\Methodnc}{\algofont{METHOD}}
+\newcommand{\Method}{{\color{\Methodcolor}\Methodnc}}
+\newcommand{\Methodtitle}{%
+  {\color{\Methodcolor}\algofonttitle{METHOD}}}
+\end{verbatim}
+
+Use \texttt{\textbackslash Method\{\}} in prose so the following space is not
+swallowed. Use the neutral form when color would confuse a comparison or when
+the venue requires black text. Reserve the title form for a title or compact
+display; its font is deliberately larger.
+
+Keep the same method-to-color assignment in plots and diagrams. Store the hex
+value in the plotting code as well as the LaTeX source. Color should help a
+reader track a method, but the method name, line style, or marker must still
+identify it without color.
+
+The inherited file contains several aliases for the same method. It does not
+apply the neutral, colored, and title forms uniformly. Do not copy that
+inconsistency into a new method. Pick one naming pattern and remove aliases
+that the paper does not use.
+
+\subsection{Keep colors semantic}
+
+\texttt{color\_defs.tex} centralizes four different jobs. Link and citation
+colors use dark teal. Theorem headings use dark red. Term and takeaway macros
+use stronger red accents. Method colors live in \texttt{algnames.tex}.
+
+Change the semantic definition instead of scattering raw color commands
+through the manuscript. For example, changing
+\texttt{\textbackslash thmcolordark} should update every theorem heading. It
+should not require a search through theorem prose.
+
+The inherited names are not all standard color names. Inspect the actual
+\texttt{\textbackslash definecolor} value before reusing one. A familiar name
+can point to a project-specific hex code.
+
+The environment named \texttt{AIbox} is an inherited
+\texttt{tcolorbox}; its name does not prescribe its content. It is used for
+compact summaries:
+
+\begin{verbatim}
+\begin{AIbox}{Core insight}
+The critic supplies ...
+\end{AIbox}
+\end{verbatim}
+
+Use a box only when the same short statement should remain visible while the
+reader scans the paper. Do not place a second box inside it, and do not use a
+box to repeat a contribution already stated in a heading and figure.
+
+\subsection{Use color edits as temporary review state}
+
+\texttt{comment\_macros.tex} registers each author:
+
+\begin{verbatim}
+\addauthor{ms}{magenta}
+\addauthor{xy}{blue}
+\end{verbatim}
+
+Each registration creates four commands:
+
+\begin{description}[leftmargin=*,style=nextline]
+    \item[\texttt{\textbackslash xyedit\{new text\}}]
+    Shows the text in the author's color. With the
+    \texttt{suppress} option, the text remains and loses its color.
+
+    \item[\texttt{\textbackslash xycomment\{question\}}]
+    Shows a bracketed author comment. The \texttt{suppress} option hides it.
+
+    \item[\texttt{\textbackslash xymargincomment\{question\}}]
+    Adds a colored marker and small comment at that point. Despite the inherited
+    name, the current implementation does not place the full text in a
+    conventional margin note.
+
+    \item[\texttt{\textbackslash xydelete\{old text\}}]
+    Marks a deletion. The \texttt{showdeletions} option displays struck-out
+    text; the default displays a marker and deletion note.
+\end{description}
+
+Set package options where \texttt{color-edits.sty} is loaded:
+
+\begin{verbatim}
+\usepackage[showdeletions]{preamble/color-edits}
+% or, for a clean diagnostic build:
+\usepackage[suppress]{preamble/color-edits}
+\end{verbatim}
+
+A suppressed build is a diagnostic, not a final cleanup. It can hide comments,
+deletion markers, and return notes that still remain in the source. Before
+release, remove resolved edit commands and search for author prefixes,
+\texttt{\textbackslash REF}, \texttt{\textbackslash CITE},
+\texttt{\textbackslash TODO}, and \texttt{\textbackslash RETURNN}.
+\texttt{\textbackslash ignore} removes its argument in every build and should
+not hold text that might need to return.
+
+\subsection{Use the algorithm environment with its matching package}
+
+The arXiv branch uses the older \texttt{algorithmic} command set. Its commands
+are uppercase:
+
+\begin{verbatim}
+\begin{algorithm}[t]
+\caption{Method update}\label{alg:update}
+\begin{algorithmic}[1]
+\REQUIRE Initial policy and replay buffer
+\FOR{each update}
+  \STATE Sample a batch
+  \STATE Update the critic
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+\end{verbatim}
+
+\texttt{\textbackslash algcomment} provides the blue monospace comments used
+in the OGPO pseudocode. Use it only for short operational annotations. A
+paragraph of explanation belongs in the caption or surrounding text.
+
+Do not mix \texttt{algorithmic}, \texttt{algpseudocode}, and
+\texttt{algorithm2e} commands. They expose similar names with different
+semantics. If a venue supplies its own algorithm package, adapt the source once
+and compile both modes.
+
+\subsection{Use notation shortcuts without hiding the mathematics}
+
+\path{characters.tex} creates families of common symbols. Use
+\texttt{\textbackslash bA} for a bold matrix and
+\texttt{\textbackslash bx} for a bold vector. The same file provides
+\texttt{\textbackslash bbR} for blackboard-bold \(R\) and
+\texttt{\textbackslash cF} for calligraphic \(F\).
+
+\path{general_macros.tex} defines paired delimiters. These include
+\texttt{\textbackslash abs}, \texttt{\textbackslash prn}, and
+\texttt{\textbackslash nrm}. It also defines operators such as
+\texttt{\textbackslash argmin} and \texttt{\textbackslash argmax}.
+
+These generated names are convenient but broad. Check for an existing command
+before adding a new one. Do not redefine a familiar LaTeX command merely to
+save one character. When a symbol has paper-specific meaning, define a
+semantic name in \texttt{specific\_macros.tex} instead of relying on a visual
+alias throughout the manuscript.
+
+\subsection{Populate the public title metadata carefully}
+
+The public title file can collect metadata below the title card:
+
+\begin{verbatim}
+\paperwebsite{https://project.example}
+\papercode{https://github.com/group/project}
+\paperdocs{https://project.example/docs}
+\papermodels{https://huggingface.co/group/project}
+\paperdate{\today}
+\end{verbatim}
+
+\texttt{papercode}, \texttt{paperblog}, and \texttt{papermodels} include logo
+files from \texttt{logos/}. Keep those assets in the source bundle or replace
+the commands with plain links. Do not advertise an empty repository, private
+artifact, or placeholder URL.
+
+The title card prints the entries in the order the commands are called. Include
+only metadata that helps a reader verify, reproduce, or use the work. The venue
+build should not depend on these public-title commands unless its style defines
+them.
+
+\subsection{Audit the template before submission}
+
+Build the public and venue modes from a clean directory. For each mode, check:
+
+\begin{enumerate}[leftmargin=*]
+    \item every theorem environment exists and every cross-reference resolves;
+    \item paragraph heads have the intended spacing after the toggle changes;
+    \item algorithm floats compile under the selected package;
+    \item method names retain the same spelling and color assignment;
+    \item no author edit, deletion marker, return note, or placeholder remains;
+    \item public metadata points to released artifacts; and
+    \item the source bundle contains its logos, figures, bibliography, style
+    files, and any venue-owned class or bibliography style.
+\end{enumerate}
+
+Finally, remove unused packages and source-specific macros. The preserved OGPO
+preamble is useful because its decisions remain visible. It becomes a burden
+when a new paper carries all of those decisions without knowing which ones it
+still needs.

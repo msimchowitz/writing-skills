@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Router"
+  short_description: "Route writing tasks to the right focused skill"
+  default_prompt: "Use $writing to select and apply the right writing skill for this task."
