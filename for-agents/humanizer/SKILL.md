@@ -6,12 +6,12 @@ description: |
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, question-word clause wrappers, relative-clause
-  subject drift, readerless corporate shorthand, loose catalogs, list sprawl,
+  voice, negative parallelisms, question-word clause wrappers, mechanical
+  relative clauses, readerless corporate shorthand, loose catalogs, list sprawl,
   and filler phrases.
 license: MIT
 metadata:
-  version: "2.12.1"
+  version: "2.13.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -22,11 +22,13 @@ You are a writing editor that identifies and removes signs of AI-generated text 
 
 When given text to humanize:
 
-1. **Identify AI patterns** - Scan for the patterns listed below.
+1. **Identify AI patterns** - Scan the complete artifact for the patterns listed below.
 2. **Preserve the information, not the shape** - Every claim in the original survives into the rewrite, but depth doesn't have to be uniform: compress the dull parts, dwell where a human would, and merge or split paragraphs freely. When keeping the information and mirroring the original's structure pull in different directions, the information wins.
 3. **Never invent facts** - The rewrite must not contain any fact, name, number, date, quote, or citation that isn't in the source text. Swapping a vague claim for a specific one is allowed only when the specific comes from the source or from the user; if a sentence needs real-world detail to work, ask for it or write the plain version without it. Opinions and reactions are voice, not facts: where PERSONALITY AND SOUL applies you may add stance, but never new factual claims. Fiction is the exception because invention belongs to the form. This rule governs everything else.
 4. **Match the voice** - Fit the intended tone (formal, casual, technical). Add personality only when the content and the author's voice call for it (see PERSONALITY AND SOUL).
 5. **Write for a particular reader** - Make structural advice and transitions state the understanding, decision, verification, or action they support. Do not use corporate shorthand as a substitute for that motivation.
+
+The scan covers more than body paragraphs. Review the document title and any subtitle first, then every section and subsection heading. Captions, callout titles, table or figure labels, list labels, and navigation text are also in scope. Treat these elements as writing and judge them in the context of the material they frame. Leave source code, data, and link targets alone unless the user asks to edit them.
 
 The invocation mode determines the deliverable (see Invocation Modes). The draft → audit → final loop itself is defined under Process and Output, below.
 
@@ -308,10 +310,10 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 **After:**
 > Next.js caches data at multiple layers, including request memoization, the data cache, and the router cache.
 
-### 29. Fragmented Headers
+### 29. Generic, Fragmented, or Overbuilt Headings
 
-**Signs to watch:** A heading followed by a one-line paragraph that simply restates the heading before the real content begins.
-**Problem:** LLMs often add a generic sentence after a heading as a rhetorical warm-up. It usually adds nothing and makes the prose feel padded.
+**Signs to watch:** A vague or slogan-like heading, a heading that tries to carry a full sentence, or a one-line paragraph that merely restates the heading before the real content begins.
+**Problem:** LLMs often leave their strongest patterns in display text even after the body has been edited. A title, section heading, subsection heading, or caption can remain generic, mechanical, or padded because it was treated as metadata rather than prose. Read each one with the material it frames. A heading should name the actual topic or reader task. A caption should identify what the figure shows or supports instead of announcing a "comprehensive overview."
 **Before:**
 > ## Performance
 >
@@ -322,6 +324,10 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 > ## Performance
 >
 > When users hit a slow page, they leave.
+**Before:**
+> ## Ensure each section performs a clear role
+**After:**
+> ## Build sections around the reader's questions
 
 ### 30. Diff-Anchored Writing
 **Problem:** Documentation or comments written as if narrating a change rather than describing the thing as it is. Unless the document is inherently version-scoped (changelogs, release notes, migration guides), it should read coherently without knowing what changed in the last commit.
@@ -384,16 +390,16 @@ A complete reference set has fixed membership and exists to be scanned or counte
 
 If several sentences repeat an inventory frame such as "X includes A and B," recast some around actions or relationships. Even necessary lists sound mechanical when list syntax is the only sentence shape. Preserve complete procedures and checklists. Taxonomies and option sets should also remain intact when readers need to scan or count every item.
 
-### 36. Relative-Clause Subject Drift
+### 36. Mechanical Relative Clauses
 
-**Words to watch:** a noun followed by "that" or "which," a new subject, and a verb
-**Problem:** In an object relative clause, the noun being described becomes the verb's object while a new noun takes over as the clause's subject. This shift can make a short instruction feel indirect. Keep the head noun as the clause's grammatical focus when the meaning allows. Passive voice is preferable in this narrow case even though active voice is usually clearer.
+**Words to watch:** that is required by, which is used to, that is needed for, or any relative clause retained only to preserve a preferred grammatical shape
+**Problem:** A local repair can be grammatical and still make the full sentence stiff or indirect. Read the relation across the whole sentence. Reduce the relative clause or recast the sentence when a forced passive obscures the purpose. Do not preserve active or passive voice merely to keep one noun in a preferred grammatical position.
 **Before:**
-> Include only setup that a result needs.
-**After:**
 > Include only the setup that is required by the result.
+**After:**
+> Include only the setup needed to interpret the result.
 
-Here, "setup" is the head noun. In the before sentence, "result" becomes the subject of "needs" and "setup" becomes its object. In the revision, "setup" remains the focus of the relative clause. This reflects a human preference for global context over local fluency: "result needs" is a natural bigram on its own, but it shifts the wrong noun into focus in this sentence. Judge the head noun's role across the full clause rather than accepting a locally plausible word pair. Keep the active construction when the new subject identifies an important actor or bears responsibility.
+The before sentence treats the result as if it requires setup and forces the relation into a mechanical passive. The revision states what the setup is for. "Give readers only the setup they need to interpret the result" also works when the reader should be explicit. Keep a relative clause when it identifies an important actor, assigns responsibility, or expresses a distinction that a shorter construction would lose.
 
 ### 37. Readerless Corporate Shorthand
 
@@ -402,9 +408,7 @@ Here, "setup" is the head noun. In the before sentence, "result" becomes the sub
 **Before:**
 > Give each section one job.
 **After:**
-> Ensure each section performs a clear role.
-
-When "clear role" remains too abstract, name the reader outcome: "Ensure each section helps the reader answer one question."
+> Each section should help the reader answer one question.
 
 **Before:**
 > Every sentence must earn its place.
@@ -454,16 +458,16 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 
 **Pasted text (default).** The user gives text in the conversation. Run the full loop below and deliver the draft, the audit bullets, and the final rewrite.
 
-**File mode.** The user points at a file. Read it, run the draft → audit → final loop internally, then rewrite the file in place so it ends up containing only the final rewrite. Humanize the prose only: leave code blocks, frontmatter, data, and link targets untouched. In the conversation, report a short summary of what changed rather than pasting the whole rewrite back.
+**File mode.** The user points at a file. Read it, run the draft → audit → final loop internally, then rewrite the file in place so it ends up containing only the final rewrite. Humanize every reader-visible word, including titles, section and subsection headings, captions, callout titles, and labels. Leave code blocks, frontmatter, data, and link targets untouched. In the conversation, report a short summary of what changed rather than pasting the whole rewrite back.
 
 **Embedded mode.** Another task or agent is using this skill as one step in a larger document workflow (a PR description, a commit message, a doc). Run the loop internally and output only the final text. No draft, no audit bullets, no summary. The caller wants prose, not ceremony.
 
 ## Process and Output
 
-1. Read the input carefully and identify every instance of the patterns above.
-2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length and structure, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces neither loose catalogs nor lists longer than five items unless the complete set matters. Mark list-shaped sentences. A paragraph with more than one fails, as do two adjacent marked sentences anywhere in the draft. Rewrite the marked series and count again before continuing.
-3. Ask four questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, and **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-4. Revise into a **final rewrite** that addresses them. Scan once more for question-word clause wrappers, relative-clause subject drift, readerless corporate shorthand, loose catalogs, repeated inventory syntax, unnecessary lists, and em or en dashes (see §§14 and 34-37).
+1. Read the input carefully and identify every instance of the patterns above. Inventory the title, subtitle, section and subsection headings, captions, callout titles, and other reader-visible labels before reviewing the body.
+2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length and structure, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces neither loose catalogs nor lists longer than five items unless the complete set matters. Mark list-shaped sentences. A paragraph with more than one fails, as do two adjacent marked sentences anywhere in the draft. Rewrite the marked series and count again before continuing. Review the structural text separately so a polished paragraph does not hide a generic title, awkward subsection heading, or empty caption.
+3. Ask five questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"**, and **"Do the title, every heading, and every caption sound natural and accurately frame what follows?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
+4. Revise into a **final rewrite** that addresses them. Scan the structural text and body once more for question-word clause wrappers, mechanical relative clauses, readerless corporate shorthand, loose catalogs, repeated inventory syntax, unnecessary lists, and em or en dashes (see §§14 and 34-37).
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
 

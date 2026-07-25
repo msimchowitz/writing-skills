@@ -63,6 +63,16 @@ evaluation checklist to each file. Do not use one README as a sample or skip a
 secondary README. Preserve code blocks, commands, tables, link targets, and
 functional checklists. Do not expand the task to unrelated READMEs.
 
+## Review structural text separately
+
+Do not treat display text as metadata. Review the document title and subtitle,
+then every section and subsection heading. Captions, callout titles, table or
+figure labels, list labels, and navigation text must pass the same Humanizer
+and house-style checks as body prose. Read each element with the material it
+frames. A heading should name the actual topic or reader task; a caption should
+state what the figure shows or supports. Leave code, data, and link targets
+unchanged unless the user asks to edit them.
+
 ## Editing principles
 
 - **Preserve the writer's real voice.** Notice the draft's vocabulary, cadence,
@@ -162,28 +172,27 @@ replace "Each contribution should state what the study learned" with "Each
 contribution should state the outcome of the study." Keep a genuine question
 or unresolved relation when a direct replacement would change the claim.
 
-**Relative-clause subject drift.** In an object relative clause, keep the head
-noun as the clause's grammatical focus when the meaning allows. Replace
-"Include only setup that a result needs" with "Include only the setup that is
-required by the result." In the first version, "result" takes over as the
-subject of "needs" while "setup" becomes its object. The revision keeps
-"setup" as the focus of the relative clause. This check uses global context.
-The bigram "result needs" is natural on its own, but the full clause shifts the
-wrong noun into focus. Read the head noun's role across the full clause instead
-of accepting a plausible adjacent word pair. Prefer this passive construction
-despite the general active-voice rule, but retain an active clause when its
-subject identifies an important actor or bears responsibility.
+**Mechanical relative clauses.** A local repair can be grammatical and still
+make the full sentence stiff or indirect. Replace "Include only the setup that
+is required by the result" with "Include only the setup needed to interpret
+the result." The first version forces a passive relation and treats the result
+as if it requires setup. The revision states the setup's purpose. "Give readers
+only the setup they need to interpret the result" also works when the reader
+should be explicit. Read the whole sentence instead of preserving active or
+passive voice merely to keep one noun in a preferred grammatical position.
+Keep a relative clause when it identifies an important actor, assigns
+responsibility, or preserves a distinction that a shorter construction would
+lose.
 
 **Readerless corporate shorthand.** Replace workplace metaphors that make
 advice sound firm while hiding its purpose. For example, replace "Give each
-section one job" with "Ensure each section performs a clear role." If "clear
-role" remains vague, name the reader outcome: "Ensure each section helps the
-reader answer one question." Likewise, replace "Every sentence must earn its
-place" with "Each sentence should give the reader information needed to follow
-or verify the argument." Do not mechanically mention the reader in every
-sentence. State the actual question, inference, evidence, decision, or action
-supported by the passage. Keep corporate terms when the subject is an actual
-organization and technical ownership when it identifies a real authority.
+section one job" with "Each section should help the reader answer one
+question." Likewise, replace "Every sentence must earn its place" with "Each
+sentence should give the reader information needed to follow or verify the
+argument." Do not mechanically mention the reader in every sentence. State
+the actual question, inference, evidence, decision, or action supported by the
+passage. Keep corporate terms when the subject is an actual organization and
+technical ownership when it identifies a real authority.
 
 **Loose catalogs and list-packed sentences.** Require every series to have a
 governing relation that the reader can name. Flag loosely related objects even
@@ -247,7 +256,8 @@ alternatives.
 3. For detection, read Humanizer for its pattern catalog, return the named
    findings with quoted lines and short fixes, then stop.
 4. For editing, run Humanizer in embedded mode. Apply the README coverage rule
-   above to every README in scope.
+   above to every README in scope. Inventory and review the title, section and
+   subsection headings, captions, and other reader-visible labels separately.
 5. Compare that pass with the source and restore any lost fact, distinction, or
    voice signal.
 6. Make the minimum effective house-style edit.

@@ -64,17 +64,21 @@ request to create, revise, compile, or review that human-readable guide.
 6. Credit contributors at the appropriate granularity while keeping private
    source files outside the repository.
 7. Run Humanizer in embedded mode as a broad pattern pass.
-8. Apply general-writing afterward as the final house-style pass. Restore any
+8. Audit the title and any subtitle as their own writing layer. Do the same
+   for every section and subsection heading, caption, callout title, table or
+   figure label, and other reader-visible display text. Read each element with
+   the material it frames instead of assuming the body-prose pass caught it.
+9. Apply general-writing afterward as the final house-style pass. Restore any
    technical distinction or personal cadence that Humanizer flattened.
-9. Pay particular attention to abstract wrappers such as "the X behind Y,"
+10. Pay particular attention to abstract wrappers such as "the X behind Y,"
    non-question clauses such as "what X does" and "how Y works," list-packed
    prose, long decorative lists, rule-of-three phrasing, canned contrasts,
    signposting, metaphorical headings, and readerless corporate shorthand such
    as assigning prose a job, ownership, or responsibility. Replace that
    shorthand with the precise effect on the intended reader.
-10. Keep complete taxonomies, theorem assumptions, experimental axes, and
+11. Keep complete taxonomies, theorem assumptions, experimental axes, and
    checklists when the full set matters.
-11. Preserve the existing template, preamble, source organization, citations,
+12. Preserve the existing template, preamble, source organization, citations,
    and technical claims unless the user requests a structural change.
 
 ## Document A LaTeX Template From Its Source

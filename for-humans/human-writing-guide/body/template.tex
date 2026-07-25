@@ -15,7 +15,7 @@ Begin with a clean copy of the project. Replace the files in \path{body/} and
 appears in the new paper is not harmless: it makes collisions and stale
 terminology harder to find.
 
-\subsection{Assign each choice to one file}
+\subsection{Separate preamble files by purpose}
 
 The include order lives in \path{preamble/_preamble_includes.tex}. Keep that
 order until there is a specific reason to change it. Each file controls a
@@ -154,7 +154,7 @@ build or receive venue-side definitions. The same rule applies to
 \texttt{\textbackslash fancyhead}, because \texttt{fancyhdr} is loaded in the
 arXiv branch.
 
-\subsection{Use paragraph and emphasis commands deliberately}
+\subsection{Choose paragraph and emphasis commands by their effect}
 
 Three commands make emphasis change with the build mode:
 
@@ -260,7 +260,7 @@ Use a box only when the same short statement should remain visible while the
 reader scans the paper. Do not place a second box inside it, and do not use a
 box to repeat a contribution already stated in a heading and figure.
 
-\subsection{Use color edits as temporary review state}
+\subsection{Use color edits only during review}
 
 \texttt{comment\_macros.tex} registers each author:
 
@@ -312,7 +312,7 @@ are uppercase:
 
 \begin{verbatim}
 \begin{algorithm}[t]
-\caption{Method update}\label{alg:update}
+\caption{Critic update from replay data}\label{alg:update}
 \begin{algorithmic}[1]
 \REQUIRE Initial policy and replay buffer
 \FOR{each update}
@@ -351,7 +351,7 @@ save one character. When a symbol has paper-specific meaning, define a
 semantic name in \texttt{specific\_macros.tex} instead of relying on a visual
 alias throughout the manuscript.
 
-\subsection{Populate the public title metadata carefully}
+\subsection{Publish only useful title metadata}
 
 The public title file can collect metadata below the title card:
 

@@ -62,13 +62,16 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
     statements when the meaning allows?
 13. Did the edit avoid introducing any list longer than five items, except for
     a complete procedure, checklist, taxonomy, or option set?
-14. Does each object relative clause preserve the head noun's focus based on
-    the full clause, rather than passing because an adjacent word pair sounds
-    natural? Is an active subject preserved when it identifies an important
-    actor or bears responsibility?
+14. Does each relative clause sound natural in the full sentence? Have
+    mechanical passives been reduced or recast without losing an important
+    actor, responsibility, or technical distinction?
 15. Are metaphorical corporate directives such as giving prose a job, owning a
     point, or earning a place replaced with the precise effect on the intended
     reader? Are literal organizational and technical uses preserved?
+16. Were the title, subtitle, every section and subsection heading, captions,
+    callout titles, and other reader-visible labels reviewed in context? Do
+    they name the actual topic, evidence, or reader task without generic
+    slogans or awkward sentence structures?
 
 ## Final read
 

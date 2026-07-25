@@ -1,4 +1,4 @@
-\section{Possible causes of agent-like prose}
+\section{Possible causes of recurring agent-like patterns}
 \label{sec:hypotheses}
 
 Patterns describe an output; they do not reveal its cause. A deployed language
@@ -7,27 +7,27 @@ instructions and decoding also shape its response. Retrieval or tool use can
 change the available evidence. Any of these may affect the prose. The ideas
 below are starting points for experiments, and several may be true at once.
 
-\subsection{Local prediction can outrun global structure}
+\subsection{Local prediction may weaken larger structures}
 
 During pretraining, a language model learns next-token prediction (NTP). This
 rewards a continuation that fits the immediate context. Later training changes
 the model's behavior, but familiar phrases and smooth word pairs may still win
-even when the paragraph needs a different construction.
+even when a sentence or paragraph needs a different construction.
 
-The phrase ``result needs'' illustrates the possibility. It is locally fluent,
-yet the full relative clause should keep ``setup'' in focus. The same pressure
-might contribute to stock transitions and repeated rhetorical frames.
-Penalties against repetition could create the opposite surface effect:
-synonym cycling.
+Locally plausible continuations can still produce a sentence whose relation is
+hard to recover. The same pressure might contribute to stock transitions and
+repeated rhetorical frames. Penalties against repetition could create the
+opposite surface effect: synonym cycling.
 
 If local prediction is part of the cause, agent prose should make more
-long-range focus errors than local grammar errors. One test would compare the
-same model on sentence and paragraph edits, then repeat the paragraph task
-with a required outline. The comparison should track factual preservation,
-and it should check whether head nouns retain their focus. It should also
-compare paragraph openings with their conclusions.
+sentence-level relation errors and paragraph-level focus errors than local
+grammar errors. One test would compare the same model on sentence and
+paragraph edits, then repeat the paragraph task with a required outline. The
+comparison should track factual preservation and whether each edited sentence
+states its relation directly. It should also compare paragraph openings with
+their conclusions.
 
-\subsection{A generic reader produces generic prose}
+\subsection{An underspecified audience may produce generic prose}
 
 A prompt names a task, but it may not give the model a stable picture of the
 person using the answer. Generic helpfulness can fill the gap. The prose
@@ -44,7 +44,7 @@ knowledge and pending decision. The second prompt should also specify the
 reading conditions. Keep the subject and length constant, then ask members of
 that audience to rate each version's support for the stated use.
 
-\subsection{Mixed training data pulls toward a middle register}
+\subsection{Mixed training data may favor a middle register}
 
 Training data spans many genres and institutions. It also crosses eras and
 levels of quality. Without a strong voice cue, a model may settle on language
@@ -63,7 +63,7 @@ sample, and several samples from the same genre. A separate comparison across
 models with different documented training emphases could test the
 coding-transfer account.
 
-\subsection{Post-training rewards visible helpfulness}
+\subsection{Post-training may reward visible helpfulness}
 
 Instruction tuning and preference optimization may reward answers that look
 complete and cooperative. Headings and long lists make effort easy to see.
@@ -79,7 +79,7 @@ the same continuation task. Then ask for a finished document rather than a
 reply to the user. A drop in chat residue or decorative organization would
 support this account.
 
-\subsection{Pressure to answer invites guessing}
+\subsection{Answer pressure may increase guessing}
 
 Sometimes the prompt and sources do not contain the needed fact, but the agent
 is still expected to answer. Vague attribution and plausible gap-filling let

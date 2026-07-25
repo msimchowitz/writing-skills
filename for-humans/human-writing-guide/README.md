@@ -1,7 +1,8 @@
 # Writing research papers
 
-This directory contains a human-readable guide to writing research papers. It
-is a project for people, not an installable agent skill.
+This directory contains a guide for researchers turning technical evidence
+into a paper that readers can follow and evaluate. It is for people, not an
+installable agent skill.
 
 Agent guidance lives in the sibling `SKILL.md` files. The `paper-writing` skill
 may link to this guide for template instructions or teaching material, but the

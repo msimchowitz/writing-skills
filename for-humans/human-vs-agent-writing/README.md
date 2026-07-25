@@ -1,12 +1,12 @@
 # Human vs. agent writing
 
-This directory contains a guide for people, not an installable agent skill.
+This directory contains a practical editing guide for writers and editors. It
+is for people, not an installable agent skill.
 
 The guide distills the advice in `for-agents/humanizer` and
-`for-agents/general-writing`. It shows how reader-centered prose differs from
-recurring agent-like defaults. A later chapter offers testable explanations
-for those defaults. The patterns support revision; they do not establish
-authorship.
+`for-agents/general-writing`. It helps readers identify recurring agent-like
+habits and revise them without flattening meaning or voice. The patterns
+support revision; they do not establish authorship.
 
 The project inherits its preamble and running header from
 `../raw-latex-template`. The title card and public metadata commands come from
