@@ -2,9 +2,10 @@
 \label{sec:hypotheses}
 
 Patterns describe an output; they do not reveal its cause. A deployed language
-agent may combine pretraining, post-training, system instructions, decoding,
-retrieval, and tools. Any of these may affect the prose. The ideas below are
-starting points for experiments, and several may be true at once.
+agent begins with pretraining and may later undergo post-training. System
+instructions and decoding also shape its response. Retrieval or tool use can
+change the available evidence. Any of these may affect the prose. The ideas
+below are starting points for experiments, and several may be true at once.
 
 \subsection{Local prediction can outrun global structure}
 
@@ -23,7 +24,8 @@ If local prediction is part of the cause, agent prose should make more
 long-range focus errors than local grammar errors. One test would compare the
 same model on sentence and paragraph edits, then repeat the paragraph task
 with a required outline. The comparison should track factual preservation,
-head-noun focus, and the relation between paragraph openings and conclusions.
+and it should check whether head nouns retain their focus. It should also
+compare paragraph openings with their conclusions.
 
 \subsection{A generic reader produces generic prose}
 
@@ -37,24 +39,24 @@ job'' travels easily from one document to another. ``Ensure each section helps
 a reviewer answer one question'' depends on a particular reader and task.
 
 This hypothesis predicts that a concrete audience will change the choice of
-detail. Compare a generic request with one that fixes the reader's prior
-knowledge, decision, and reading conditions. Keep the subject and length
-constant, then ask members of that audience to rate each version's support for
-the stated use.
+detail. Compare a generic request with one that states the reader's prior
+knowledge and pending decision. The second prompt should also specify the
+reading conditions. Keep the subject and length constant, then ask members of
+that audience to rate each version's support for the stated use.
 
 \subsection{Mixed training data pulls toward a middle register}
 
-Training data spans many genres, institutions, eras, and levels of quality.
-Without a strong voice cue, a model may settle on language that is acceptable
-across much of that mixture: common evaluative words, regular paragraphs, and
-few risky specifics.
+Training data spans many genres and institutions. It also crosses eras and
+levels of quality. Without a strong voice cue, a model may settle on language
+that is acceptable across much of that mixture. The result may rely on common
+evaluative words and regular paragraphs while avoiding risky specifics.
 
-Code, API documentation, issue trackers, and technical manuals may add another
-influence. Those sources favor modular headings, explicit labels, edge cases,
-and procedural verbs. Carried into an essay, these habits can produce tiny
-sections and prose that resembles an interface. This is a proposal about
-transfer from coding data, not a claim that technical documentation makes
-writing worse.
+Code and API documentation may add another influence. Issue trackers and
+technical manuals may contribute as well. Those sources favor modular headings
+and explicit labels. They also isolate edge cases and use procedural verbs.
+Carried into an essay, these habits can produce tiny sections and prose that
+resembles an interface. This is a proposal about transfer from coding data,
+not a claim that technical documentation makes writing worse.
 
 Style examples offer a simple test. Compare output with no sample, one human
 sample, and several samples from the same genre. A separate comparison across
@@ -64,9 +66,9 @@ coding-transfer account.
 \subsection{Post-training rewards visible helpfulness}
 
 Instruction tuning and preference optimization may reward answers that look
-complete and cooperative. Headings, long lists, recaps, balanced caveats, and
-offers to continue make effort easy to see. They can be useful in a chat and
-awkward in a finished document.
+complete and cooperative. Headings and long lists make effort easy to see.
+Recaps and balanced caveats can do the same, as can an offer to continue. These
+devices can be useful in a chat and awkward in a finished document.
 
 These incentives may also reward automatic agreement. ``Great question'' and
 ``You're absolutely right'' preserve rapport without testing the claim.
@@ -86,12 +88,12 @@ familiar story.
 
 Retrieval and permission to answer ``unknown'' should reduce this behavior if
 completion pressure is responsible. A useful test would ask matched questions
-with and without retrieval, allow abstention in one condition, and audit every
-factual claim against the supplied evidence. Fluency should receive no credit
-in that audit.
+with and without retrieval. One condition should allow abstention. The final
+audit should check every factual claim against the supplied evidence, with no
+credit for fluency.
 
 These explanations may overlap. Local prediction might supply a familiar
-phrase, mixed training data might make it generic, and post-training might put
-it in a helpful-looking list. A weak reader model could then leave irrelevant
-items in place. An experiment should change one factor at a time and measure a
-specific language outcome.
+phrase. Mixed training data could make the phrase generic, while post-training
+could place it in a helpful-looking list. A weak reader model might then leave
+irrelevant items in place. An experiment should change one factor at a time
+and measure a specific language outcome.

@@ -3,13 +3,15 @@
 This directory contains a guide for people, not an installable agent skill.
 
 The guide distills the advice in `for-agents/humanizer` and
-`for-agents/general-writing`. It compares reader-centered prose with recurring
-agent-like defaults and proposes testable explanations for those defaults.
-The patterns support revision; they do not establish authorship.
+`for-agents/general-writing`. It shows how reader-centered prose differs from
+recurring agent-like defaults. A later chapter offers testable explanations
+for those defaults. The patterns support revision; they do not establish
+authorship.
 
-Its full preamble, running header, title card, and public metadata commands
-come from `../raw-latex-template`. The preamble enters through
-`preamble/_preamble_includes.tex`; `preamble/commands.tex` adds only the two
+The project inherits its preamble and running header from
+`../raw-latex-template`. The title card and public metadata commands come from
+the same template. The preamble enters through
+`preamble/_preamble_includes.tex`; `preamble/commands.tex` defines only the two
 labels used for worked revisions.
 
 ## Build the guide
