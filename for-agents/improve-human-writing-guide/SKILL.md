@@ -50,17 +50,31 @@ request to create, revise, compile, or review that human-readable guide.
    reader make.
 2. Compare the guide with the selected corpus. Record recurring sentence
    shapes, transitions, section conventions, examples, and punctuation.
-3. Audit the guide for factual gaps, unsupported prescriptions, duplication,
+3. Compare contributor notes or another guide with the existing guide before
+   adding anything. Merge repeated advice into the strongest existing passage
+   or checklist item, and remove wording the new source supersedes. Add a
+   section only for a new reader decision, worked example, or substantive
+   rule. Do not preserve a source's tab or heading structure when doing so
+   would duplicate the guide.
+4. Audit the guide for factual gaps, unsupported prescriptions, duplication,
    and advice that conflicts with the corpus.
-4. Run Humanizer in embedded mode as a broad pattern pass.
-5. Apply general-writing afterward as the final house-style pass. Restore any
+5. When source notes give a draft and feedback but no finished revision, label
+   any reconstructed revision as a teaching edit. Keep context-specific claims
+   inside the example until the evidence supports a general rule.
+6. Credit contributors at the appropriate granularity while keeping private
+   source files outside the repository.
+7. Run Humanizer in embedded mode as a broad pattern pass.
+8. Apply general-writing afterward as the final house-style pass. Restore any
    technical distinction or personal cadence that Humanizer flattened.
-6. Pay particular attention to abstract wrappers such as "the X behind Y,"
-   list-packed prose, rule-of-three phrasing, canned contrasts, signposting,
-   and metaphorical headings.
-7. Keep complete taxonomies, theorem assumptions, experimental axes, and
+9. Pay particular attention to abstract wrappers such as "the X behind Y,"
+   non-question clauses such as "what X does" and "how Y works," list-packed
+   prose, long decorative lists, rule-of-three phrasing, canned contrasts,
+   signposting, metaphorical headings, and readerless corporate shorthand such
+   as assigning prose a job, ownership, or responsibility. Replace that
+   shorthand with the precise effect on the intended reader.
+10. Keep complete taxonomies, theorem assumptions, experimental axes, and
    checklists when the full set matters.
-8. Preserve the existing template, preamble, source organization, citations,
+11. Preserve the existing template, preamble, source organization, citations,
    and technical claims unless the user requests a structural change.
 
 ## Document A LaTeX Template From Its Source

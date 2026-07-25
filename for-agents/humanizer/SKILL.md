@@ -6,10 +6,12 @@ description: |
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  voice, negative parallelisms, question-word clause wrappers, relative-clause
+  subject drift, readerless corporate shorthand, list sprawl, and filler
+  phrases.
 license: MIT
 metadata:
-  version: "2.9.1"
+  version: "2.12.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -22,10 +24,11 @@ When given text to humanize:
 
 1. **Identify AI patterns** - Scan for the patterns listed below.
 2. **Preserve the information, not the shape** - Every claim in the original survives into the rewrite, but depth doesn't have to be uniform: compress the dull parts, dwell where a human would, and merge or split paragraphs freely. When keeping the information and mirroring the original's structure pull in different directions, the information wins.
-3. **Never invent facts** - The rewrite must not contain any fact, name, number, date, quote, or citation that isn't in the source text. Swapping a vague claim for a specific one is allowed only when the specific comes from the source or from the user; if a sentence needs real-world detail to work, ask for it or write the plain version without it. Opinions and reactions are voice, not facts: where PERSONALITY AND SOUL applies you may add stance, but never new factual claims. (In fiction, invented detail is the job. This rule governs everything else.)
+3. **Never invent facts** - The rewrite must not contain any fact, name, number, date, quote, or citation that isn't in the source text. Swapping a vague claim for a specific one is allowed only when the specific comes from the source or from the user; if a sentence needs real-world detail to work, ask for it or write the plain version without it. Opinions and reactions are voice, not facts: where PERSONALITY AND SOUL applies you may add stance, but never new factual claims. Fiction is the exception because invention belongs to the form. This rule governs everything else.
 4. **Match the voice** - Fit the intended tone (formal, casual, technical). Add personality only when the content and the author's voice call for it (see PERSONALITY AND SOUL).
+5. **Write for a particular reader** - Make structural advice and transitions state the understanding, decision, verification, or action they support. Do not use corporate shorthand as a substitute for that motivation.
 
-How you're invoked changes what you deliver (see Invocation Modes). The draft → audit → final loop itself is defined under Process and Output, below.
+The invocation mode determines the deliverable (see Invocation Modes). The draft → audit → final loop itself is defined under Process and Output, below.
 
 ## Voice Calibration
 
@@ -39,7 +42,7 @@ A sample outranks this skill's style rules, including the em dash rule in §14: 
 
 ## PERSONALITY AND SOUL
 
-Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as obvious as slop. Good writing has a human behind it.
+Removing AI patterns is only part of the edit. Sterile, voiceless writing is just as obvious as slop. Good writing has a human behind it.
 
 **Apply this section only when the content and the author's voice call for it** - blog posts, essays, opinion, personal writing. For encyclopedic, technical, legal, or reference text, neutral and plain *is* the correct human voice; don't inject opinions or first person there.
 
@@ -50,7 +53,7 @@ When voice is appropriate, avoid uniform sentence structures, bloodless neutrali
 ### 1. Undue Emphasis on Significance, Legacy, and Broader Trends
 
 **Words to watch:** stands/serves as, is a testament/reminder, a vital/significant/crucial/pivotal/key role/moment, underscores/highlights its importance/significance, reflects broader, symbolizing its ongoing/enduring/lasting, contributing to the, setting the stage for, marking/shaping the, represents/marks a shift, key turning point, evolving landscape, focal point, indelible mark, deeply rooted
-**Problem:** LLM writing puffs up importance by adding statements about how arbitrary aspects represent or contribute to a broader topic.
+**Problem:** LLM writing puffs up importance by casting arbitrary details as symbols of a broader topic.
 **Before:**
 > The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralize administrative functions and enhance regional governance.
 **After:**
@@ -65,7 +68,7 @@ When voice is appropriate, avoid uniform sentence structures, bloodless neutrali
 **After:**
 > Her views have been cited in The New York Times and the BBC.
 
-(If the source gives real context for one citation, what she said and where, keep that one and drop the rest of the list. Don't invent the context to make the trimmed version sound better.)
+(If the source gives real context for one citation, keep that citation and drop the rest of the list. Don't invent context to make the trimmed version sound better.)
 
 ### 3. Superficial Analyses with -ing Endings
 
@@ -105,7 +108,7 @@ When voice is appropriate, avoid uniform sentence structures, bloodless neutrali
 **After:**
 > Korattur has recurring traffic congestion and water shortages.
 
-(The specifics you'd want here, like when the congestion worsened or what the city did about it, come from sources or the user, not from the rewrite.)
+(Useful specifics, such as the timing of the congestion or the city's response, must come from sources or the user rather than the rewrite.)
 
 ## LANGUAGE AND GRAMMAR PATTERNS
 
@@ -243,7 +246,7 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 **Before (speculative gap-fill):**
 > Information about her early life is not publicly available, suggesting she maintains a low profile and keeps personal details private. She likely grew up in a middle-class household, which shaped her later interest in education reform.
 **After:**
-> Her early life is not documented in the available sources. (Or omit the section.)
+> The available sources do not document her early life. (Or omit the section.)
 
 ### 22. Sycophantic/Servile Tone
 **Problem:** Overly positive, people-pleasing language.
@@ -350,11 +353,67 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 **Before:**
 > Is it worth the price? Honestly? It depends on how often you'll use it.
 **After:**
-> Whether it's worth the price depends on how often you'll use it.
+> Frequent use may justify the price.
+
+### 34. Question-Word and Fused-Relative Clause Wrappers
+
+**Words to watch:** what, how, why, when, where, which, who, whom, whose, whether
+**Problem:** LLMs often turn a direct claim into a heading, subject, or object clause introduced by a question word even though the sentence asks no question. This includes sentence-internal fused-relative clauses such as "state what Z found," not only headings such as "What X does" and "How Y works." These wrappers delay the noun or action that carries the point. In expository prose, state the answer with a direct noun phrase or declarative clause. Keep a genuine question or unresolved relation when replacing it would change the meaning.
+**Before:**
+> Each contribution should state what the study learned.
+**After:**
+> Each contribution should state the outcome of the study.
+**Before:**
+> The section explains how the controller filters sensor noise: it averages five readings.
+**After:**
+> The controller filters sensor noise by averaging five readings.
+
+### 35. List Sprawl
+
+**Problem:** LLMs turn ordinary prose into long bullet or numbered lists, often with bold mini-headings and equal weight for every item. The format hides priority and makes related ideas look independent. Do not introduce a list longer than five items during a rewrite. Use prose for a connected argument, and group related details before listing them. Preserve a complete procedure, checklist, taxonomy, or set of options when readers need to scan or count every item.
+**Before:**
+> The report covers:
+> - hiring
+> - onboarding
+> - retention
+> - scheduling
+> - purchasing
+> - reporting
+**After:**
+> The report covers staffing and daily operations. Staffing includes hiring, onboarding, and retention; operations includes scheduling, purchasing, and reporting.
+
+### 36. Relative-Clause Subject Drift
+
+**Words to watch:** a noun followed by "that" or "which," a new subject, and a verb
+**Problem:** In an object relative clause, the noun being described becomes the verb's object while a new noun takes over as the clause's subject. This shift can make a short instruction feel indirect. Keep the head noun as the clause's grammatical focus when the meaning allows. Passive voice is preferable in this narrow case even though active voice is usually clearer.
+**Before:**
+> Include only setup that a result needs.
+**After:**
+> Include only the setup that is required by the result.
+
+Here, "setup" is the head noun. In the before sentence, "result" becomes the subject of "needs" and "setup" becomes its object. In the revision, "setup" remains the focus of the relative clause. This reflects a human preference for global context over local fluency: "result needs" is a natural bigram on its own, but it shifts the wrong noun into focus in this sentence. Judge the head noun's role across the full clause rather than accepting a locally plausible word pair. Keep the active construction when the new subject identifies an important actor or bears responsibility.
+
+### 37. Readerless Corporate Shorthand
+
+**Words to watch:** give X one job, own the point, earn its place, do the work, action item, deliverable, align, leverage, move the needle
+**Problem:** LLMs borrow workplace language to make advice sound decisive. Applied to prose, these metaphors often name a management rule without explaining the passage's function or the reader's need. State the precise reading effect instead. Do not mechanically add "for the reader"; name the question, inference, evidence, decision, or action that the passage supports.
+**Before:**
+> Give each section one job.
+**After:**
+> Ensure each section performs a clear role.
+
+When "clear role" remains too abstract, name the reader outcome: "Ensure each section helps the reader answer one question."
+
+**Before:**
+> Every sentence must earn its place.
+**After:**
+> Each sentence should give the reader information needed to follow or verify the argument.
+
+Keep workplace terms when the text concerns an actual organization, and keep technical ownership when it identifies a real maintainer or authority. The problem is metaphorical corporate shorthand that hides motivation.
 
 ## DETECTION GUIDANCE
 
-### What NOT to flag (false positives)
+### False positives to leave alone
 
 A clean human writer can hit several of the patterns above without any AI involvement. Before rewriting, sanity-check that you are not gutting legitimate prose. The following are *not* reliable indicators on their own:
 
@@ -371,6 +430,7 @@ A clean human writer can hit several of the patterns above without any AI involv
 - **Unsourced claims.** Most of the web is unsourced. Lack of citations doesn't prove anything.
 - **Correct, complex formatting.** Visual editors and templates produce clean output without any AI.
 - **Secondhand text.** Do not rewrite watched phrases inside quotations, titles, proper names, or examples where the phrase is being discussed rather than used.
+- **A genuine or unresolved question-word clause.** "We do not know why the controller fails" identifies an open question. A noun substitute would pretend the cause is known.
 
 When in doubt, look for **clusters** of tells, not isolated ones. A single em dash means nothing; em dashes plus rule-of-three plus *vibrant tapestry* plus a "Conclusion" section is a confession.
 
@@ -394,14 +454,14 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 
 **File mode.** The user points at a file. Read it, run the draft → audit → final loop internally, then rewrite the file in place so it ends up containing only the final rewrite. Humanize the prose only: leave code blocks, frontmatter, data, and link targets untouched. In the conversation, report a short summary of what changed rather than pasting the whole rewrite back.
 
-**Embedded mode.** Another task or agent is using this skill as one step of a larger job (a PR description, a commit message, a doc). Run the loop internally and output only the final text. No draft, no audit bullets, no summary. The caller wants prose, not ceremony.
+**Embedded mode.** Another task or agent is using this skill as one step in a larger document workflow (a PR description, a commit message, a doc). Run the loop internally and output only the final text. No draft, no audit bullets, no summary. The caller wants prose, not ceremony.
 
 ## Process and Output
 
 1. Read the input carefully and identify every instance of the patterns above.
-2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register.
-3. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-4. Revise into a **final rewrite** that addresses them and contains no em or en dashes (see §14).
+2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces no list longer than five items.
+3. Ask three questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, and **"What does each paragraph help the intended reader understand, verify, decide, or do?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
+4. Revise into a **final rewrite** that addresses them. Scan once more for question-word clause wrappers, relative-clause subject drift, readerless corporate shorthand, unnecessary lists, and em or en dashes (see §§14 and 34-37).
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
 
@@ -410,3 +470,6 @@ In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final 
 This skill is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
+
+This repository modifies the original Humanizer under the MIT License. The
+original copyright and license notice remain in `LICENSE`.

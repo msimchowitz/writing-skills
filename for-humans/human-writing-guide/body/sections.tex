@@ -1,21 +1,30 @@
-\section{Give each section one job}
+\section{Ensure each section performs a clear role}
 \label{sec:sections}
 
-A section should answer one question; a paragraph should make one inference.
-This rule is more useful than a target page count because it makes duplication
-visible. When two sections answer the same question, combine them or decide
-which one owns the claim. When a section answers no question, remove it or move
-its useful details to the appendix.
+Write with a particular reader in mind. Managerial metaphors such as assigning
+a passage a ``job'' can sound decisive while hiding the rule's motivation.
+Name the reading effect instead. In a paper, each section should help the
+reader answer one question, while each paragraph should establish one
+inference. This rule is more useful than a target page count because it exposes
+duplication. When two sections answer the same question, combine them or keep
+the claim in one section. When a section gives the reader no new answer,
+remove it or move its useful details to the appendix.
 
 \subsection{The introduction establishes the argument}
 
-Open on the concrete task and explain why current methods or theory fail on it.
-Narrow quickly to the exact failure. The reader should understand the tension
-before seeing the solution.
+Open on the concrete task and the failure of current methods or theory. Narrow
+quickly to the exact failure. The reader should understand the tension before
+seeing the solution.
 
 Then state the central insight in ordinary language. The method name and
 technical machinery can follow. A reader who does not yet know the notation
-should still be able to say what changed and why that change might matter.
+should still be able to state the change and its importance.
+
+The problem statement should open the paper's design questions. A useful form
+names the starting object, the scarce resource, the resource that remains
+available, and the outcome to explain. The rest of the introduction can then
+separate questions about the representation, data, algorithm, and evaluation
+instead of presenting one method as the entire answer.
 
 Present contributions as supported claims:
 
@@ -26,40 +35,45 @@ Present contributions as supported claims:
 
 The heading names the claim, while the sentence gives the comparison and
 evidence. ``We introduce a new algorithm,'' ``we run extensive experiments,''
-and ``we provide theory'' describe work performed. They do not tell the reader
-what the work established.
+and ``we provide theory'' name author activities. They report effort, not
+findings.
+
+For a paper that defines a constrained regime, the contribution sequence may
+include the problem definition, a tested recipe, necessary conditions, a
+characterization of the success and failure regimes of existing approaches,
+and a new evaluation criterion. Each item still needs a result. List the
+concrete findings before explaining their broader context.
 
 Close the introduction with the paper's conceptual takeaway and its scope.
 Do not repeat the same contribution in several formats. Choose one primary
 signposting device and let the other elements add information.
 
-\subsection{Include only setup that a result needs}
+\subsection{Include only the setup that is required by the result}
 
-Preliminaries should define only what the first substantive result uses. Keep
-standard material short. Spend space on the assumption or distinction that
-later carries a claim, especially when two methods use similar notation but
-optimize different objects.
+Preliminaries should define only the terms needed by the first substantive
+result. Keep standard material short. Spend space on the assumption or
+distinction that later carries a claim, especially when two methods use
+similar notation but optimize different objects.
 
 A method section should explain the conceptual move before presenting every
 implementation choice. Start from the limitation identified in the
-introduction. Show exactly what computation changes and why that change
-addresses the limitation. Then give the formal definition and practical
-variants.
+introduction. Identify the changed computation and its purpose. Then give the
+formal definition and practical variants.
 
 A theory section should state the regime and result before a long derivation.
-Readers need to know why a theorem is being proved and what question it
-answers. Keep the main proof idea near the theorem when it carries scientific
-insight. Move routine algebra and complete technical cases to the appendix.
-Never promote an intuition to theorem language, and never omit a condition
-because it makes the statement less elegant.
+Readers need the theorem's purpose and target question. Keep the main proof
+idea near the theorem when it carries scientific insight. Move routine algebra
+and complete technical cases to the appendix. Never promote an intuition to
+theorem language, and never omit a condition because it makes the statement
+less elegant.
 
 \subsection{Experiments answer named questions}
 
 Begin the experimental section with the questions the experiments will answer.
-Explain how each task and metric distinguishes possible answers. Then justify
-the baselines and state what is held fixed. A comparison cannot support a clean
-mechanism claim when the architecture, training objective, and initialization
-all change at once.
+Explain the distinction tested by each task and metric. Then justify the
+baselines and state the controls. A comparison cannot support a clean mechanism
+claim when the architecture, training objective, and initialization all change
+at once.
 
 The usual order is:
 
@@ -82,6 +96,11 @@ explanation. Separate a performance comparison from a mechanism test.
 ``Method A outperforms Method B'' and ``component X causes the improvement''
 are different claims and need different evidence.
 
+Study each enabling condition separately. Vary the representation, task
+coverage, update algorithm, and initial policy performance. Initial success
+may not predict adaptability. Treat that difference as an experimental
+question, not as an interpretation added after the results.
+
 \subsection{Related work explains distinctions}
 
 Group prior work by the technical choices that matter for the current paper.
@@ -90,12 +109,19 @@ current paper. End with the point that remains unresolved. Cite the closest
 alternatives directly. Broad claims such as ``few works consider this
 setting'' require a careful search and a clear definition of the setting.
 
-Related work should not become a second introduction. Its job is to place the
-paper's contribution accurately, including work that weakens the novelty
-claim. A narrow, correct distinction is more credible than a broad claim of
-being first.
+Treat a related method as evidence about a scientific distinction, not merely
+as an opponent. Explain its complementarity with the current approach and name
+the different resource or assumption behind each method. For readers outside
+the subfield, describe the specialized method before relying on its acronym. A
+citation supports that explanation; it does not replace it.
 
-\subsection{Discussion states what follows and what does not}
+Related work should not become a second introduction. It should help the reader
+place the paper's contribution accurately, including work that weakens the
+novelty claim. A narrow, correct distinction is more credible than a broad
+claim of being first. Cite distinctive language or framing that comes from
+another paper. Do not disguise borrowed phrasing by rotating synonyms.
+
+\subsection{Discussion separates implications from limits}
 
 Use the discussion to interpret the evidence at the right level. State the
 regimes in which the result should change practice or understanding. Then name

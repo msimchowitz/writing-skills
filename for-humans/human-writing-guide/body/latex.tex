@@ -1,9 +1,9 @@
 \section{Keep the LaTeX source easy to reason about}
 \label{sec:latex}
 
-The source tree determines how easily authors can revise the paper. A clear
-project prevents duplicated text and accidental notation changes. It also lets
-several authors work without breaking a submission mode.
+The source tree can make revision easy or cumbersome. A clear project prevents
+duplicated text and accidental notation changes. It also lets several authors
+work without breaking a submission mode.
 
 \subsection{Use the entry point as an outline}
 
@@ -54,7 +54,7 @@ A method rename should require one edit. Avoid macros that conceal a whole
 sentence or arbitrary formatting. Source should remain understandable without
 opening several files for each line.
 
-\subsection{Give each toggle one responsibility}
+\subsection{Use each toggle for one build distinction}
 
 Build toggles are useful when a release changes presentation. Use them for
 anonymous and public author blocks or arXiv metadata. They can also control

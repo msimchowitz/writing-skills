@@ -3,9 +3,23 @@
 
 The section list should follow the logic of the evidence. A fixed outline can
 hide the paper's strongest result under routine setup or give equal space to
-claims of very different importance. Decide what the reader must understand
-first and which evidence establishes each step. Section titles and paragraph
-topics follow from that sequence.
+claims of very different importance. Decide the reader's prerequisites and the
+evidence for each step. Section titles and paragraph topics follow from that
+sequence.
+
+\subsection{Let the actual bottleneck set the frame}
+
+Begin with the scientific goal and the resource or assumption that blocks it.
+Do not let the nearest acronym or prior method define the motivation unless a
+reader must understand that method to see the problem. A method-specific
+opening can make a broad question look like a narrow competition between
+techniques.
+
+Name the scarce and available resources. For example, a paper about robot
+adaptation might study a setting with few expert
+demonstrations but ample autonomous interaction. That framing identifies the
+demonstration bottleneck before choosing imitation learning, in-context
+learning, offline learning, or online reinforcement learning as the response.
 
 \subsection{Choose the structure from the evidence}
 
@@ -16,15 +30,15 @@ The example papers use three recurring architectures.
 \emph{OGPO}~\citep{patil2026ogpo} begin with an operational bottleneck,
 identify a tradeoff in current methods, and introduce a method that changes
 that tradeoff. Headline comparisons establish the main result. Later
-experiments test the proposed explanation. They also show where performance
-breaks and whether it survives deployment. This architecture works when
-performance is the central claim but mechanism and reliability determine
-whether the result is convincing.
+experiments test the proposed explanation. They also identify performance
+limits and test deployment. This architecture works when performance is the
+central claim but mechanism and reliability determine the result's
+credibility.
 
 \paragraph{Empirical mechanism papers.}
 \emph{Much Ado About Noising}~\citep{pan2025muchado} organizes the paper
-around competing explanations. Controlled tests first show which explanations
-do not account for the observed performance. A minimal replacement then
+around competing explanations. Controlled tests first rule out explanations
+that do not account for the observed performance. A minimal replacement then
 isolates the components that do matter, and later experiments examine their
 mechanism. This architecture fits a paper whose contribution is a corrected
 understanding. The negative and positive findings must remain distinct:
@@ -33,35 +47,35 @@ rejecting one explanation does not prove another.
 \paragraph{Theory-led papers.}
 \emph{Action Chunking}~\citep{zhang2025actionchunking} starts from a failure
 in continuous-control behavior cloning and studies two interventions in
-different regimes. The formal results explain when each intervention is
-sufficient, while experiments test the predictions that matter outside the
+different regimes. The formal results establish each intervention's sufficient
+regime, while experiments test the predictions that matter outside the
 model. This architecture fits a paper that moves from a failure or
 impossibility to guarantees under stated conditions. The regime should appear
 before the guarantee, both in prose and in section titles.
 
 Treat these as shapes. A new paper may need a different order. All four
 examples open with a concrete problem. Each then exposes a mismatch in current
-thinking and resolves it as far as the evidence allows. The test is whether
-each section resolves a question created by the previous one.
+thinking and resolves it as far as the evidence allows. Each section should
+resolve a question created by the previous one.
 
 \subsection{Order results by argumentative value}
 
 In an empirical paper, show the headline result before low-level ablations.
 The reader needs to know that the method changes the outcome before learning
-which regularizer or schedule matters. Mechanism studies should follow the
-performance claim unless mechanism is itself the main claim.
+the relative importance of regularizers and schedules. Mechanism studies
+should follow the performance claim unless mechanism is itself the main claim.
 
 In a theory paper, present the motivating failure before the intervention.
 State assumptions before the result that uses them, but avoid a long block of
-notation that the reader will not need for several pages. Definitions are
+notation that will not be needed for several pages. Definitions are
 easier to absorb when they arrive close to the question they answer.
 
 Related work can appear early or late. Place it early when the reader must
 distinguish the method from close alternatives before understanding the
 formulation. Place it after the main results when a literature survey would
 delay the paper's question and answer. In either case, organize related work by
-technical distinction. A chronological list of papers does not explain what
-remains unresolved.
+technical distinction. A chronological list of papers does not identify the
+unresolved technical point.
 
 \subsection{Draft the evidence before the framing}
 
@@ -78,7 +92,7 @@ sequence is:
 \end{enumerate}
 
 This sequence reduces a common source of churn. An early abstract often
-commits the paper to claims that the final evidence does not support. An early
+commits the paper to claims unsupported by the final evidence. An early
 introduction can also turn provisional organization into a constraint. The
 abstract should summarize the paper that exists, not the paper the authors
 first imagined.

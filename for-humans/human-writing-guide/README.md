@@ -43,6 +43,7 @@ pdftoppm -png -r 120 build/main.pdf build/rendered/page
 
 The project preserves the full preamble structure used by the OGPO arXiv
 source. Its manuscript sections contain new writing-guide material informed by
-the example papers described in `for-agents/paper-writing`. The private source
-corpus is optional; its portable lookup convention is documented in the
+the example papers described in `for-agents/paper-writing`, together with
+contributor-derived worked examples. Private papers and source notes remain
+outside the repository. The optional-corpus workflow is documented in the
 [repository README](../../README.md).

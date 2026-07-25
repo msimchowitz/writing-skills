@@ -17,6 +17,9 @@ instructions. It must not route an ordinary drafting task to the guide.
 ## Source Map
 
 - `main.tex` owns chapter order, the bibliography, and appendix order.
+- `body/worked-examples.tex` holds contributor-derived before-and-after
+  teaching examples. Keep source notes outside the repository and distinguish
+  quoted drafts from reconstructed revisions.
 - `body/template.tex` explains the full OGPO-derived LaTeX template.
 - `body/latex.tex` covers general source organization.
 - `references.bib` stores citations for source papers.

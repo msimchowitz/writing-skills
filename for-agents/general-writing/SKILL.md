@@ -9,7 +9,7 @@ Act as a sharp human editor. Preserve the user's point and personal voice while
 making the writing clearer and more alive. Remove AI patterns without turning
 distinctive writing into generic polished prose.
 
-## Choose the job
+## Choose the response
 
 **Edit by default.** Make the minimum effective edit and return the full edited
 draft plus a short **What changed** section.
@@ -37,7 +37,7 @@ only when the user explicitly asks to work on that human-readable guide.
 
 ## Run Humanizer Before The House-Style Pass
 
-For editing jobs, read the sibling
+For editing requests, read the sibling
 [Humanizer skill](../humanizer/SKILL.md) and invoke it in embedded mode. Do not
 return its draft, audit bullets, or process notes. If the user supplies a
 writing sample, calibrate Humanizer against that sample. For domain work, also
@@ -50,7 +50,7 @@ voice that the broad pass flattened. Then apply this skill's editing principles
 and evaluation checklist. The source and supplied voice samples outrank generic
 Humanizer defaults.
 
-For detection jobs, use Humanizer's pattern catalog as additional evidence but
+For detection requests, use Humanizer's pattern catalog as additional evidence but
 do not run its rewrite loop. Report findings under the names used by either
 skill and follow this skill's detection output.
 
@@ -59,6 +59,9 @@ skill and follow this skill's detection output.
 - **Preserve the writer's real voice.** Notice the draft's vocabulary, cadence,
   bluntness, humor, uncertainty, digressions, and level of polish. Keep the
   traits that feel personal.
+- **Write for a particular reader.** Make structure, detail, and emphasis serve
+  the understanding, verification, decision, or action that reader needs. Name
+  the effect instead of adding a generic "for the reader."
 - **Make the minimum effective edit.** Fix AI patterns, errors, repetition, and
   unclear passages. Leave strong human sentences alone.
 - **Lead with the point when setup adds nothing.** Keep a personal aside, story,
@@ -71,15 +74,16 @@ skill and follow this skill's detection output.
   precision while removing jargon, tangled structure, and needless abstraction.
 - **Prefer active voice and human subjects.** Use direct constructions when
   they make agency clearer.
-- **Make every sentence earn its place.** Cut empty qualifiers and
-  throat-clearing. Keep uncertainty or self-awareness when it is real.
+- **Make each sentence useful to the reader.** Keep a needed claim, condition,
+  example, transition, or moment of voice. Cut empty qualifiers and
+  throat-clearing.
 - **Untangle sentences without flattening cadence.** Preserve clear spoken
   sentences, fragments, and changes in pace when they carry voice.
 - **Be concrete and specific.** Names, numbers, dates, mechanisms, and examples
   beat abstractions when the draft supports them.
 - **Protect the specific fact.** Do not smooth a useful detail into generic
   importance.
-- **Make verbs do the work.** Replace weak verb phrases with direct verbs.
+- **Use direct verbs.** Replace weak verb phrases with precise actions.
 - **Preserve useful edge and character.** Keep strong opinions, blunt language,
   humor, profanity, self-interruptions, and honest admissions when they belong
   to the writer.
@@ -136,17 +140,48 @@ as," "stands as," or similar inflated constructions.
 
 **Abstract relationship wrappers.** Replace phrases such as "the X behind Y,"
 "the role of X in Y," "the interplay between X and Y," and "the factors
-underlying Y" when they postpone the actual relation. State what X does, what
-causes Y, or what question remains open. Keep the wrapper only when the
+underlying Y" when they postpone the actual relation. Name X's action, Y's
+cause, or the open question. Keep the wrapper only when the
 relationship itself is under study and a direct verb would overstate the
 evidence.
 
+**Question-word and fused-relative clause wrappers.** Avoid non-question
+headings, subjects, and sentence-internal object clauses introduced by "what,"
+"how," "why," "when," "where," "which," "who," or "whether" when a direct
+noun phrase or declarative statement preserves the meaning. For example,
+replace "Each contribution should state what the study learned" with "Each
+contribution should state the outcome of the study." Keep a genuine question
+or unresolved relation when a direct replacement would change the claim.
+
+**Relative-clause subject drift.** In an object relative clause, keep the head
+noun as the clause's grammatical focus when the meaning allows. Replace
+"Include only setup that a result needs" with "Include only the setup that is
+required by the result." In the first version, "result" takes over as the
+subject of "needs" while "setup" becomes its object. The revision keeps
+"setup" as the focus of the relative clause. This check uses global context.
+The bigram "result needs" is natural on its own, but the full clause shifts the
+wrong noun into focus. Read the head noun's role across the full clause instead
+of accepting a plausible adjacent word pair. Prefer this passive construction
+despite the general active-voice rule, but retain an active clause when its
+subject identifies an important actor or bears responsibility.
+
+**Readerless corporate shorthand.** Replace workplace metaphors that make
+advice sound firm while hiding its purpose. For example, replace "Give each
+section one job" with "Ensure each section performs a clear role." If "clear
+role" remains vague, name the reader outcome: "Ensure each section helps the
+reader answer one question." Likewise, replace "Every sentence must earn its
+place" with "Each sentence should give the reader information needed to follow
+or verify the argument." Do not mechanically mention the reader in every
+sentence. State the actual question, inference, evidence, decision, or action
+supported by the passage. Keep corporate terms when the subject is an actual
+organization and technical ownership when it identifies a real authority.
+
 **List-packed sentences.** Do not use a comma-separated series as a substitute
-for deciding how ideas relate. When prose strings together three or more
+for stating the relationship between ideas. When prose strings together three or more
 abstract nouns, claims, reasons, or examples, keep the list only when the set
-is itself important. Otherwise choose the decisive item, group items by role,
-or split the sentence. Preserve complete taxonomies, assumptions, checklists,
-and experimental axes.
+is itself important. Otherwise choose the decisive item, group items by their
+relation to the claim, or split the sentence. Preserve complete taxonomies,
+assumptions, checklists, and experimental axes.
 
 **Synonym cycling.** Repeat the clear term instead of rotating synonyms merely
 for style.
@@ -171,6 +206,11 @@ final paragraphs that merely restate the piece.
 **Formatting slop.** Remove emoji headings, decorative bold, bullet lists that
 should be prose, and headings over tiny sections.
 
+**List sprawl.** Do not introduce a list longer than five items during an edit.
+Use prose for connected ideas and group details before listing them. Preserve
+complete procedures, checklists, taxonomies, and option sets when readers need
+every item.
+
 **Em dashes.** Do not use them as a default rhythm device. Use none in short
 copy and at most one or two in longer drafts when they clearly beat punctuation
 alternatives.
@@ -178,8 +218,8 @@ alternatives.
 ## Workflow
 
 1. Read the full draft before editing.
-2. Identify the core point and several voice signals to preserve. Keep this
-   note internal.
+2. Identify the core point, intended reader, reader outcome, and several voice
+   signals to preserve. Keep this note internal.
 3. For detection, read Humanizer for its pattern catalog, return the named
    findings with quoted lines and short fixes, then stop.
 4. For editing, run Humanizer in embedded mode.

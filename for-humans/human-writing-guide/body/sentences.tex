@@ -3,7 +3,7 @@
 
 Good technical prose lets the argument remain visible at sentence scale. Put
 the main subject and verb near the front. The example papers use first-person
-verbs to mark what the authors did. ``We compare'' names an experimental
+verbs to mark author actions. ``We compare'' names an experimental
 choice, while ``we find'' reports its result. They reserve ``we hypothesize''
 for an interpretation. Use the technical object as the subject when the
 behavior belongs to the object.
@@ -20,9 +20,16 @@ Direct prose does not require short sentences. A long sentence works when
 every clause serves one relation. A short sentence fails when it adds drama
 but no claim.
 
-\subsection{Put conditions where they matter}
+Human readers favor grammatical coherence across a whole sentence over the
+local fluency of adjacent words. ``Result needs'' is a natural bigram, but
+``setup that a result needs'' makes \emph{result} the subject of the relative
+clause and pushes \emph{setup} into object position. Write ``setup that is
+required by the result'' when setup should remain in focus. The passive voice
+is useful here because it preserves the sentence's grammatical center.
 
-A fronted clause should change how the main claim is understood:
+\subsection{Put conditions next to the claims they constrain}
+
+A fronted clause should change the interpretation of the main claim:
 
 \begin{quote}
 Although the estimator is biased, its error does not grow with the horizon in
@@ -35,8 +42,8 @@ environment data off policy.
 \end{quote}
 
 Openings such as ``while'' and ``although'' become clutter when they provide
-generic scene-setting. If the clause does not change how the main statement
-should be read, lead with the statement.
+generic scene-setting. If the clause does not change the main statement's
+interpretation, lead with the statement.
 
 \subsection{Make one main inference per sentence}
 
@@ -50,12 +57,18 @@ computation on denoising trajectories instead of collecting new environment
 interactions.
 \end{quote}
 
-The two sentences describe related parts of the same idea, but each has one
-main job. This separation also makes technical review easier. A coauthor can
-challenge the data-reuse claim without untangling three other claims from the
-same sentence.
+The two sentences describe related parts of the same idea, but each states one
+main inference. This separation also makes technical review easier. A coauthor
+can challenge the data-reuse claim without untangling three other claims from
+the same sentence.
 
-\subsection{Give each paragraph one inference}
+Every sentence should add information. Remove empty pointers such as ``in
+this,'' ``this shows,'' and ``we can see that'' when the reader must search for
+their referent. Keep a pointer when it names the object directly: ``In this
+regime, the error does not grow with the horizon.'' Include a familiar
+background fact only when it helps the reader understand a later distinction.
+
+\subsection{Ensure each paragraph develops one inference}
 
 Most technical paragraphs make three or four moves:
 
@@ -66,7 +79,7 @@ Most technical paragraphs make three or four moves:
     \item state the supported consequence or boundary.
 \end{enumerate}
 
-Use only the moves the paragraph needs. A two-sentence paragraph can be
+Use only the moves required by the paragraph. A two-sentence paragraph can be
 complete. Vary sentence length and syntax so that paragraphs do not read as
 filled-in forms. End on a consequence, limit, or transition that creates the
 next question. A final sentence that merely repeats the first can usually be
@@ -76,6 +89,29 @@ Paragraphs should also have explicit agents. Write ``we compare'' instead of
 ``a comparison is conducted,'' and ``the policy fails'' instead of ``a failure
 is exhibited by the policy.'' Nominalizations hide the action and lengthen the
 sentence. Direct verbs leave more room for the scientific detail.
+
+\subsection{Use sentence starters as scaffolding}
+
+A sentence frame can make the paragraph's purpose clear to the reader. Fill
+the frame with the paper's actual objects and discard it when a more natural
+sentence appears:
+
+\begin{quote}
+We study [problem] in the regime where [constraint].
+
+Existing approaches assume [resource]; we ask what is possible when
+[constraint].
+
+To test whether [mechanism], we [intervention or measurement].
+
+Compared with [baseline], [method] changes [metric] under [setting].
+
+Within [scope], the result supports [inference] but leaves [boundary] open.
+\end{quote}
+
+Do not start every paragraph from the same frame. The point is to make the
+claim, comparison, or question visible, not to give the paper a mechanical
+rhythm.
 
 \subsection{Report numbers in a fixed logical order}
 
@@ -89,9 +125,9 @@ Compared with [baseline], [method] improves [metric] from [A] to [B] on
 
 Use the available numbers. ``Substantially better'' is less useful than the
 measured difference. Reserve ``significant'' for a defined statistical claim.
-If the paper reports uncertainty, say what it represents. If two methods use
-different budgets, data, or initializations, expose that difference before the
-reader reaches the result.
+If the paper reports uncertainty, name the quantity it represents. If two
+methods use different budgets, data, or initializations, expose that difference
+before the reader reaches the result.
 
 \subsection{Separate formal results from interpretation}
 
@@ -152,7 +188,7 @@ facts without turning them into a slogan.
 \subsection{Replace abstract wrappers with verbs}
 
 Phrases such as ``the mechanism behind X,'' ``the role of Y in Z,'' and ``the
-interplay between A and B'' name a relationship without saying what happens.
+interplay between A and B'' name a relationship without stating the result.
 Use a direct verb when the evidence supports one:
 
 \begin{quote}
@@ -175,8 +211,8 @@ often use long sentences to develop one contrast or causal relation. Follow
 that pattern.
 
 Keep a full list when its members form a taxonomy, a set of assumptions, or a
-checklist. In ordinary prose, decide how the items relate. Group them by role
-or split the sentence:
+checklist. In ordinary prose, state the relationship among the items. Group
+them by their relation to the claim or split the sentence:
 
 \begin{quote}
 \textbf{Packed:} We evaluate stability, robustness, efficiency, and
@@ -192,6 +228,21 @@ Introduce a technical term once, then give its operational meaning. Repeat the
 canonical term instead of cycling through synonyms. Use a pronoun only when
 its referent is obvious. Semantic LaTeX macros help keep method names and
 symbols stable across authors and sections.
+
+Stable terminology does not require awkward word echoes. A sentence such as
+``Prior work builds on a prior policy'' makes the reader assign two meanings to
+the same word in quick succession. Keep the technical term and rewrite the
+ordinary phrase. The same test catches repeated ``in this'' constructions and
+adjacent forms of the same verb.
+
+Prefer one exact detail to a broad statement of importance. Shreyas puts the
+point sharply: ``Details should feel like poetry: concrete, curated, and
+exact.'' Treat that as a rule for selecting details, not for decorating them.
+Turn readers' vague knowledge into an exact statement.
+
+Good technical prose should feel precise and compressed. Its order can feel
+inevitable because each sentence creates the next question, not because the
+paper suppresses uncertainty or alternative explanations.
 
 Use punctuation to expose the grammar. Commas mark real clause boundaries.
 Semicolons join closely related claims; colons introduce definitions or lists.

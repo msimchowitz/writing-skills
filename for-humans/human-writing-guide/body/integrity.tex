@@ -25,9 +25,32 @@ control for the authors. Words cannot replace the missing evidence.
 \textbf{Overstated:} Theorem~3 shows that action chunking prevents compounding
 error.
 
-\textbf{What Theorem~3 establishes:} Under open-loop stability and bounded disturbances,
+\textbf{Theorem~3 establishes:} Under open-loop stability and bounded disturbances,
 Theorem~3 bounds rollout error for horizons up to $H$.
 \end{quote}
+
+\subsection{Separate hypotheses, planned tests, and findings}
+
+Write ``we test whether'' when the paper poses a question, ``we hypothesize''
+when it proposes an explanation, and ``we find'' only after the evidence
+supports a result. ``We believe'' and ``a natural follow-up'' do not tell the
+reader the statement's status as a hypothesis, planned test, or finding.
+
+Make the source of a claimed capability explicit. Suppose a visual backbone
+is frozen during adaptation. Robustness to visual perturbations must then come
+primarily from the pretrained representation, but that reasoning is still a
+hypothesis until the evaluation tests it. A scoped statement is:
+
+\begin{quote}
+Because the visual backbone is frozen during adaptation, robustness to visual
+perturbations must primarily come from the pretrained representation. We test
+whether that robustness persists over the perturbation range considered here.
+\end{quote}
+
+Name the environment, perturbation, task mode, or resource constraint that
+limits each result. Do not promote a planned comparison, an expected
+qualitative outcome, or an intuition from another field into a validated
+claim.
 
 \subsection{Trace each promise to evidence}
 
@@ -72,9 +95,9 @@ mean success from 68\% to 76\% over 20 evaluation seeds. Both methods use
 
 \subsection{Treat limitations as part of the result}
 
-A limitation is useful when it changes how the result should be applied or
-interpreted. Name the condition that creates the limit and say what remains
-supported. If several limits matter, explain each one separately.
+A limitation is useful when it changes the result's application or
+interpretation. Name the condition that creates the limit and state the
+remaining support. If several limits matter, explain each one separately.
 
 Do not use a broad limitations paragraph to excuse a broad claim. Narrow the
 claim where it first appears. Readers should not need to reach the final page

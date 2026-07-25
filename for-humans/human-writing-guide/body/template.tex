@@ -15,11 +15,11 @@ Begin with a clean copy of the project. Replace the files in \path{body/} and
 appears in the new paper is not harmless: it makes collisions and stale
 terminology harder to find.
 
-\subsection{Know which file owns each choice}
+\subsection{Assign each choice to one file}
 
 The include order lives in \path{preamble/_preamble_includes.tex}. Keep that
-order until there is a specific reason to change it. The files have different
-jobs:
+order until there is a specific reason to change it. Each file controls a
+different part of the build:
 
 \begin{description}[leftmargin=*,style=nextline]
     \item[\texttt{color\_defs.tex}]
@@ -55,13 +55,14 @@ jobs:
 \end{description}
 
 The preamble is easiest to maintain when each new command goes into the
-narrowest file that owns it. A task name does not belong in
-\texttt{header.tex}. A package import does not belong in
+narrowest file whose purpose matches the command. A task name does not belong
+in \texttt{header.tex}. A package import does not belong in
 \texttt{specific\_macros.tex}.
 
 \subsection{Use the theorem environments that are actually defined}
 
-With \texttt{customthms} enabled, choose an environment by its role:
+With \texttt{customthms} enabled, choose an environment by the kind of
+statement:
 
 \begin{itemize}[leftmargin=*]
     \item Use \texttt{theorem}, \texttt{lemma}, \texttt{corollary},
@@ -122,7 +123,7 @@ environments. That branch assumes the venue style provides them. Do not turn
 the toggle off in a plain \texttt{article} build and expect an identical
 theorem system.
 
-\subsection{Choose build toggles by responsibility}
+\subsection{Choose build toggles by their effect}
 
 The toggles appear near the top of \texttt{main.tex}:
 
@@ -141,7 +142,7 @@ branch. A conference style must supply compatible algorithm support before
 the same source will compile.
 
 \texttt{customthms} controls the colored theorem definitions. The
-\texttt{toreturn} toggle controls whether return notes are visible; those
+\texttt{toreturn} toggle controls the visibility of return notes; those
 notes use \texttt{\textbackslash RETURNN}. The inherited \texttt{icml} and
 \texttt{colt} toggles should remain only if the new paper still has those
 build modes. Remove a dead toggle rather than leaving a branch no one compiles.
@@ -183,7 +184,7 @@ The policy fails when ...
 
 The period belongs inside the heading argument. Do not use these commands to
 make every paragraph look important. A paragraph heading should expose a real
-change in role: setup, result, mechanism, boundary, or implication.
+change in purpose: setup, result, mechanism, boundary, or implication.
 
 \texttt{\textbackslash termbold} and
 \texttt{\textbackslash takeawaybold} use fixed semantic colors rather than a
@@ -228,11 +229,11 @@ identify it without color.
 The inherited file contains several aliases for the same method. It does not
 apply the neutral, colored, and title forms uniformly. Do not copy that
 inconsistency into a new method. Pick one naming pattern and remove aliases
-that the paper does not use.
+unused by the paper.
 
 \subsection{Keep colors semantic}
 
-\texttt{color\_defs.tex} centralizes four different jobs. Link and citation
+\texttt{color\_defs.tex} defines four semantic color groups. Link and citation
 colors use dark teal. Theorem headings use dark red. Term and takeaway macros
 use stronger red accents. Method colors live in \texttt{algnames.tex}.
 
@@ -389,5 +390,4 @@ Build the public and venue modes from a clean directory. For each mode, check:
 
 Finally, remove unused packages and source-specific macros. The preserved OGPO
 preamble is useful because its decisions remain visible. It becomes a burden
-when a new paper carries all of those decisions without knowing which ones it
-still needs.
+when a new paper carries all of those decisions without a clear need for them.

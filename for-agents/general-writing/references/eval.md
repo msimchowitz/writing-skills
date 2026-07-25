@@ -23,7 +23,8 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
 
 ## Clarity
 
-1. Does every sentence earn its place?
+1. Does every sentence give the intended reader a needed claim, condition,
+   example, transition, or moment of voice?
 2. Are concrete facts and useful details preserved?
 3. Are verbs direct and agents clear where possible?
 4. Are unsupported abstractions replaced only when the draft supplies the
@@ -52,6 +53,18 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
     relation unless that relation is genuinely the object of study?
 11. Are long comma lists kept only when the complete set matters, rather than
     used to pack loosely related ideas into one sentence?
+12. Are non-question clauses beginning with "what," "how," "why," "which,"
+    "whether," or another question word replaced with direct nouns or
+    statements when the meaning allows?
+13. Did the edit avoid introducing any list longer than five items, except for
+    a complete procedure, checklist, taxonomy, or option set?
+14. Does each object relative clause preserve the head noun's focus based on
+    the full clause, rather than passing because an adjacent word pair sounds
+    natural? Is an active subject preserved when it identifies an important
+    actor or bears responsibility?
+15. Are metaphorical corporate directives such as giving prose a job, owning a
+    point, or earning a place replaced with the precise effect on the intended
+    reader? Are literal organizational and technical uses preserved?
 
 ## Final read
 

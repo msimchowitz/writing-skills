@@ -102,6 +102,10 @@ The skill will analyze your sentence rhythm, word choices, and quirks, then appl
 
 Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) guide, maintained by WikiProject AI Cleanup. This comprehensive guide comes from observations of thousands of instances of AI-generated text.
 
+This repository contains a modified copy of Siqi Chen's Humanizer under the
+MIT License. The original copyright and permission notice remain in
+[`LICENSE`](LICENSE).
+
 The skill also includes a final "obviously AI generated" audit pass and a second rewrite, to catch lingering AI-isms in the first draft.
 
 Rewrites follow a no-fabrication rule: they never add facts, names, dates, or citations that aren't in the source text. Specificity has to come from the source or the author, not from the rewrite.
@@ -110,7 +114,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 33 Patterns Detected (with Before/After Examples)
+## 37 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -148,11 +152,15 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 | 26 | **Hyphenated word pairs** | “cross-functional, data-driven, client-facing” | Drop hyphens on common word pairs |
 | 27 | **Persuasive authority tropes** | "At its core, what matters is..." | State the point directly |
 | 28 | **Signposting announcements** | "Let's dive in", "Here's what you need to know" | Start with the content |
-| 29 | **Fragmented headers** | "## Performance" + "Speed matters." | Let the heading do the work |
+| 29 | **Fragmented headers** | "## Performance" + "Speed matters." | Start with the substantive paragraph |
 | 30 | **Diff-anchored writing** | "This function was added to replace..." | Describe what it does, not what changed |
 | 31 | **Manufactured punchlines / staccato drama** | "It had no preference. No prior. No nostalgia." | Use varied sentence lengths and concrete claims |
 | 32 | **Aphorism formulas** | "Symmetry is the language of trust" | Replace the formula with the actual claim |
 | 33 | **Conversational rhetorical openers** | "Honestly? It depends..." | Remove the fake-candid setup |
+| 34 | **Question-word / fused-relative wrappers** | "state what the study learned" | "state the outcome of the study" |
+| 35 | **List sprawl** | A long list of equally weighted bullets | Use prose or group details; retain only functional lists |
+| 36 | **Relative-clause subject drift** | "Include only setup that a result needs" | "Include only the setup that is required by the result" |
+| 37 | **Readerless corporate shorthand** | "Give each section one job" | "Ensure each section performs a clear role" |
 
 ### Communication Patterns
 
@@ -194,7 +202,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 >
 > Everyone says to ride Tram 28, so I did, wedged against a stranger's backpack for forty minutes while three tour groups filmed the same corner. I would walk the route next time, or go before breakfast. The custard tarts, though, earn the fuss. I had one at a plain little place in Graça, still warm, and for about thirty seconds I understood why people build trips around pastry.
 >
-> What I did not expect was how quiet the city gets away from the main squares. Two blocks uphill from any plaza it turns into laundry lines, chipped tile, open windows, and old men watching football with the sound turned up. That is the Lisbon I keep thinking about, not the castle.
+> I did not expect Lisbon to become so quiet away from the main squares. Two blocks uphill from any plaza it turns into laundry lines, chipped tile, open windows, and old men watching football with the sound turned up. That is the Lisbon I keep thinking about, not the castle.
 >
 > The castle is fine. The view is great, the queue is long, and I spent more time shuffling toward the entrance than looking at anything once I got inside. If I had only two days, I would trade it for an afternoon of getting lost.
 >
@@ -207,6 +215,9 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 ## Version History
 
+- **2.12.0** - Added pattern #37 for corporate shorthand that assigns prose jobs, ownership, or deliverables without naming its effect on the intended reader. The editing loop now checks the reader outcome directly. This modified copy remains under the upstream MIT License.
+- **2.11.0** - Added pattern #36 for object relative clauses that shift focus from the head noun to a new subject, including "setup that a result needs." The rule checks the full clause rather than locally fluent bigrams and permits passive voice when it keeps the head noun in focus. This modified copy remains under the upstream MIT License.
+- **2.10.0** - Added pattern #34 for question-word and fused-relative clause wrappers in headings and sentences, including indirect forms such as "state what the study learned." Added pattern #35 to stop rewrites from creating long, decorative lists. This modified copy remains under the upstream MIT License.
 - **2.9.1** - Improved distribution and portability: removed nonportable frontmatter and tool preapprovals, made global installation the documented default, added package validation, and removed the duplicated long-form example from the runtime prompt. No change to the 33 patterns.
 - **2.9.0** - Added a no-fabrication rule: rewrites may not invent facts, names, dates, or citations not present in the source, and every example that modeled invented specifics was re-cut to use only source information (fixes #187). Replaced paragraph-count parity with an information-over-shape rule, made a user's voice sample outrank the em dash ban, and added invocation modes (pasted text / file / embedded). No change to the 33 patterns.
 - **2.8.3** - Moved the skill version from the unsupported top-level frontmatter key to `metadata.version` for Agent Skills and Claude compatibility. No change to the 33 patterns.
@@ -227,4 +238,5 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 ## License
 
-MIT
+MIT. This repository modifies Siqi Chen's Humanizer and preserves the original
+copyright and permission notice in [`LICENSE`](LICENSE).
