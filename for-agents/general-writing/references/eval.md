@@ -51,8 +51,12 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
    in longer drafts?
 10. Are abstract wrappers such as "the X behind Y" replaced with the direct
     relation unless that relation is genuinely the object of study?
-11. Are long comma lists kept only when the complete set matters, rather than
-    used to pack loosely related ideas into one sentence?
+11. Does every series have a clear governing relation, and does the complete
+    set matter here? Are loosely related objects unpacked even when the list
+    has only three items? Does any ordinary paragraph still contain more than
+    one list-shaped sentence? If so, fail it unless each series is a complete
+    reference set that readers need to scan. Also fail adjacent list-shaped
+    sentences, even when a paragraph break separates them.
 12. Are non-question clauses beginning with "what," "how," "why," "which,"
     "whether," or another question word replaced with direct nouns or
     statements when the meaning allows?
@@ -76,3 +80,5 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
    section?
 5. For detection, does the response avoid rewriting, scoring, or claiming AI
    authorship?
+6. For a README task, did every README in scope receive the Humanizer pass and
+   this checklist?

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Review"
+  short_description: "Research and synthesize evidence-backed reviews"
+  default_prompt: "Use $literature-review to build a source-verified literature review of this research area."

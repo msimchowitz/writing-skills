@@ -1,4 +1,4 @@
-\documentclass[a4paper, 11pt]{article}
+\documentclass[a4paper,11pt]{article}
 \pdfoutput=1
 \usepackage{etoolbox,verbatim}
 \usepackage{scalefnt}
@@ -20,10 +20,12 @@
 \togglefalse{colt}
 
 \input{preamble/_preamble_includes}
+\input{preamble/commands}
 
-\fancyhead[C]{\small Writing Research Papers}
+\graphicspath{{figures/}}
+\fancyhead[C]{\small Human vs.\ Agent Writing}
 
-\title{Writing Research Papers}
+\title{Human vs.\ Agent Writing}
 \thispagestyle{empty}
 \author{\small Max Simchowitz}
 \paperdate{\today}
@@ -53,31 +55,27 @@
 \input{body/abstract}
 \end{abstract}
 
+\clearpage
 \begingroup
+\setcounter{tocdepth}{1}
 \setlength{\cftbeforesecskip}{0.5em}
 \tableofcontents
 \endgroup
-\newpage
-
-\input{body/start}
-\input{body/architecture}
-\input{body/sections}
-\input{body/figures}
-\input{body/sentences}
-\input{body/integrity}
-\input{body/worked-examples}
-\input{body/latex}
-\input{body/template}
-\input{body/revision}
-
 \clearpage
-\addcontentsline{toc}{section}{References}
-\bibliographystyle{plainnat}
-\bibliography{references}
+
+\input{body/scope}
+\input{body/principles}
+\input{body/directness}
+\input{body/syntax}
+\input{body/structure}
+\input{body/voice}
+\input{body/hypotheses}
+\input{body/revision}
 
 \appendix
 \newpage
-\input{appendix/planning-sheet}
-\input{appendix/final-checklist}
+\input{appendix/pattern-map}
+\input{appendix/review-checklist}
+\input{appendix/sources}
 
 \end{document}

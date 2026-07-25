@@ -7,13 +7,13 @@ work without breaking a submission mode.
 
 \subsection{Use the entry point as an outline}
 
-Keep \texttt{main.tex} short enough to read as the manuscript's table of
-contents. It should show the build mode and manuscript order at a glance. Put
-prose in section files:
+Keep the top-level entry point short enough to read as the manuscript's table
+of contents. It should show the build mode and manuscript order at a glance.
+Put prose in section files:
 
 \begin{verbatim}
 paper/
-|-- main.tex
+|-- paper-main.tex
 |-- references.bib
 |-- body/
 |   |-- abstract.tex
@@ -62,9 +62,9 @@ acknowledgments, appendix length, and venue-approved theorem styles. They
 should not select different claims or experimental values. Two build modes
 with different science will drift.
 
-Keep toggles near the top of \texttt{main.tex}. Build every supported mode
-before release. The public and anonymous versions may look different, but they
-should make the same scientific claims.
+Keep toggles near the top of the entry point. Build every supported mode before
+release. The public and anonymous versions may look different, but they should
+make the same scientific claims.
 
 \subsection{Keep figure sources reproducible}
 

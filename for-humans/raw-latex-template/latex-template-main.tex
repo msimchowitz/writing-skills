@@ -1,0 +1,84 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1
+\usepackage{etoolbox,verbatim}
+\usepackage{scalefnt}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+
+%% For arXiv formatting. Toggle false for a conference submission.
+\newtoggle{arxiv}
+\toggletrue{arxiv}
+\newtoggle{toreturn}
+\togglefalse{toreturn}
+\newtoggle{icml}
+\togglefalse{icml}
+%% Adds custom formatting to theorem-like environments.
+\newtoggle{customthms}
+\toggletrue{customthms}
+\newtoggle{colt}
+\togglefalse{colt}
+
+\input{preamble/_preamble_includes}
+
+\graphicspath{{figures/}}
+\fancyhead[C]{\small Paper Title}
+
+\title{Paper Title}
+\thispagestyle{empty}
+\author{\small Author One \qquad Author Two}
+\paperdate{\today}
+\date{\vspace{-.5em}}
+
+% Optional public metadata:
+% \paperwebsite{https://project.example}
+% \papercode{https://github.com/group/project}
+% \paperdocs{https://project.example/docs}
+% \papermodels{https://huggingface.co/group/project}
+
+\begin{document}
+
+\begin{tcolorbox}[
+  colback=blue!60!gray!5,
+  colframe=gray!50,
+  boxrule=0pt,
+  arc=2mm
+]
+\maketitle
+\vspace{-.7cm}
+\tcbline
+\input{body/overview}
+\vskip 0.5cm
+\makeatletter
+\tcbline
+\vspace{-.7cm}
+\ifdefempty{\metadatalist}{}{\metadatalist\par}
+\makeatother
+\end{tcolorbox}
+
+\begin{abstract}
+\input{body/abstract}
+\end{abstract}
+
+\begingroup
+\setlength{\cftbeforesecskip}{0.5em}
+\tableofcontents
+\endgroup
+\newpage
+
+\input{body/introduction}
+\input{body/preliminaries}
+\input{body/method}
+\input{body/experiments}
+\input{body/related-work}
+\input{body/discussion}
+
+% Uncomment after adding cited entries to references.bib.
+% \bibliographystyle{plainnat}
+% \bibliography{references}
+
+\appendix
+\newpage
+\input{appendix/reproducibility}
+
+\end{document}

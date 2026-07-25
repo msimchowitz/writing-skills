@@ -16,7 +16,8 @@ instructions. It must not route an ordinary drafting task to the guide.
 
 ## Source Map
 
-- `main.tex` owns chapter order, the bibliography, and appendix order.
+- `human-writing-guide-main.tex` owns chapter order, the bibliography, and
+  appendix order.
 - `body/worked-examples.tex` holds contributor-derived before-and-after
   teaching examples. Keep source notes outside the repository and distinguish
   quoted drafts from reconstructed revisions.
@@ -26,8 +27,9 @@ instructions. It must not route an ordinary drafting task to the guide.
 - `preamble/` is the authority for every documented template command.
 - `README.md` records the human/agent boundary and build workflow.
 
-When a new chapter is added, include it explicitly from `main.tex`. Do not
-place long prose directly in the entry point.
+When a new chapter is added, include it explicitly from
+`human-writing-guide-main.tex`. Do not place long prose directly in the entry
+point.
 
 ## Template Chapter Requirements
 
@@ -72,7 +74,8 @@ from it, not only in a general acknowledgments sentence.
 From the guide root:
 
 ```sh
-latexmk -g -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+latexmk -g -pdf -interaction=nonstopmode -halt-on-error \
+  -outdir=build human-writing-guide-main.tex
 ```
 
 Require:
@@ -87,16 +90,16 @@ Render with:
 
 ```sh
 mkdir -p build/rendered
-pdftoppm -png -r 120 build/main.pdf build/rendered/page
+pdftoppm -png -r 120 build/human-writing-guide-main.pdf build/rendered/page
 ```
 
 Publish the final bytes at the outermost guide level:
 
 ```sh
-cp build/main.pdf main.pdf
-cp build/main.pdf writing-research-papers.pdf
-cmp -s build/main.pdf main.pdf
-cmp -s build/main.pdf writing-research-papers.pdf
+cp build/human-writing-guide-main.pdf human-writing-guide-main.pdf
+cp build/human-writing-guide-main.pdf writing-research-papers.pdf
+cmp -s build/human-writing-guide-main.pdf human-writing-guide-main.pdf
+cmp -s build/human-writing-guide-main.pdf writing-research-papers.pdf
 ```
 
 The task is not complete if the finished PDF exists only under `build/`.

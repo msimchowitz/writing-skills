@@ -7,11 +7,11 @@ description: |
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
   voice, negative parallelisms, question-word clause wrappers, relative-clause
-  subject drift, readerless corporate shorthand, list sprawl, and filler
-  phrases.
+  subject drift, readerless corporate shorthand, loose catalogs, list sprawl,
+  and filler phrases.
 license: MIT
 metadata:
-  version: "2.12.0"
+  version: "2.12.1"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -368,19 +368,21 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 **After:**
 > The controller filters sensor noise by averaging five readings.
 
-### 35. List Sprawl
+### 35. Loose Catalogs and List Sprawl
 
-**Problem:** LLMs turn ordinary prose into long bullet or numbered lists, often with bold mini-headings and equal weight for every item. The format hides priority and makes related ideas look independent. Do not introduce a list longer than five items during a rewrite. Use prose for a connected argument, and group related details before listing them. Preserve a complete procedure, checklist, taxonomy, or set of options when readers need to scan or count every item.
+**Problem:** LLMs use accumulation as a substitute for explanation. They place grammatically parallel but functionally different objects in one series, or give every bullet equal weight, without explaining why the items belong together. A three-item series can fail this test; length alone is not the problem.
 **Before:**
-> The report covers:
-> - hiring
-> - onboarding
-> - retention
-> - scheduling
-> - purchasing
-> - reporting
+> The program serves teachers, librarians, parents, and volunteers. Workshops teach the material, the resource library holds examples, office hours answer questions, and quarterly reports track results. Participants use the program to plan events, draft materials, review work, and report outcomes.
 **After:**
-> The report covers staffing and daily operations. Staffing includes hiring, onboarding, and retention; operations includes scheduling, purchasing, and reporting.
+> Teachers and librarians use the program. Parents and volunteers do too. Workshops teach the material, while the resource library holds examples. Office hours answer questions. Quarterly reports track results. Participants plan and draft event materials through the program, then review the work before reporting outcomes.
+
+Before keeping a list, identify its governing relation and why the complete set matters in this passage. If that relation is unclear, choose the decisive item, group genuinely related items under a named function, or give items with different roles their own clauses or sentences. Do not "fix" an arbitrary catalog by trimming it to three items or turning bullets into the same comma-separated series.
+
+Scan the surrounding paragraph as well. Mark every sentence built around a series of three or more items, whether the series supplies subjects, objects, or actions. More than one marked sentence in an ordinary paragraph is a hard failure unless each series is a complete reference set that readers must scan or count. Two marked sentences may never be adjacent, even across a paragraph break; a new paragraph does not create variation by itself.
+
+A complete reference set has fixed membership and exists to be scanned or counted. Checklists and taxonomies usually qualify, as do fixed option sets. An audience, feature, or artifact inventory usually does not. The need to preserve every source detail does not turn a catalog into a reference set. Keep at most one marked series in an ordinary paragraph. Split each additional series into sentences or clauses with no more than two coordinated items, then count again. Add sentences when necessary instead of preserving the source's compact inventory shape.
+
+If several sentences repeat an inventory frame such as "X includes A and B," recast some around actions or relationships. Even necessary lists sound mechanical when list syntax is the only sentence shape. Preserve complete procedures and checklists. Taxonomies and option sets should also remain intact when readers need to scan or count every item.
 
 ### 36. Relative-Clause Subject Drift
 
@@ -459,9 +461,9 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 ## Process and Output
 
 1. Read the input carefully and identify every instance of the patterns above.
-2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces no list longer than five items.
-3. Ask three questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, and **"What does each paragraph help the intended reader understand, verify, decide, or do?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-4. Revise into a **final rewrite** that addresses them. Scan once more for question-word clause wrappers, relative-clause subject drift, readerless corporate shorthand, unnecessary lists, and em or en dashes (see §§14 and 34-37).
+2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length and structure, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces neither loose catalogs nor lists longer than five items unless the complete set matters. Mark list-shaped sentences. A paragraph with more than one fails, as do two adjacent marked sentences anywhere in the draft. Rewrite the marked series and count again before continuing.
+3. Ask four questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, and **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
+4. Revise into a **final rewrite** that addresses them. Scan once more for question-word clause wrappers, relative-clause subject drift, readerless corporate shorthand, loose catalogs, repeated inventory syntax, unnecessary lists, and em or en dashes (see §§14 and 34-37).
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
 

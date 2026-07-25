@@ -1,49 +1,47 @@
-# Human instructions only
+# Writing research papers
 
 This directory contains a human-readable guide to writing research papers. It
-is written for people, not for agents, and it is not a Codex skill.
+is a project for people, not an installable agent skill.
 
-Agents must not route writing tasks to this directory as though it were a
-skill. Use the sibling `SKILL.md` files for agent guidance. The
-`paper-writing` skill may point to this guide or consult the relevant chapter
-when a user explicitly asks how to use the bundled LaTeX template, requests
-teaching material, or wants human-readable instructions. Inspect or edit the
-guide itself only when the user asks to work on it.
+Agent guidance lives in the sibling `SKILL.md` files. The `paper-writing` skill
+may link to this guide for template instructions or teaching material, but the
+guide itself contains no routing or tool instructions.
 
-## Writing research papers
+## Files
 
-The current guide is `main.pdf`. The descriptive copy
+The canonical guide is `human-writing-guide-main.pdf`. The descriptive copy
 `writing-research-papers.pdf` contains the same document. The editable source
-begins in `main.tex`; chapter source lives in `body/` and `appendix/`.
+is the top-level `human-writing-guide-main.tex`; chapter source lives in
+`body/` and `appendix/`.
 
 ## Build and publish
 
 Build the source from this directory:
 
 ```sh
-latexmk -g -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+latexmk -g -pdf -interaction=nonstopmode -halt-on-error \
+  -outdir=build human-writing-guide-main.tex
 ```
 
-After every completed build, publish the result at the top level:
+After a successful build, publish the result at the top level:
 
 ```sh
-cp build/main.pdf main.pdf
-cp build/main.pdf writing-research-papers.pdf
+cp build/human-writing-guide-main.pdf human-writing-guide-main.pdf
+cp build/human-writing-guide-main.pdf writing-research-papers.pdf
 ```
 
-`main.pdf` is the canonical output. Do not leave it older than
-`build/main.pdf`.
+The published `human-writing-guide-main.pdf` must match the named PDF in
+`build/`.
 
 For a visual check, render the pages with:
 
 ```sh
 mkdir -p build/rendered
-pdftoppm -png -r 120 build/main.pdf build/rendered/page
+pdftoppm -png -r 120 build/human-writing-guide-main.pdf build/rendered/page
 ```
 
-The project preserves the full preamble structure used by the OGPO arXiv
-source. Its manuscript sections contain new writing-guide material informed by
-the example papers described in `for-agents/paper-writing`, together with
-contributor-derived worked examples. Private papers and source notes remain
-outside the repository. The optional-corpus workflow is documented in the
-[repository README](../../README.md).
+The project preserves the full preamble structure from the OGPO arXiv source.
+Its writing advice draws on the example papers described in
+`for-agents/paper-writing` and on contributor-derived worked examples. Private
+papers and source notes remain outside the repository. The
+[repository README](../../README.md) documents the optional corpus.

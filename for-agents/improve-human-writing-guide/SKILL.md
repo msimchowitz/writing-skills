@@ -1,6 +1,6 @@
 ---
 name: improve-human-writing-guide
-description: Create, revise, audit, compile, and publish human-readable writing guides while keeping them separate from agent-facing skills. Use for the bundled human writing guide, other LaTeX or PDF writing manuals, or requests to turn writing-skill knowledge into instructions for people. Includes corpus-based voice matching, ordered Humanizer and general-writing passes, rendered-PDF verification, README maintenance, and the required top-level main.pdf publication step.
+description: Create, revise, audit, compile, and publish human-readable writing guides while keeping them separate from agent-facing skills. Use for the bundled human writing guide, other LaTeX or PDF writing manuals, or requests to turn writing-skill knowledge into instructions for people. Includes corpus-based voice matching, ordered Humanizer and general-writing passes, rendered-PDF verification, README maintenance, and the required named top-level PDF publication step.
 ---
 
 # Improve Human Writing Guide
@@ -105,43 +105,50 @@ resolved.
 
 ## Build And Inspect The Guide
 
+For every LaTeX guide, keep a descriptive `<guide-name>-main.tex` entry point
+in the outermost guide directory. Compile to a named PDF under `build/`, then
+publish the matching `<guide-name>-main.pdf` in that outermost directory.
+Never use `main.tex` or `main.pdf` as the canonical artifact name.
+
 For the bundled LaTeX guide, work from
 `../../for-humans/human-writing-guide/` and compile after every meaningful
 source change:
 
 ```sh
-latexmk -g -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+latexmk -g -pdf -interaction=nonstopmode -halt-on-error \
+  -outdir=build human-writing-guide-main.tex
 ```
 
-Require a successful exit. Check `build/main.log` for LaTeX errors, undefined
-references or citations, and overfull boxes. Fix every overfull box introduced
-by the change. Confirm the page count with `pdfinfo`.
+Require a successful exit. Check `build/human-writing-guide-main.log` for
+LaTeX errors, undefined references or citations, and overfull boxes. Fix every
+overfull box introduced by the change. Confirm the page count with `pdfinfo`.
 
 Render the completed PDF and inspect every page:
 
 ```sh
 mkdir -p build/rendered
-pdftoppm -png -r 120 build/main.pdf build/rendered/page
+pdftoppm -png -r 120 build/human-writing-guide-main.pdf build/rendered/page
 ```
 
 Check margins, page breaks, headings, tables, examples, headers, footers, and
 the table of contents at normal reading size. Recompile after any correction.
 
-## Always Publish Main.pdf
+## Always Publish The Named PDF
 
-After the final successful compile, always replace the top-level `main.pdf`
+After the final successful compile, always replace the named top-level PDF
 with the completed build:
 
 ```sh
-cp build/main.pdf main.pdf
-cp build/main.pdf writing-research-papers.pdf
-cmp -s build/main.pdf main.pdf
-cmp -s build/main.pdf writing-research-papers.pdf
+cp build/human-writing-guide-main.pdf human-writing-guide-main.pdf
+cp build/human-writing-guide-main.pdf writing-research-papers.pdf
+cmp -s build/human-writing-guide-main.pdf human-writing-guide-main.pdf
+cmp -s build/human-writing-guide-main.pdf writing-research-papers.pdf
 ```
 
-`main.pdf` must live directly in the outermost human-guide directory, not only
-inside `build/`. Do not finish while either top-level PDF is stale or missing.
-Keep `build/main.pdf` in place so the build directory remains inspectable.
+`human-writing-guide-main.pdf` must live directly in the outermost human-guide
+directory, not only inside `build/`. Do not finish while either top-level PDF
+is stale or missing. Keep the named build PDF in place so the build directory
+remains inspectable.
 
 ## Finish The Review
 

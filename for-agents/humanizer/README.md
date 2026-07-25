@@ -158,7 +158,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 | 32 | **Aphorism formulas** | "Symmetry is the language of trust" | Replace the formula with the actual claim |
 | 33 | **Conversational rhetorical openers** | "Honestly? It depends..." | Remove the fake-candid setup |
 | 34 | **Question-word / fused-relative wrappers** | "state what the study learned" | "state the outcome of the study" |
-| 35 | **List sprawl** | A long list of equally weighted bullets | Use prose or group details; retain only functional lists |
+| 35 | **Loose catalogs / list sprawl** | "workshops, a library, mentoring, templates, and reports" | Name the relation, vary the syntax, or use separate claims |
 | 36 | **Relative-clause subject drift** | "Include only setup that a result needs" | "Include only the setup that is required by the result" |
 | 37 | **Readerless corporate shorthand** | "Give each section one job" | "Ensure each section performs a clear role" |
 
@@ -215,6 +215,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 ## Version History
 
+- **2.12.1** - Expanded pattern #35 to catch short catalogs of loosely related objects, not only long bullet lists. A list now needs a governing relation. The final audit rejects ordinary paragraphs with more than one list-shaped sentence and adjacent list-shaped sentences anywhere in the draft, unless the series are complete reference sets. This modified copy remains under the upstream MIT License.
 - **2.12.0** - Added pattern #37 for corporate shorthand that assigns prose jobs, ownership, or deliverables without naming its effect on the intended reader. The editing loop now checks the reader outcome directly. This modified copy remains under the upstream MIT License.
 - **2.11.0** - Added pattern #36 for object relative clauses that shift focus from the head noun to a new subject, including "setup that a result needs." The rule checks the full clause rather than locally fluent bigrams and permits passive voice when it keeps the head noun in focus. This modified copy remains under the upstream MIT License.
 - **2.10.0** - Added pattern #34 for question-word and fused-relative clause wrappers in headings and sentences, including indirect forms such as "state what the study learned." Added pattern #35 to stop rewrites from creating long, decorative lists. This modified copy remains under the upstream MIT License.

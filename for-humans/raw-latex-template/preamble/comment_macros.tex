@@ -1,0 +1,26 @@
+%% author names for color edits
+
+
+
+
+
+
+\addauthor{ms}{magenta}
+\addauthor{sbp}{orange}
+\addauthor{jz}{cyan}
+\addauthor{ag}{blue}
+\addauthor{ma}{red}
+
+%% General Comments
+
+\newcommand{\REF}{{\color{red} \textbf{REF??}}}
+\newcommand{\CITE}{{\color{red} \textbf{CITE??}}}
+\iftoggle{toreturn}
+{
+\newcommand{\RETURNN}[1]{{\color{red} [\textbf{RETURN??}#1]}}
+}
+{
+\newcommand{\RETURNN}[1]{}
+}
+\newcommand{\TODO}{\textbf{\color{red} TODO}}
+\newcommand{\ignore}[1]{}

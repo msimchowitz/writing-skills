@@ -66,6 +66,16 @@ a contribution without explicit permission.
 - Preserve factual claims, citations, notation, and format constraints during
   prose edits.
 
+## Named LaTeX artifacts
+
+- Keep each LaTeX entry point in the outermost project directory.
+- Use a stable, descriptive `<project-name>-main.tex` filename, never a generic
+  `main.tex`.
+- Compile to `build/<project-name>-main.pdf`, then copy that exact PDF to
+  `<project-name>-main.pdf` in the outermost project directory.
+- Do not finish a writing task with the canonical PDF named `main.pdf` or
+  available only under `build/`.
+
 ## Human guide changes
 
 Use `improve-human-writing-guide` for every proposed or applied change to the
@@ -75,16 +85,17 @@ Compile from `for-humans/human-writing-guide` after every meaningful source
 change:
 
 ```sh
-latexmk -g -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+latexmk -g -pdf -interaction=nonstopmode -halt-on-error \
+  -outdir=build human-writing-guide-main.tex
 ```
 
 Inspect the rendered PDF. Before finishing, publish the exact build at both
 documented top-level names:
 
 ```sh
-cp build/main.pdf main.pdf
-cp build/main.pdf writing-research-papers.pdf
-cmp -s build/main.pdf main.pdf
+cp build/human-writing-guide-main.pdf human-writing-guide-main.pdf
+cp build/human-writing-guide-main.pdf writing-research-papers.pdf
+cmp -s build/human-writing-guide-main.pdf human-writing-guide-main.pdf
 ```
 
 Do not edit generated files in `build/` by hand.

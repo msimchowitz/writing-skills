@@ -4,18 +4,20 @@
 
 These conventions apply across paper repositories. When a task concerns the
 full OGPO-derived template bundled with this repository, the human-readable
-guide in `../../../for-humans/human-writing-guide/main.pdf` documents its
-exact theorem environments, paragraph-heading toggles, semantic colors,
-algorithm-name macros, author-edit commands, title metadata, and build-mode
-caveats. Consult that chapter only for a template-specific or
-human-instruction request; this file remains the agent-facing source of
-general LaTeX project rules.
+guide in
+`../../../for-humans/human-writing-guide/human-writing-guide-main.pdf`
+documents its exact theorem environments, paragraph-heading toggles, semantic
+colors, algorithm-name macros, author-edit commands, title metadata, and
+build-mode caveats. Consult that chapter only for a template-specific or
+human-instruction request; this file remains the agent-facing source of general
+LaTeX project rules.
 
 ## Recommended Layout
 
 ```text
 paper/
-|-- main.tex
+|-- paper-main.tex
+|-- paper-main.pdf
 |-- references.bib
 |-- body/
 |   |-- abstract.tex
@@ -36,9 +38,11 @@ paper/
     `-- drafting.sty
 ```
 
-Keep `main.tex` as an orchestration file. It should define the build mode,
-title, authors, section order, bibliography, and appendix order. Put manuscript
-prose in `body/` and `appendix/`.
+Treat `paper` as a placeholder for a stable, descriptive project slug. Keep
+`<project-name>-main.tex` in the outermost project directory as an
+orchestration file. It should define the build mode, title, authors, section
+order, bibliography, and appendix order. Put manuscript prose in `body/` and
+`appendix/`.
 
 ## Use The Venue Style Correctly
 
@@ -98,7 +102,7 @@ macro fail loudly. Do not let colored edits survive by accident.
 ## Use Toggles Sparingly
 
 The corpus uses `etoolbox` toggles for arXiv and venue builds. Keep toggles near
-the top of `main.tex` and give each one a single responsibility.
+the top of the named entry point and give each one a single responsibility.
 
 Good uses:
 
@@ -116,6 +120,22 @@ Bad uses:
 - dozens of local spacing branches.
 
 Build every supported mode before release.
+
+## Publish The Named PDF
+
+Compile from the project root. For an entry point named `paper-main.tex`, use:
+
+```sh
+latexmk -pdf -interaction=nonstopmode -halt-on-error \
+  -outdir=build paper-main.tex
+cp build/paper-main.pdf paper-main.pdf
+cmp -s build/paper-main.pdf paper-main.pdf
+```
+
+Replace `paper` with the actual project slug. Keep the matching
+`<project-name>-main.pdf` in the outermost project directory. A PDF available
+only under `build/`, or published as a generic `main.pdf`, is not the final
+artifact.
 
 ## Keep Macros Semantic
 

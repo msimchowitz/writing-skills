@@ -54,6 +54,15 @@ For detection requests, use Humanizer's pattern catalog as additional evidence b
 do not run its rewrite loop. Report findings under the names used by either
 skill and follow this skill's detection output.
 
+## Cover every README
+
+When a writing skill creates or edits README prose, route every README in that
+task's scope through this Humanizer-first pipeline. Run Humanizer in embedded
+mode on each complete README, then apply this skill's house style and
+evaluation checklist to each file. Do not use one README as a sample or skip a
+secondary README. Preserve code blocks, commands, tables, link targets, and
+functional checklists. Do not expand the task to unrelated READMEs.
+
 ## Editing principles
 
 - **Preserve the writer's real voice.** Notice the draft's vocabulary, cadence,
@@ -176,12 +185,26 @@ sentence. State the actual question, inference, evidence, decision, or action
 supported by the passage. Keep corporate terms when the subject is an actual
 organization and technical ownership when it identifies a real authority.
 
-**List-packed sentences.** Do not use a comma-separated series as a substitute
-for stating the relationship between ideas. When prose strings together three or more
-abstract nouns, claims, reasons, or examples, keep the list only when the set
-is itself important. Otherwise choose the decisive item, group items by their
-relation to the claim, or split the sentence. Preserve complete taxonomies,
-assumptions, checklists, and experimental axes.
+**Loose catalogs and list-packed sentences.** Require every series to have a
+governing relation that the reader can name. Flag loosely related objects even
+when each noun is concrete, the grammar is parallel, and the list has only
+three items. Keep the series only when its items form a meaningful set and the
+whole set matters in this passage. Otherwise choose the decisive item, group
+items under an explicit relation, or state their different roles in separate
+clauses or sentences. Do not disguise an arbitrary catalog by trimming it to
+three items or moving it between bullets and commas. Scan neighboring
+sentences too. If several use the same "X includes A and B" frame, recast some
+around actions or relationships so list syntax does not become the paragraph's
+only rhythm. Treat an ordinary prose paragraph with more than one sentence
+built around a series of three or more items as unfinished. Keep that pattern
+only when each series is a complete reference set that readers must scan or
+count. Never leave two list-shaped sentences adjacent, even across a paragraph
+break; a new paragraph does not create variation by itself. Otherwise let a
+non-list sentence carry the main point and redistribute the details into
+examples or separate claims. Add sentences when needed to preserve every
+source detail without preserving catalog rhythm. Preserve complete taxonomies
+and checklists. A procedure should also remain intact, as should explicitly
+stated assumptions or experimental axes.
 
 **Synonym cycling.** Repeat the clear term instead of rotating synonyms merely
 for style.
@@ -206,10 +229,11 @@ final paragraphs that merely restate the piece.
 **Formatting slop.** Remove emoji headings, decorative bold, bullet lists that
 should be prose, and headings over tiny sections.
 
-**List sprawl.** Do not introduce a list longer than five items during an edit.
-Use prose for connected ideas and group details before listing them. Preserve
-complete procedures, checklists, taxonomies, and option sets when readers need
-every item.
+**List sprawl.** Do not introduce a vertical list longer than five items during
+an edit. Group related details before listing them, and use prose when the
+items form an argument rather than a reference set. Preserve a complete
+procedure or checklist when readers need every step. Keep taxonomies and
+option sets intact for scanning.
 
 **Em dashes.** Do not use them as a default rhythm device. Use none in short
 copy and at most one or two in longer drafts when they clearly beat punctuation
@@ -222,7 +246,8 @@ alternatives.
    signals to preserve. Keep this note internal.
 3. For detection, read Humanizer for its pattern catalog, return the named
    findings with quoted lines and short fixes, then stop.
-4. For editing, run Humanizer in embedded mode.
+4. For editing, run Humanizer in embedded mode. Apply the README coverage rule
+   above to every README in scope.
 5. Compare that pass with the source and restore any lost fact, distinction, or
    voice signal.
 6. Make the minimum effective house-style edit.

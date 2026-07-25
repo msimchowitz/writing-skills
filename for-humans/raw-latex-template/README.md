@@ -1,7 +1,10 @@
 # Raw LaTeX template
 
-This directory is a standalone research-paper starter for people. It contains
-no writing-guide text and is not an agent skill.
+This standalone research-paper starter contains the LaTeX template without the
+writing guide. It is for people and is not an agent skill. Its entry point,
+preamble include graph, typography, title card, theorem styles, semantic
+colors, reference commands, algorithms, and drafting machinery mirror the
+human writing guide.
 
 ## Start a paper
 
@@ -12,17 +15,30 @@ cp -R for-humans/raw-latex-template ../my-paper
 cd ../my-paper
 ```
 
-Update the title and authors in `main.tex`, then replace the prompts in `body/`
-and `appendix/`. Keep paper-specific notation and method names in
-`preamble/commands.tex`. Add entries to `references.bib` and uncomment the two
-bibliography lines in `main.tex` when the paper has citations.
+The editable entry point is the top-level `latex-template-main.tex`. Update its
+title, running header, authors, and metadata, then replace the prompts in
+`body/` and `appendix/`. The preamble enters through
+`preamble/_preamble_includes.tex`.
+
+The inherited `preamble/specific_macros.tex` and `preamble/algnames.tex` show
+the paper-owned notation and method-name layers from the guide. Replace those
+definitions for a new paper and remove unused aliases. Keep the other preamble
+files when the new paper should retain the guide's visual conventions. For a
+paper with citations, add entries to `references.bib` and uncomment the two
+bibliography lines in `latex-template-main.tex`.
 
 Build the paper with:
 
 ```sh
-latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+latexmk -g -pdf -interaction=nonstopmode -halt-on-error \
+  -outdir=build latex-template-main.tex
+cp build/latex-template-main.pdf latex-template-main.pdf
+cmp -s build/latex-template-main.pdf latex-template-main.pdf
 ```
 
-The PDF is written to `build/main.pdf`. Add an unmodified venue package before
-`preamble/project-style` in `main.tex` when preparing a conference submission.
-Uncomment `preamble/drafting` only while author comments are needed.
+The canonical PDF is `latex-template-main.pdf` in this outermost directory.
+The matching build copy remains at `build/latex-template-main.pdf`. The default
+`arxiv` and `customthms` toggles produce the same public visual system as the
+guide. The false `arxiv` branch is a venue hook, not a complete standalone
+style; load the unmodified venue package before the preamble includes and test
+that mode separately.

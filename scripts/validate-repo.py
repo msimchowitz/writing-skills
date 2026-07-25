@@ -448,6 +448,70 @@ def validate_text_files(root, report):
                     )
 
 
+def validate_named_latex_artifacts(root, report):
+    for generic_name in ("main.tex", "main.pdf"):
+        for path in root.rglob(generic_name):
+            if ".git" not in path.parts:
+                report.error(
+                    relative(path, root),
+                    f"generic LaTeX artifact name; use <project-name>-{generic_name}",
+                )
+
+    humans_root = root / "for-humans"
+    if not humans_root.is_dir():
+        return
+
+    for project in sorted(path for path in humans_root.iterdir() if path.is_dir()):
+        if not any(
+            "build" not in path.parts and ".git" not in path.parts
+            for path in project.rglob("*.tex")
+        ):
+            continue
+
+        entries = sorted(project.glob("*-main.tex"))
+        if not entries:
+            report.error(
+                relative(project, root),
+                "LaTeX project requires a named top-level *-main.tex entry point",
+            )
+            continue
+        if len(entries) > 1:
+            names = ", ".join(path.name for path in entries)
+            report.error(
+                relative(project, root),
+                f"LaTeX project has multiple top-level entry points: {names}",
+            )
+
+        for entry in entries:
+            published_pdf = entry.with_suffix(".pdf")
+            build_pdf = project / "build" / published_pdf.name
+            if not published_pdf.is_file():
+                report.error(
+                    relative(published_pdf, root),
+                    "missing named top-level PDF",
+                )
+            if build_pdf.is_file() and published_pdf.is_file():
+                if not filecmp.cmp(build_pdf, published_pdf, shallow=False):
+                    report.error(
+                        relative(published_pdf, root),
+                        "named top-level PDF is stale relative to its build",
+                    )
+
+    skeleton_entry = (
+        root
+        / "for-agents"
+        / "paper-writing"
+        / "assets"
+        / "latex-paper-skeleton"
+        / "paper-main.tex"
+    )
+    if not skeleton_entry.is_file():
+        report.error(
+            relative(skeleton_entry, root),
+            "missing named LaTeX paper-skeleton entry point",
+        )
+
+
 def validate_human_guide(root, report):
     humans_root = root / "for-humans"
     guide = humans_root / "human-writing-guide"
@@ -465,8 +529,10 @@ def validate_human_guide(root, report):
     required_template_files = (
         ".gitignore",
         "README.md",
-        "main.tex",
+        "latex-template-main.tex",
+        "latex-template-main.pdf",
         "references.bib",
+        "body/overview.tex",
         "body/abstract.tex",
         "body/introduction.tex",
         "body/preliminaries.tex",
@@ -475,9 +541,20 @@ def validate_human_guide(root, report):
         "body/related-work.tex",
         "body/discussion.tex",
         "appendix/reproducibility.tex",
-        "preamble/commands.tex",
-        "preamble/drafting.sty",
-        "preamble/project-style.sty",
+        "preamble/_preamble_includes.tex",
+        "preamble/algnames.tex",
+        "preamble/arxiv_title.tex",
+        "preamble/characters.tex",
+        "preamble/color-edits.sty",
+        "preamble/color_defs.tex",
+        "preamble/comment_macros.tex",
+        "preamble/general_macros.tex",
+        "preamble/header.tex",
+        "preamble/specific_macros.tex",
+        "preamble/theorem_styles.tex",
+        "logos/github.pdf",
+        "logos/hf.pdf",
+        "logos/logo.pdf",
         "figures/.gitkeep",
     )
     if not template.is_dir():
@@ -489,6 +566,14 @@ def validate_human_guide(root, report):
                 report.error(
                     relative(path, root),
                     "missing raw LaTeX template file",
+                )
+        template_pdf = template / "latex-template-main.pdf"
+        template_build_pdf = template / "build" / "latex-template-main.pdf"
+        if template_pdf.is_file() and template_build_pdf.is_file():
+            if not filecmp.cmp(template_pdf, template_build_pdf, shallow=False):
+                report.error(
+                    relative(template_pdf, root),
+                    "published template PDF is stale relative to its build",
                 )
 
     if not guide.is_dir():
@@ -503,10 +588,15 @@ def validate_human_guide(root, report):
             relative(guide / "README.md", root),
             "the human guide requires its boundary and build instructions",
         )
+    if not (guide / "human-writing-guide-main.tex").is_file():
+        report.error(
+            relative(guide / "human-writing-guide-main.tex", root),
+            "missing named human-guide entry point",
+        )
 
-    main_pdf = guide / "main.pdf"
+    main_pdf = guide / "human-writing-guide-main.pdf"
     alias_pdf = guide / "writing-research-papers.pdf"
-    build_pdf = guide / "build" / "main.pdf"
+    build_pdf = guide / "build" / "human-writing-guide-main.pdf"
 
     if not main_pdf.is_file():
         report.error(relative(main_pdf, root), "missing canonical human-guide PDF")
@@ -516,13 +606,13 @@ def validate_human_guide(root, report):
         if not filecmp.cmp(main_pdf, alias_pdf, shallow=False):
             report.error(
                 relative(alias_pdf, root),
-                "descriptive PDF does not match main.pdf",
+                "descriptive PDF does not match the canonical guide PDF",
             )
     if build_pdf.is_file() and main_pdf.is_file():
         if not filecmp.cmp(build_pdf, main_pdf, shallow=False):
             report.error(
                 relative(main_pdf, root),
-                "main.pdf is stale relative to build/main.pdf",
+                "canonical guide PDF is stale relative to its build",
             )
 
 
@@ -566,6 +656,7 @@ def validate_repository(root):
         validate_placeholders(skill_dir, root, report)
 
     validate_text_files(root, report)
+    validate_named_latex_artifacts(root, report)
     validate_human_guide(root, report)
     return report, len(skills)
 

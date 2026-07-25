@@ -15,7 +15,7 @@ and its focused references. When the user asks how to use the bundled
 OGPO-derived LaTeX template, wants material for teaching or onboarding, or
 asks for a human-readable explanation, consult or point them to the relevant
 part of the
-[human guide](../../for-humans/human-writing-guide/main.pdf). If
+[human guide](../../for-humans/human-writing-guide/human-writing-guide-main.pdf). If
 that companion is not present in an installed copy, continue with this
 skill's bundled references. Never route to the guide as though it were a
 skill.
@@ -42,10 +42,12 @@ skill.
   For the exact theorem environments, heading toggles, algorithm-name macros,
   revision colors, title metadata, and other conventions in the bundled
   OGPO-derived template, also consult the template chapter in the
-  [human guide](../../for-humans/human-writing-guide/main.pdf) when
+  [human guide](../../for-humans/human-writing-guide/human-writing-guide-main.pdf) when
   it is present.
   Copy [latex-paper-skeleton](assets/latex-paper-skeleton) only when creating a
-  new LaTeX project; adapt an existing repository in place otherwise.
+  new LaTeX project. Rename its `paper-main.tex` entry point to a stable,
+  descriptive `<project-name>-main.tex` before drafting. Adapt an existing
+  repository in place otherwise.
 
 ## Resolve Optional Example Papers
 

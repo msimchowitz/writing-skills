@@ -1,0 +1,158 @@
+%!TEX root = ../human-vs-agent-writing-main.tex
+
+%% Fonts
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+\usepackage{wrapfig}
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+% \DeclareFontShape{T1}{pcr}{bx}{n}{<->ssub * pcr/b/n}{}
+% \DeclareFontShape{T1}{pcr}{bx}{sl}{<->ssub * pcr/b/sl}{}
+% \DeclareFontShape{T1}{pcr}{bx}{it}{<->ssub * pcr/b/sl}{}
+\usepackage{capt-of}
+\usepackage[font=small,labelfont=bf]{caption}
+% \documentclass{article}
+\usepackage{tocloft}
+
+%% Table of Contents
+% \usepackage{bold-extra}
+\newcommand{\nonumsection}[1]{\section*{#1}%
+\addcontentsline{toc}{section}{#1}}
+\newcommand{\nonumpart}[1]{\part*{#1}
+\addcontentsline{toc}{part}{#1}}
+
+%% Basic Packages
+
+\usepackage{natbib}
+\usepackage{amssymb,upgreek,bm}
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage{multirow,tcolorbox,tikz-cd,turnstile,xspace,xparse}
+\usepackage{relsize,breakcites,appendix}
+\usepackage{longtable,tablefootnote,booktabs,float,makecell}
+\usepackage[normalem]{ulem}
+\usepackage{tabu}
+\usepackage[shortlabels]{enumitem}
+\usepackage{footnote}
+\usepackage{boxedminipage}
+\usepackage{multirow,nicefrac}
+\usepackage{verbatim} % gives the comment environment
+\usepackage{pifont}   % For \ding{51} (check) and \ding{55} (cross)
+\usepackage[utf8]{inputenc}
+\usepackage{arydshln}
+
+
+\usepackage[colorlinks=true,linkcolor=\linkcolor,urlcolor=\urlcolor,citecolor=\citecolor,breaklinks]{hyperref}
+
+%% load after hyperref
+\usepackage{prettyref}
+\newcommand{\pref}[1]{\prettyref{#1}}
+\usepackage[capitalise,nameinlink]{cleveref}
+
+\Crefname{table}{Table}{Tables}
+\AddToHook{cmd/appendix/before}{%
+    \crefalias{section}{appendix}%
+    \crefalias{subsection}{appendix}
+}
+%For non-COLT papers, we add in theorem commands
+\iftoggle{colt}{
+    \DeclareRobustCommand{\qed}{
+    %
+        \usepackage{thmtools}
+          \ifmmode \mathqed
+          \else
+            \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+            \quad\hbox{\qedsymbol}%
+          \fi
+    }
+}
+{
+    \usepackage{amsthm}
+
+}
+\usepackage{thm-restate}
+
+
+%% ArXiv formatting
+
+\iftoggle{arxiv}
+{
+    \usepackage{mathrsfs}
+
+    \usepackage[
+  letterpaper,
+  left=1in,
+  right=1in,
+  top=0.9in,
+  bottom=0.9in,
+  headheight=14pt,
+  headsep=14pt,
+  footskip=20pt
+]{geometry}
+
+\usepackage{fancyhdr}
+\usepackage{lipsum} % just for dummy text
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small \thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+    \usepackage[bitstream-charter]{mathdesign}
+    \let\circledS\undefined
+    \usepackage[scaled=0.92]{PTSans}
+
+    \usepackage{caption}
+    \usepackage{subcaption}
+
+
+
+    \renewcommand\theadalign{bc}
+    \renewcommand\theadfont{\bfseries}
+    \renewcommand\theadgape{\Gape[4pt]}
+    \renewcommand\cellgape{\Gape[4pt]}
+    %\usepackage{fullpage}
+    \usepackage{algorithm}
+    \usepackage{algorithmic}
+    % \usepackage[noend]{algpseudocode}
+    % \usepackage{algorithm}
+    % \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+}
+{
+    \usepackage{mathrsfs}
+    % \usepackage{algorithm}
+    \usepackage{eqparbox}
+    % \usepackage[noend]{algpseudocode}
+}
+
+\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{n}
+
+\numberwithin{equation}{section}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+%formatting
+\iftoggle{arxiv}
+{
+    \newcommand{\colorbold}[1]{
+    \textbf{\textcolor{\thmcolor}{#1}}}}
+{
+    \newcommand{\colorbold}[1]{\textbf{#1}
+}
+}
+\iftoggle{arxiv}
+{
+    \newcommand{\colorpar}[1]{
+    \paragraph{\textcolor{\thmcolor}{#1}}}
+}
+{
+    \newcommand{\colorpar}[1]{\paragraph{#1}}
+}
+% \usepackage{pdfpages}
+
+
+% \iftoggle{arxiv}
+% {
+% \newcommand{\beginquote}{{}{\vspace{-3pt}\begin{quote}}}
+% \newcommand{\endquote}{{}{\end{quote}}\vspace{-3pt}}}{}

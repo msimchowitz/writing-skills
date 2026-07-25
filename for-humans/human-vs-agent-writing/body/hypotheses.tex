@@ -1,0 +1,97 @@
+\section{Possible causes of agent-like prose}
+\label{sec:hypotheses}
+
+Patterns describe an output; they do not reveal its cause. A deployed language
+agent may combine pretraining, post-training, system instructions, decoding,
+retrieval, and tools. Any of these may affect the prose. The ideas below are
+starting points for experiments, and several may be true at once.
+
+\subsection{Local prediction can outrun global structure}
+
+During pretraining, a language model learns next-token prediction (NTP). This
+rewards a continuation that fits the immediate context. Later training changes
+the model's behavior, but familiar phrases and smooth word pairs may still win
+even when the paragraph needs a different construction.
+
+The phrase ``result needs'' illustrates the possibility. It is locally fluent,
+yet the full relative clause should keep ``setup'' in focus. The same pressure
+might contribute to stock transitions and repeated rhetorical frames.
+Penalties against repetition could create the opposite surface effect:
+synonym cycling.
+
+If local prediction is part of the cause, agent prose should make more
+long-range focus errors than local grammar errors. One test would compare the
+same model on sentence and paragraph edits, then repeat the paragraph task
+with a required outline. The comparison should track factual preservation,
+head-noun focus, and the relation between paragraph openings and conclusions.
+
+\subsection{A generic reader produces generic prose}
+
+A prompt names a task, but it may not give the model a stable picture of the
+person using the answer. Generic helpfulness can fill the gap. The prose
+explains broadly, announces transitions, and calls something ``important''
+without selecting the consequence that matters.
+
+Readerless corporate shorthand fits this account. ``Give each section one
+job'' travels easily from one document to another. ``Ensure each section helps
+a reviewer answer one question'' depends on a particular reader and task.
+
+This hypothesis predicts that a concrete audience will change the choice of
+detail. Compare a generic request with one that fixes the reader's prior
+knowledge, decision, and reading conditions. Keep the subject and length
+constant, then ask members of that audience to rate each version's support for
+the stated use.
+
+\subsection{Mixed training data pulls toward a middle register}
+
+Training data spans many genres, institutions, eras, and levels of quality.
+Without a strong voice cue, a model may settle on language that is acceptable
+across much of that mixture: common evaluative words, regular paragraphs, and
+few risky specifics.
+
+Code, API documentation, issue trackers, and technical manuals may add another
+influence. Those sources favor modular headings, explicit labels, edge cases,
+and procedural verbs. Carried into an essay, these habits can produce tiny
+sections and prose that resembles an interface. This is a proposal about
+transfer from coding data, not a claim that technical documentation makes
+writing worse.
+
+Style examples offer a simple test. Compare output with no sample, one human
+sample, and several samples from the same genre. A separate comparison across
+models with different documented training emphases could test the
+coding-transfer account.
+
+\subsection{Post-training rewards visible helpfulness}
+
+Instruction tuning and preference optimization may reward answers that look
+complete and cooperative. Headings, long lists, recaps, balanced caveats, and
+offers to continue make effort easy to see. They can be useful in a chat and
+awkward in a finished document.
+
+These incentives may also reward automatic agreement. ``Great question'' and
+``You're absolutely right'' preserve rapport without testing the claim.
+Stacked hedges can sound cautious while hiding the uncertainty that matters.
+
+Compare a base model and an instruction-tuned model from the same family on
+the same continuation task. Then ask for a finished document rather than a
+reply to the user. A drop in chat residue or decorative organization would
+support this account.
+
+\subsection{Pressure to answer invites guessing}
+
+Sometimes the prompt and sources do not contain the needed fact, but the agent
+is still expected to answer. Vague attribution and plausible gap-filling let
+the prose continue. The model may even turn the absence of evidence into a
+familiar story.
+
+Retrieval and permission to answer ``unknown'' should reduce this behavior if
+completion pressure is responsible. A useful test would ask matched questions
+with and without retrieval, allow abstention in one condition, and audit every
+factual claim against the supplied evidence. Fluency should receive no credit
+in that audit.
+
+These explanations may overlap. Local prediction might supply a familiar
+phrase, mixed training data might make it generic, and post-training might put
+it in a helpful-looking list. A weak reader model could then leave irrelevant
+items in place. An experiment should change one factor at a time and measure a
+specific language outcome.

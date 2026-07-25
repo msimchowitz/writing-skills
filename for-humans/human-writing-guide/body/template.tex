@@ -10,7 +10,7 @@ starting a new paper.
 
 Begin with a clean copy of the project. Replace the files in \path{body/} and
 \path{appendix/}, clear the bibliography, and update the title block in
-\path{main.tex}. Then remove unused definitions from
+\path{latex-template-main.tex}. Then remove unused definitions from
 \path{specific_macros.tex} and \path{algnames.tex}. A copied macro that never
 appears in the new paper is not harmless: it makes collisions and stale
 terminology harder to find.
@@ -125,7 +125,7 @@ theorem system.
 
 \subsection{Choose build toggles by their effect}
 
-The toggles appear near the top of \texttt{main.tex}:
+The toggles appear near the top of \texttt{latex-template-main.tex}:
 
 \begin{verbatim}
 \newtoggle{arxiv}

@@ -1,4 +1,4 @@
 interface:
   display_name: "Improve Human Writing Guide"
   short_description: "Create and revise human-facing writing guides"
-  default_prompt: "Use $improve-human-writing-guide to revise the human writing guide and rebuild its top-level main.pdf."
+  default_prompt: "Use $improve-human-writing-guide to revise the human writing guide and rebuild its named top-level PDF."

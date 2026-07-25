@@ -1,16 +1,16 @@
 # Writing Skills
 
-This repository contains reusable writing skills for agents, a research-paper
-guide for people, and a standalone LaTeX starter. It is designed to be shared
-within a lab: students can install the skills from their own copy, edit that
-copy, and validate changes without depending on one person's directory layout.
+This repository is the lab's shared home for writing tools. Agents can load its
+reusable skills. Lab members can also read the research-writing guides or start
+a paper from the standalone LaTeX template.
 
-The repository separates its audiences:
+Each lab member works from their own copy, so they can edit and validate the
+skills without relying on one person's directory layout.
 
-- `for-agents/` contains every installable skill.
-- `for-humans/` contains finished guides, editable source, and a raw LaTeX
-  template.
-- Repository documentation and maintenance scripts remain at the top level.
+The layout keeps agent instructions separate from material written for people.
+Every installable skill lives in `for-agents/`. Finished guides and their
+editable source live in `for-humans/`, alongside the raw LaTeX template.
+Repository documentation and maintenance scripts remain at the top level.
 
 ## Quick start
 
@@ -23,9 +23,9 @@ python3 scripts/install-skills.py
 ```
 
 The installer links every skill into
-`${CODEX_HOME:-$HOME/.codex}/skills`. Linking is the default because edits in
-this repository then take effect in the installed skills. Restart the agent
-after the first installation so it can discover them.
+`${CODEX_HOME:-$HOME/.codex}/skills`. Edits in this repository then take
+effect in the installed skills. Restart the agent after the first installation
+so it can discover them.
 
 The installer never replaces an existing destination. Resolve any reported
 conflict yourself, then run it again. To install a snapshot instead of links,
@@ -35,8 +35,8 @@ or to target another agent's skill directory, use:
 python3 scripts/install-skills.py --copy --dest /path/to/skills
 ```
 
-You can name one or more skills after the command. Referenced sibling skills
-are included automatically:
+You can name one or more skills after the command. The installer includes
+referenced sibling skills automatically:
 
 ```sh
 python3 scripts/install-skills.py paper-writing grant-planning
@@ -49,11 +49,12 @@ Run `python3 scripts/install-skills.py --list` for the discovered names.
 | Skill | Purpose |
 | --- | --- |
 | [`writing`](for-agents/writing/SKILL.md) | Route a writing task to the smallest relevant skill. |
-| [`general-writing`](for-agents/general-writing/SKILL.md) | Edit for clarity, directness, cadence, and personal voice. |
+| [`general-writing`](for-agents/general-writing/SKILL.md) | Edit for clarity and natural cadence without flattening the writer's voice. |
 | [`humanizer`](for-agents/humanizer/SKILL.md) | Detect and remove broad AI-writing patterns. |
 | [`prompt-improving`](for-agents/prompt-improving/SKILL.md) | Clarify a prompt while preserving the user's prompting style. |
 | [`presentation-making`](for-agents/presentation-making/SKILL.md) | Plan, create, and visually review presentations. |
 | [`rebuttal-writing`](for-agents/rebuttal-writing/SKILL.md) | Draft concise, evidence-led responses to reviewers. |
+| [`literature-review`](for-agents/literature-review/SKILL.md) | Research and verify source-grounded literature reviews and surveys. |
 | [`paper-writing`](for-agents/paper-writing/SKILL.md) | Plan and revise technical research papers. |
 | [`grant-planning`](for-agents/grant-planning/SKILL.md) | Develop and compare grant stories before drafting. |
 | [`grant-writing`](for-agents/grant-writing/SKILL.md) | Draft motivated proposals for nonprofit or company sponsors. |
@@ -69,26 +70,34 @@ The repository includes distilled lessons from the lab's example papers and
 grants, but not the private source corpus. A student can use every skill without
 those files.
 
-When original examples would help, `paper-writing` or `grant-writing` uses a
-directory supplied in the request. If none was supplied, the skill asks where
-the relevant example folder lives; answer `none` to use only the bundled
-analysis. The path may name the corpus directory itself or a parent containing
-`example-papers` or `example grants`.
+`paper-writing` and `grant-writing` use an example directory named in the
+request. Without one, the skill asks for the relevant folder; answer `none` to
+use only the bundled analysis. The path may name the corpus itself or a parent
+containing `example-papers` or `example grants`.
 
-The skills do not infer an example location from the repository layout. Keep
-private proposals, downloaded arXiv trees, and large local corpora outside this
-repository.
+The skills do not infer an example location from the repository layout.
+Private proposals belong elsewhere, as do downloaded arXiv trees. Keep any
+large local corpus outside this repository too.
 
 ## For people
 
-[`human-writing-guide`](for-humans/human-writing-guide/README.md)
-is a LaTeX project and finished PDF for people. It is intentionally not an
-agent skill and must not contain a `SKILL.md`. Its README documents the build
-and publication workflow.
+[`human-writing-guide`](for-humans/human-writing-guide/README.md) is an
+editable LaTeX guide to research-paper writing with a finished PDF.
 
-[`raw-latex-template`](for-humans/raw-latex-template/README.md) is a clean,
-standalone paper project with modular section files, semantic macros, and
-optional drafting comments. Copy the directory to start a new paper.
+[`human-vs-agent-writing`](for-humans/human-vs-agent-writing/README.md)
+explains recurring differences between reader-centered prose and agent-like
+defaults. Its pattern map connects practical revision advice to testable
+hypotheses.
+
+[`raw-latex-template`](for-humans/raw-latex-template/README.md) is a
+standalone paper project. Copy the directory to begin a draft. The project
+splits a paper into modular section files and uses semantic macros. Writers can
+turn on drafting comments when they need them.
+
+These projects are for people and contain no `SKILL.md`. Each README documents
+its build and publication workflow. Every LaTeX project keeps a descriptive
+`*-main.tex` entry point and matching `*-main.pdf` in its outermost directory;
+the `build/` copy is not the published artifact.
 
 ## Improving the skills
 
@@ -100,12 +109,13 @@ the validator before and after an edit:
 python3 scripts/validate-repo.py
 ```
 
-The validator checks skill metadata, local links, portable paths, instruction
-size, the human-facing template, and the published human-guide PDF.
+For skills, the validator checks metadata, instruction size, and local links;
+it also rejects machine-specific paths. For the human-facing projects, it
+checks the template and the published guide PDF.
 
 ## License and acknowledgments
 
 This repository is released under the [MIT License](LICENSE). Components that
 include their own MIT license notices retain those notices and copyright
-statements. See [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) for the projects and
-communities this work builds on.
+statements. This work draws on the projects and communities named in
+[ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md).

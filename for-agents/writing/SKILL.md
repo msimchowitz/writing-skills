@@ -1,6 +1,6 @@
 ---
 name: writing
-description: Route writing and editing work to the smallest relevant focused skill. Use when a request involves improving prompts, general prose, AI-pattern removal, human-readable writing guides, presentations, reviewer rebuttals, research papers, grant strategy, or grant proposals and no narrower writing skill has already been selected.
+description: Route writing and editing work to the smallest relevant focused skill. Use when a request involves improving prompts, general prose, AI-pattern removal, human-readable writing guides, presentations, reviewer rebuttals, literature reviews, research papers, grant strategy, or grant proposals and no narrower writing skill has already been selected.
 ---
 
 # Writing Router
@@ -24,6 +24,7 @@ that skill before acting. Keep unrelated writing guidance out of context.
 | Create, revise, compile, or review a human-readable writing guide or its PDF | `../improve-human-writing-guide/SKILL.md` |
 | Plan, create, revise, or review slides, speaker notes, PowerPoint, Keynote, or Beamer decks | `../presentation-making/SKILL.md` |
 | Answer reviewer comments or write a response letter, author response, or point-by-point rebuttal | `../rebuttal-writing/SKILL.md` |
+| Research, structure, draft, or verify a literature review, survey, evidence map, or related-work synthesis | `../literature-review/SKILL.md` |
 | Plan, draft, or revise a research paper, abstract, introduction, related work, methods, results, or conclusion | `../paper-writing/SKILL.md` |
 | Ideate, compare, reframe, or select grant stories, concept notes, scientific questions, team strategy, feasibility, or scope before application drafting | `../grant-planning/SKILL.md` |
 | Draft or revise grant or fellowship application prose, including aims, significance, approach, impact, broader impacts, and sponsor responses | `../grant-writing/SKILL.md` |

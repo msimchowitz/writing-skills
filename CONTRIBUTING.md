@@ -96,9 +96,14 @@ When extracting a convention:
 
 The human guide is not a skill. Keep agent procedures in
 `for-agents/improve-human-writing-guide` and natural instructions in
-`for-humans/human-writing-guide`. After a guide change, compile and
-inspect every page, then copy `build/main.pdf` to both `main.pdf` and
-`writing-research-papers.pdf`.
+`for-humans/human-writing-guide`. After a guide change, compile and inspect
+every page, then copy `build/human-writing-guide-main.pdf` to both
+`human-writing-guide-main.pdf` and `writing-research-papers.pdf`.
+
+For every LaTeX writing project, keep a descriptive `<project-name>-main.tex`
+entry point at the project root and publish the matching
+`<project-name>-main.pdf` there after a successful build. Do not use
+`main.tex` or `main.pdf` as canonical artifact names.
 
 ## Before review
 
