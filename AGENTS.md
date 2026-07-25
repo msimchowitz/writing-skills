@@ -66,8 +66,11 @@ private corpus content into a contribution without explicit permission.
 
 ## Human guide changes
 
-Use `improve-human-writing-guide` for guide work. Compile from
-`for-humans/human-writing-guide` after every meaningful source change:
+Use `improve-human-writing-guide` for every proposed or applied change to the
+human guide. Its prose workflow is mandatory: run Humanizer in embedded mode,
+then `general-writing` and its evaluation checklist before finalizing wording.
+Compile from `for-humans/human-writing-guide` after every meaningful source
+change:
 
 ```sh
 latexmk -g -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex

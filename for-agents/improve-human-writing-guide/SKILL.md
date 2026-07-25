@@ -41,6 +41,8 @@ request to create, revise, compile, or review that human-readable guide.
   companion relationship does not turn the guide into a skill.
 - Store reusable agent workflow in this skill. Translate the substantive
   advice into natural prose for the guide.
+- Treat suggested wording as guide work even when no file changes. Run the
+  ordered Humanizer and general-writing passes before returning it.
 
 ## Revise From Evidence
 

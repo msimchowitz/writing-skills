@@ -6,8 +6,8 @@ reported value intact. Preserve the notation, citations, and stated
 uncertainty. Do not make a sentence cleaner by deleting the fact that limits
 it.
 
-All examples in this section are schematic. Their theorem conditions, task
-names, and reported values are invented to demonstrate an editing decision.
+The examples below are schematic. Their theorem conditions, task names, and
+numbers are invented; each pair isolates one editing choice.
 
 \subsection{Check the source before strengthening prose}
 
@@ -22,10 +22,10 @@ theorem condition and quantitative result. Mark a missing citation, fact, or
 control for the authors. Words cannot replace the missing evidence.
 
 \begin{quote}
-\textbf{Too broad:} Theorem~3 shows that action chunking prevents compounding
+\textbf{Overstated:} Theorem~3 shows that action chunking prevents compounding
 error.
 
-\textbf{Faithful:} Under open-loop stability and bounded disturbances,
+\textbf{What Theorem~3 establishes:} Under open-loop stability and bounded disturbances,
 Theorem~3 bounds rollout error for horizons up to $H$.
 \end{quote}
 
@@ -42,10 +42,10 @@ introduction may mean the paper's contribution hierarchy is wrong. Repair the
 hierarchy before polishing sentences.
 
 \begin{quote}
-\textbf{Unsupported promise:} Method A consistently outperforms prior methods
+\textbf{Unsupported:} Method A consistently outperforms prior methods
 across diverse environments.
 
-\textbf{Promise matched to evidence:} At 100{,}000 interactions, Method A
+\textbf{Supported by Figure~2:} At 100{,}000 interactions, Method A
 improves mean return over Method B on two of three simulated locomotion tasks
 and matches it on the third (Figure~2).
 \end{quote}
@@ -62,9 +62,10 @@ They can identify the regime boundary, reveal sensitivity, or reject an
 explanation. Do not hide them in vague limitation language.
 
 \begin{quote}
-\textbf{Incomplete:} Method A improves success by eight percentage points.
+\textbf{Missing comparison details:} Method A improves success by eight
+percentage points.
 
-\textbf{Reconstructable:} Compared with Method B on Task Q, Method A raises
+\textbf{With comparison details:} Compared with Method B on Task Q, Method A raises
 mean success from 68\% to 76\% over 20 evaluation seeds. Both methods use
 100{,}000 environment interactions and the same initialization distribution.
 \end{quote}
@@ -80,11 +81,11 @@ claim where it first appears. Readers should not need to reach the final page
 to learn that the central result holds only in one setting.
 
 \begin{quote}
-\textbf{Limit buried later:} The method is robust to distribution shift. The
+\textbf{Qualified too late:} The method is robust to distribution shift. The
 limitations section later reveals that the tests changed only image texture
 in simulation.
 
-\textbf{Limit in the claim:} The method maintains its success rate under the
+\textbf{Qualified up front:} The method maintains its success rate under the
 simulated texture shifts tested here. Robustness to dynamics shifts and
 real-world observations remains unknown.
 \end{quote}
