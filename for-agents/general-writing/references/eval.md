@@ -26,7 +26,9 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
 1. Does every sentence give the intended reader a needed claim, condition,
    example, transition, or moment of voice?
 2. Are concrete facts and useful details preserved?
-3. Are verbs direct and agents clear where possible?
+3. Are verbs direct and agents clear where possible? Do process nouns such as
+   review, analysis, or evaluation imply an unnamed actor or an event the
+   source never established?
 4. Are unsupported abstractions replaced only when the draft supplies the
    needed specifics?
 5. Can each subject literally or technically perform its verb, and does the

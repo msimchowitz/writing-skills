@@ -55,6 +55,7 @@ relation from context before borrowing a repair.
 | "the data want a larger model" | A diagnostic or comparison supports the choice. | "validation error continues to decrease as model size increases" |
 | "the benchmark captures robustness" | A benchmark measures specified behavior under stated perturbations. | "the benchmark measures performance under lighting and viewpoint shifts" |
 | "the method treats uncertainty like noise" | "Treats" can hide the implemented operation. | "the method models uncertainty as additive noise" |
+| "semantic sloppiness survives grammatical review" | The wording implies an unspecified reviewer and a review event. The intended contrast is between grammar and semantic precision in agent output. | "Agents can produce grammatically correct sentences while remaining imprecise about semantic relations." |
 
 ## Accepted shorthand
 

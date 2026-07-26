@@ -1,6 +1,6 @@
 ---
 name: better-usage
-description: Diagnose and repair semantically mismatched word combinations while preserving the intended claim. Use when prose is grammatical but a verb does not literally fit its subject or object, a claim or section is given an action it cannot perform, an abstract relation is hidden by vague personification, or replacing one verb still leaves a sloppy relation that needs an intermediate noun.
+description: Diagnose and repair semantically mismatched word combinations while preserving the intended claim. Use when prose is grammatical but a verb does not literally fit its subject or object, a claim or section is given an action it cannot perform, an abstract relation is hidden by vague personification, an abstract process hides the actor or implies a review that the source does not establish, or replacing one verb still leaves a sloppy relation that needs an intermediate noun.
 ---
 
 # Better Usage
@@ -25,6 +25,8 @@ examples as a curated diagnostic set, not a substitution dictionary.
    deliberate metaphor that clarifies the idea.
 5. Preserve the claim, uncertainty, and domain terminology while repairing the
    relation.
+6. Check whether the sentence implies a review, analysis, or evaluation that
+   the source never established.
 
 Do not stop after finding a more specific verb. A new verb can remain
 semantically loose.
@@ -68,6 +70,8 @@ evidence supports an explanation, while the authors or analysis provide it.
   than adding nominal clutter.
 - Recheck epistemic force. Do not turn support into proof or correlation into
   explanation.
+- Remove an implied review or evaluation when the source states only a
+  contrast between properties.
 - Compare with the source to ensure that the repair adds no fact, mechanism,
   condition, or conclusion.
 - Do not add procedural detail, sequence, or emphasis merely to replace a

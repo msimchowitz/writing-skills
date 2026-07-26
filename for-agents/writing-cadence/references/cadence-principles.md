@@ -40,6 +40,13 @@ These are interpretive principles, not mechanical rules. A skilled writer may
 delay a verb or move new information forward for a specific effect. The
 surrounding prose must make that effect legible.
 
+Agency is part of information order. An abstract process such as review,
+analysis, or evaluation can occupy the sentence's stress position while
+leaving the actor unnamed. It may also imply an event that never occurred.
+When the intended point compares two properties of agent output, name the
+agent and those properties directly. Keep the process noun only when the
+process itself belongs to the claim.
+
 ## Paragraph-level diagnostics
 
 Cadence becomes mechanical when several sentences repeat any combination of:

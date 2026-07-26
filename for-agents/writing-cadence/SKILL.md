@@ -1,6 +1,6 @@
 ---
 name: writing-cadence
-description: Diagnose and revise prose with staccato runs, uniform sentence lengths, repeated openings, mechanical clause structures, or repeated contrast formulas. Use for requests about cadence, rhythm, meter, sentence variety, choppy prose, monotonous prose, or patterns such as "not X but Y" and "treats X as Y, not Z."
+description: Diagnose and revise prose with staccato runs, uniform sentence lengths, repeated openings, mechanical clause structures, repeated contrast formulas, or abstract process framing that hides the actor and delays the real comparison. Use for requests about cadence, rhythm, meter, sentence variety, choppy prose, monotonous prose, or patterns such as "not X but Y" and "treats X as Y, not Z."
 ---
 
 # Writing Cadence
@@ -21,6 +21,8 @@ Read at paragraph scale before changing individual sentences. Mark:
 - repeated openings, especially "This," "The," "It," "We," or the same
   dependent-clause frame;
 - repeated subject-verb-complement skeletons;
+- abstract process nouns such as "review," "analysis," or "evaluation" that
+  hide the actor or imply an event the source never established;
 - long sentences that contain more than one main inference;
 - long gaps between a grammatical subject and its verb;
 - endings that place routine setup after the important result; and
@@ -58,15 +60,18 @@ different sentence structures. Do not erase a meaningful negative result.
    context that the reader already knows.
 3. Keep the subject near its verb unless an intervening phrase is truly
    secondary.
-4. Place the important new result near syntactic closure when that ordering
+4. Name the actor when an abstract process hides who acts. If no review,
+   analysis, or evaluation occurred, state the actual contrast between
+   properties directly.
+5. Place the important new result near syntactic closure when that ordering
    matches the logic.
-5. Join short neighboring sentences when one supplies the other's cause,
+6. Join short neighboring sentences when one supplies the other's cause,
    condition, contrast, or consequence.
-6. Split a long sentence when it makes two independent claims, changes
+7. Split a long sentence when it makes two independent claims, changes
    subjects repeatedly, or postpones the governing verb.
-7. Vary openings only when the new opening changes emphasis or improves the
+8. Vary openings only when the new opening changes emphasis or improves the
    link to the previous sentence.
-8. Reserve a very short sentence for a conclusion that merits the pause.
+9. Reserve a very short sentence for a conclusion that merits the pause.
 
 Do not alternate lengths mechanically, add fragments for texture, or move a
 modifier merely to avoid repetition. These changes produce visible variety
