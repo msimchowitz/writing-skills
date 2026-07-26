@@ -148,14 +148,12 @@ with the completed build:
 
 ```sh
 cp build/human-writing-guide-main.pdf human-writing-guide-main.pdf
-cp build/human-writing-guide-main.pdf writing-research-papers.pdf
 cmp -s build/human-writing-guide-main.pdf human-writing-guide-main.pdf
-cmp -s build/human-writing-guide-main.pdf writing-research-papers.pdf
 ```
 
 `human-writing-guide-main.pdf` must live directly in the outermost human-guide
-directory, not only inside `build/`. Do not finish while either top-level PDF
-is stale or missing. Keep the named build PDF in place so the build directory
+directory, not only inside `build/`. Do not finish while the top-level PDF is
+stale or missing. Keep the named build PDF in place so the build directory
 remains inspectable.
 
 ## Finish The Review

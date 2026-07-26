@@ -112,14 +112,16 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 Humanizer reviews every reader-visible part of a document. The scan covers the
 title, abstract, section and subsection headings, captions, callout titles,
-labels, and body prose. Its cadence pass checks staccato runs, uniform syntax,
-and repeated contrast formulas in context.
+labels, and body prose. Every rewrite runs the shared better-usage,
+academic-voice, and writing-cadence passes in that order. The academic pass
+matches the genre rather than making every draft scholarly; the cadence pass
+also checks whether important paragraphs end where their reasoning arrives.
 
 ### Key Insight from Wikipedia
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 38 Patterns Detected (with Before/After Examples)
+## 39 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -167,6 +169,7 @@ and repeated contrast formulas in context.
 | 36 | **Mechanical relative clauses** | "Include only the setup that is required by the result" | "Include only the setup needed to interpret the result" |
 | 37 | **Readerless corporate shorthand** | "Give each section one job" | "Each section should help the reader answer one question" |
 | 38 | **Semantically mismatched relations** | "the point where the claim stops" | "the conditions that limit the claim's extent" |
+| 39 | **Mechanical paragraph endings** | A generic final sentence follows the last supported result | Delete it and end on the result, boundary, unresolved point, or concrete fact |
 
 ### Communication Patterns
 
@@ -221,6 +224,7 @@ and repeated contrast formulas in context.
 
 ## Version History
 
+- **2.15.0** - Added pattern #39 for paragraphs and abstracts that fade out on setup or append a vague sentence merely to sound complete. Humanizer now invokes better-usage, academic-voice, and writing-cadence by default, with genre calibration before the academic pass and paragraph closure included in the final cadence audit. This modified copy remains under the upstream MIT License.
 - **2.14.0** - Added pattern #38 for word combinations that assign claims, evidence, sections, or prose actions they cannot perform, including cases where an intermediate such as extent or consequence is missing. Abstracts are now reviewed as complete arguments, and Humanizer invokes the shared better-usage and writing-cadence passes. This modified copy remains under the upstream MIT License.
 - **2.13.0** - Expanded every Humanizer pass to cover titles, section and subsection headings, captions, callout titles, and other reader-visible labels. Pattern #29 now catches generic or overbuilt headings, while pattern #36 replaces its forced passive example with a natural full-sentence recast. This modified copy remains under the upstream MIT License.
 - **2.12.1** - Expanded pattern #35 to catch short catalogs of loosely related objects, not only long bullet lists. A list now needs a governing relation. The final audit rejects ordinary paragraphs with more than one list-shaped sentence and adjacent list-shaped sentences anywhere in the draft, unless the series are complete reference sets. This modified copy remains under the upstream MIT License.

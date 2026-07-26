@@ -8,10 +8,11 @@ description: |
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
   voice, negative parallelisms, question-word clause wrappers, mechanical
   relative clauses, readerless corporate shorthand, loose catalogs, list sprawl,
-  semantically mismatched relations, uneven cadence, and filler phrases.
+  semantically mismatched relations, uneven cadence, mechanical paragraph
+  endings, register mismatch, and filler phrases.
 license: MIT
 metadata:
-  version: "2.14.0"
+  version: "2.15.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -424,6 +425,11 @@ Keep workplace terms when the text concerns an actual organization, and keep tec
 **After:**
 > A careful reader should understand the evidence supporting the claim and the conditions that limit its extent.
 
+### 39. Mechanical Paragraph Endings
+**Problem:** Key paragraphs, especially abstracts and section closings, may fade out on setup or append a vague, slogan-like sentence merely to sound finished. End where the reasoning arrives: on a supported consequence, boundary, unresolved tension, or concrete fact. If the previous sentence already lands, stop there; not every paragraph needs a kicker.
+**Before:** The study finds no effect outside the training distribution. Together, these results provide a comprehensive foundation for future research.
+**After:** The study finds no effect outside the training distribution.
+
 ## DETECTION GUIDANCE
 
 ### False positives to leave alone
@@ -474,9 +480,10 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 1. Read the input carefully and identify every instance of the patterns above. Inventory the title, subtitle, abstract, section and subsection headings, captions, callout titles, and other reader-visible labels before reviewing the body.
 2. Write a **draft rewrite**. Check that it reads naturally aloud, uses verbs their subjects can perform, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces neither loose catalogs nor lists longer than five items unless the complete set matters. Mark list-shaped sentences. A paragraph with more than one fails, as do two adjacent marked sentences anywhere in the draft. Rewrite the marked series and count again before continuing. Review the abstract and structural text separately so a polished body does not hide a section-summary abstract, generic title, awkward subsection heading, or empty caption.
 3. Read and apply the sibling [better-usage skill](../better-usage/SKILL.md) to the draft. Name a missing intermediate when changing the verb alone does not repair the relation.
-4. Read and apply the sibling [writing-cadence skill](../writing-cadence/SKILL.md) to the draft. Treat short runs, uniform lengths, repeated openings, and repeated contrast frames as diagnostics rather than automatic failures. Do not let cadence edits change claims or uncertainty.
-5. Ask five questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"**, and **"Do the abstract, title, every heading, and every caption sound natural and accurately frame what follows?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-6. Revise into a **final rewrite** that addresses them. Scan the abstract, structural text, and body once more for question-word clause wrappers, mechanical relative clauses, readerless corporate shorthand, mismatched relations, loose catalogs, repeated inventory syntax, unnecessary lists, and em or en dashes (see §§14 and 34-38).
+4. Read and apply the sibling [academic-voice skill](../academic-voice/SKILL.md). Classify the genre first: apply its reader-minded precision and anti-corporate checks by default, but use a scholarly register only for academic or expository prose. Do not make casual, legal, technical, or personal writing sound like a journal article.
+5. Read and apply the sibling [writing-cadence skill](../writing-cadence/SKILL.md) last. Treat short runs, uniform lengths, repeated openings, repeated contrast frames, and mechanical paragraph endings as diagnostics rather than automatic failures. Do not let cadence edits change claims or uncertainty.
+6. Ask five questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"**, and **"Do the abstract, title, headings, captions, and important paragraph endings sound natural and accurately frame or complete the reasoning?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
+7. Revise into a **final rewrite** that addresses them. Scan the abstract, structural text, and body once more for question-word clause wrappers, mechanical relative clauses, readerless corporate shorthand, mismatched relations, loose catalogs, repeated inventory syntax, mechanical paragraph endings, unnecessary lists, and em or en dashes (see §§14 and 34-39).
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
 

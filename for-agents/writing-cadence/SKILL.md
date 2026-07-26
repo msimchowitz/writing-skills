@@ -24,6 +24,8 @@ Read at paragraph scale before changing individual sentences. Mark:
 - long sentences that contain more than one main inference;
 - long gaps between a grammatical subject and its verb;
 - endings that place routine setup after the important result; and
+- paragraphs whose final sentence merely restates the topic, shifts to
+  housekeeping, or adds a vague conclusion; and
 - paragraph breaks that conceal the same rhythm on both sides.
 
 Treat these as diagnostics. A run may be deliberate, and a technical passage
@@ -70,6 +72,21 @@ Do not alternate lengths mechanically, add fragments for texture, or move a
 modifier merely to avoid repetition. These changes produce visible variety
 without improving the reading experience.
 
+## Let Paragraphs End Where The Reasoning Arrives
+
+Identify the paragraph's intellectual destination before revising its last
+sentence. A supported consequence, a condition that limits the claim, an
+unresolved tension, or a concrete fact can provide natural closure. A
+transition may also end quietly when the next paragraph supplies the
+consequence.
+
+Do not append a summary, slogan, generic implication, or sentence about the
+document merely because the paragraph seems to need a conclusion. If the
+penultimate sentence already completes the thought, cut the weaker ending. If
+the important point appears earlier, reorder the paragraph instead of writing
+a more emphatic final line. Audit abstracts, section openings, and section
+closings separately because readers assign those positions additional weight.
+
 ## Read At Speaking Pace
 
 Read the revision aloud or at a deliberate speaking pace. Check where a
@@ -80,6 +97,7 @@ closure lands on the intended information. Rework any passage that:
 - gives equal emphasis to claims of unequal importance;
 - makes the reader wait too long for the main verb;
 - ends several sentences with the same grammatical shape; or
+- repeatedly closes paragraphs with a miniature summary or slogan; or
 - sounds varied on a sentence-length count but monotonous aloud.
 
 Compare the revision with the source once more. Restore any technical
@@ -88,6 +106,6 @@ distinction, uncertainty, or personal cadence lost during restructuring.
 ## Invocation Boundary
 
 When another skill invokes this one, return only the revised prose or cadence
-findings requested by the caller. Do not invoke Humanizer or general-writing
-from this skill; Humanizer owns the integration so the shared writing pipeline
-does not cycle.
+findings requested by the caller. Do not invoke Humanizer, general-writing,
+better-usage, or academic-voice from this skill; Humanizer owns the integration
+so the shared writing pipeline does not cycle.

@@ -3,11 +3,11 @@
 
 Output patterns do not identify their own causes. I treat the explanations
 below as hypotheses about different stages of generation, not as settled
-accounts of why a model writes as it does. A deployed language agent begins
-with pretraining, may undergo several forms of post-training, and then
-generates under system instructions and a decoding procedure; retrieval or
-tool use can also change the evidence available at generation time. Several of
-these mechanisms may operate together.
+accounts of why a model writes as it does. A deployed language agent reflects
+both pretraining and any subsequent post-training. At generation time, its
+behavior also depends on system instructions and the decoding procedure.
+Retrieval or tool use can change the evidence available to the model. Several
+of these mechanisms may operate together.
 
 \subsection{Local prediction may weaken larger structures}
 
@@ -22,19 +22,20 @@ rhetorical frames; a penalty against lexical repetition could produce the
 opposite surface pattern, synonym cycling. The outputs look different, but in
 both cases a locally reasonable choice weakens the larger structure.
 
-If local prediction competes with paragraph structure, an explicit paragraph
-plan should reduce relation-level errors without changing the content to be
-expressed. A matched evaluation could compare outputs with and without that
-plan, measuring factual preservation and the clarity of the resulting
-relations. Such a result would test a behavioral consequence of the hypothesis,
-not identify the training stage that caused it.
+This account predicts that an explicit paragraph plan will reduce
+relation-level errors without changing the content to be expressed. A matched
+evaluation could compare outputs with and without that plan, measuring factual
+preservation and the clarity of the resulting relations. Such a result would
+test a behavioral consequence of the hypothesis, not identify the training
+stage that caused it.
 
 \subsection{An underspecified audience may produce generic prose}
 
 A prompt can specify a task without giving the model a stable representation
-of the person who will use the answer. Generic helpfulness then fills the gap:
-the response explains broadly, announces transitions, and labels ideas
-``important'' without selecting the consequence that matters in context.
+of the person who will use the answer. In that case, the response may default
+to generic forms of helpfulness: it explains broadly, announces transitions,
+and labels ideas ``important'' without selecting the consequence that matters
+in context.
 
 Readerless corporate shorthand fits this account. ``Give each section one
 job'' transfers across genres because it presupposes almost nothing.
@@ -52,7 +53,8 @@ evaluate whether each version supports the stated use.
 Training corpora span genres, institutions, eras, and levels of editorial
 quality. Without a strong voice cue, a model may settle on language acceptable
 across much of that mixture. Common evaluative words and regular paragraph
-shapes are relatively portable, whereas unusual specifics create greater risk.
+shapes are relatively portable, whereas unusual specifics depend more heavily
+on context.
 
 Code and API documentation may exert a more particular influence, as may issue
 trackers and technical manuals. These genres rely on modular headings and
@@ -68,10 +70,10 @@ provide another, less controlled comparison.
 
 \subsection{Post-training may favor answers that look complete}
 
-Instruction tuning and preference optimization may favor features that make an
-answer easy to evaluate as helpful. In a chat interface, headings, long lists,
-recaps, balanced caveats, and offers to continue can look thorough even when
-they weaken a finished document. The same incentives may reward automatic
+Instruction tuning and preference optimization may favor features that
+evaluators readily interpret as helpful. In a chat interface, headings, long
+lists, recaps, balanced caveats, and offers to continue can look thorough even
+when they weaken a finished document. The same incentives may reward automatic
 agreement:
 ``Great question'' and ``You're absolutely right'' preserve rapport without
 testing the underlying claim.
@@ -82,22 +84,21 @@ model with an instruction-tuned model from the same family on a matched
 continuation task. A second factor, chat reply versus finished document, would
 test whether the model can condition those habits on genre.
 
-\subsection{Answer pressure may increase unsupported completion}
+\subsection{Pressure to answer may encourage unsupported claims}
 
 Some prompts demand an answer that the supplied evidence cannot support.
 Vague attribution and plausible gap-filling allow generation to continue, and
-the absence of evidence may itself become material for a familiar story. A
-private person with little public documentation, for example, can acquire an
-invented preference for privacy.
+the model may turn the missing evidence into a familiar story. A private person
+with little public documentation, for example, can acquire an invented
+preference for privacy.
 
-Retrieval and explicit permission to answer ``unknown'' provide direct
-interventions on this hypothesis. An experiment could vary both, then check
-every factual claim against the evidence supplied in that condition. Fluency
-would not compensate for an unsupported claim.
+A direct test would vary retrieval and whether the model may answer
+``unknown,'' then check every factual claim against the evidence supplied in
+that condition. Fluency would not compensate for an unsupported claim.
 
 These explanations can reinforce one another. A familiar phrase supplied by
 local prediction may survive because mixed training data make it broadly
 acceptable. Post-training can preserve it when it resembles a complete answer,
 and an underspecified reader gives the model no reason to remove irrelevant
 material. Experiments that vary one factor at a time would clarify which
-mechanism changes each language outcome.
+mechanisms affect each observed pattern.

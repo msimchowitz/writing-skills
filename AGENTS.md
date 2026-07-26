@@ -89,12 +89,11 @@ latexmk -g -pdf -interaction=nonstopmode -halt-on-error \
   -outdir=build human-writing-guide-main.tex
 ```
 
-Inspect the rendered PDF. Before finishing, publish the exact build at both
-documented top-level names:
+Inspect the rendered PDF. Before finishing, publish the exact build at the
+documented top-level name:
 
 ```sh
 cp build/human-writing-guide-main.pdf human-writing-guide-main.pdf
-cp build/human-writing-guide-main.pdf writing-research-papers.pdf
 cmp -s build/human-writing-guide-main.pdf human-writing-guide-main.pdf
 ```
 

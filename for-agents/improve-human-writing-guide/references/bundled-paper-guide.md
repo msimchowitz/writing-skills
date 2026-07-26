@@ -94,9 +94,7 @@ Publish the final bytes at the outermost guide level:
 
 ```sh
 cp build/human-writing-guide-main.pdf human-writing-guide-main.pdf
-cp build/human-writing-guide-main.pdf writing-research-papers.pdf
 cmp -s build/human-writing-guide-main.pdf human-writing-guide-main.pdf
-cmp -s build/human-writing-guide-main.pdf writing-research-papers.pdf
 ```
 
 The task is not complete if the finished PDF exists only under `build/`.

@@ -50,10 +50,10 @@ voice that the broad pass flattened. Then apply this skill's editing principles
 and evaluation checklist. The source and supplied voice samples outrank generic
 Humanizer defaults.
 
-Humanizer applies the sibling `better-usage` and `writing-cadence` skills
-during its broad pass. Do not run either pass a second time. Judge the result
-against the writer's sample, then restore any deliberate irregularity that the
-broad pass smoothed away.
+Humanizer applies the sibling `better-usage`, `academic-voice`, and
+`writing-cadence` skills during its broad pass. Do not run those passes a
+second time. Judge the result against the writer's sample, then restore any
+deliberate irregularity that the broad pass smoothed away.
 
 For detection requests, use Humanizer's pattern catalog as additional evidence but
 do not run its rewrite loop. Report findings under the names used by either
@@ -145,8 +145,10 @@ belongs to the writer's recognizable voice.
 
 ## Patterns to cut
 
-**Binary contrasts.** Replace "This is not X. It's Y." and "It's not just X but
-Y" with the direct point.
+**Ornamental binary contrasts.** Replace repeated or canned forms such as "This
+is not X. It's Y." and "It's not just X but Y" with the direct point. Preserve
+a contrast when it states a negative result, names the comparator, limits a
+claim, or separates two mechanisms.
 
 **Throat-clearing openers.** Cut "Here's the thing," "Let me be clear," "I'll be
 honest," and similar delays.

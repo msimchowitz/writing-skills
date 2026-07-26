@@ -28,6 +28,20 @@ GitHub speak.
 Clarity does not require a flat voice. Precision should expose why the writer
 cares about a distinction, not remove every trace of stance.
 
+## Prefer Explanation To Academic-Sounding Compression
+
+Do not mistake abstraction for rigor. Phrases such as "protected set,"
+"admissible claims," "make the dependencies recoverable," or "interventions on
+the hypothesis" can sound technical while hiding the person, action, or
+relation that matters. Keep a formal term when it belongs to the actual method
+or theory. Otherwise name the evidence, the reader's inference, or the action
+performed by the author, analyst, or editor.
+
+Watch for sentences built from several abstract nouns joined by weak verbs.
+Recast at least one noun as an action when doing so makes the argument easier
+to follow. The goal is not conversational simplicity; it is an account whose
+precision survives paraphrase.
+
 ## Exclude Borrowed Registers
 
 Remove corporate language that treats ideas as deliverables, gives prose
@@ -53,6 +67,11 @@ summary should explain a claim and its support rather than instruct or exhort
 the reader. Use direct instructions only when the artifact is a manual,
 procedure, assignment, or other genuinely instructional form.
 
+Audit prescriptive modals after classifying the genre. In exposition, repeated
+"should" and "must" statements can turn an analysis into advice. State the
+regularity, criterion, or consequence directly unless the normative claim is
+itself part of the argument.
+
 Preserve the field's necessary terminology and the writer's established level
 of formality. Do not imitate academic voice by adding nominalizations,
 ceremonial transitions, passive constructions, or claims of importance.
@@ -64,3 +83,9 @@ and the conditions that govern its extent. Then read at speaking pace. Revise
 any passage that sounds like a corporate memo, social-media post, repository
 description, or generic polished assistant rather than one person explaining
 an idea they have considered carefully.
+
+## Invocation Boundary
+
+When another skill invokes this one, return only the revised prose or requested
+voice findings. Do not invoke Humanizer, general-writing, writing-cadence, or
+better-usage; the calling skill owns the larger editing pipeline.

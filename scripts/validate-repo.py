@@ -595,19 +595,16 @@ def validate_human_guide(root, report):
         )
 
     main_pdf = guide / "human-writing-guide-main.pdf"
-    alias_pdf = guide / "writing-research-papers.pdf"
+    deprecated_alias_pdf = guide / "writing-research-papers.pdf"
     build_pdf = guide / "build" / "human-writing-guide-main.pdf"
 
     if not main_pdf.is_file():
         report.error(relative(main_pdf, root), "missing canonical human-guide PDF")
-    if not alias_pdf.is_file():
-        report.error(relative(alias_pdf, root), "missing descriptive PDF alias")
-    if main_pdf.is_file() and alias_pdf.is_file():
-        if not filecmp.cmp(main_pdf, alias_pdf, shallow=False):
-            report.error(
-                relative(alias_pdf, root),
-                "descriptive PDF does not match the canonical guide PDF",
-            )
+    if deprecated_alias_pdf.exists():
+        report.error(
+            relative(deprecated_alias_pdf, root),
+            "remove the deprecated duplicate of the canonical human-guide PDF",
+        )
     if build_pdf.is_file() and main_pdf.is_file():
         if not filecmp.cmp(build_pdf, main_pdf, shallow=False):
             report.error(

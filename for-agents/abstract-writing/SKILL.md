@@ -59,6 +59,13 @@ scope clear.
 - End on the supported implication, design consequence, or limitation that
   changes the reader's understanding. Do not end by announcing code, future
   work, or another contribution unless that information matters to the venue.
+- Read the final two sentences together. The last sentence should complete the
+  abstract's inferential arc rather than repeat the previous claim at a higher
+  level of abstraction. If the penultimate sentence already provides the
+  natural ending, stop there.
+- Do not force uplift or finality. An earned limitation, unresolved question,
+  or precise statement of scope can close an abstract more naturally than a
+  generic implication.
 
 Avoid wrappers such as "This paper presents," "On the empirical side," "On
 the theoretical side," and "Beyond proposing." They describe the document's
@@ -104,4 +111,7 @@ number, citation, and claim boundary after the prose edit.
 - Does each method detail help interpret a result?
 - Does the ending state a supported consequence or boundary rather than
   recap the paper?
+- Would deleting the final sentence make the abstract stronger? If so, cut it
+  or replace it with the consequence, boundary, or unresolved point that the
+  preceding evidence actually supports.
 - Does the paragraph sound continuous when read at speaking pace?

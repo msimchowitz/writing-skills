@@ -24,6 +24,8 @@ relation from context before borrowing a repair.
 | "the data decide between the hypotheses" | A test or inference uses data to discriminate. | "the likelihood-ratio test distinguishes between the hypotheses" |
 | "the figure proves the mechanism" | A figure displays evidence and rarely proves a mechanism by itself. | "the measurements in Figure 3 support the proposed mechanism" |
 | "the citation says that the method fails" | The cited source, not the citation marker, contains the statement. | "Smith et al. report that the method fails" |
+| "the implication statement asks how far the consequences extend" | An analyst asks; a statement specifies or describes. | "the implication statement specifies the regime in which the consequence holds" |
+| "retrieval provides an intervention on the hypothesis" | Retrieval changes the generation process; the resulting comparison tests the hypothesis. | "varying retrieval provides a way to test the hypothesis" |
 
 ## Documents and their readers
 
@@ -36,6 +38,9 @@ relation from context before borrowing a repair.
 | "the sentence earns its place" | The sentence supplies information for a reader or argument. | "the sentence supplies evidence needed for the next inference" |
 | "the prose does the work" | Name the actual rhetorical or logical function. | "the passage connects the assumption to the guarantee" |
 | "the abstract walks readers through the paper" | An abstract explains an argument; the reader is not taking a tour. | "the abstract explains the problem, result, and conditions under which it holds" |
+| "the qualifications fix the claim's extent" | Qualifications state, narrow, or delimit scope; they do not repair it. | "the qualifications specify the extent of the claim" |
+| "the comparison recovers a lost detail" | Comparing drafts reveals the loss; an editor restores the detail. | "comparison with the source reveals a lost detail" |
+| "the categories support later references" | Categories supply labels; writers and readers use those labels to refer back to the groups. | "the categories give the writer stable labels for later reference" |
 
 ## Models, methods, and data
 

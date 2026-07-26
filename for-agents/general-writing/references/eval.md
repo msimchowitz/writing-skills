@@ -38,8 +38,9 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
 
 1. Are banned words, filler phrases, empty adverbs, and inflated claims removed
    unless quoted or necessary?
-2. Are binary contrasts, negative listings, rhetorical setups, and
-   throat-clearing openers removed?
+2. Are repeated or ornamental binary contrasts, negative listings, rhetorical
+   setups, and throat-clearing openers removed while contrasts that delimit a
+   claim or distinguish mechanisms remain intact?
 3. Are faux-insight setups, colon reveals, superficial analysis, fake-strong
    verbs, synonym cycling, dramatic fragments, and robotic rhythm fixed?
 4. Are importance puffery and weasel attribution replaced with plain facts and
@@ -79,6 +80,9 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
 17. Was the abstract reviewed as its own argument? Does it establish the
     problem, central answer, decisive evidence, and claim boundary instead of
     touring the document?
+18. Do important paragraphs end where their reasoning arrives? Fail an ending
+    that fades out on setup or housekeeping, repeats the paragraph at a higher
+    level of abstraction, or appends a slogan merely to sound complete.
 
 ## Final read
 

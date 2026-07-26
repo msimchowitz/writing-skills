@@ -78,4 +78,5 @@ evidence supports an explanation, while the authors or analysis provide it.
 
 When another writing skill invokes this skill, return only the revised prose
 or the requested usage findings. Do not invoke Humanizer, general-writing, or
-writing-cadence; the calling skill owns the larger prose pipeline.
+the writing-cadence or academic-voice skills; the calling skill owns the larger
+prose pipeline.
