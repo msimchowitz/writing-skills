@@ -1,0 +1,4 @@
+interface:
+  display_name: "Non-Autoregressive Writing Pass"
+  short_description: "Rework titles, paragraph heads, and transitions"
+  default_prompt: "Use $non-autoregressive-writing-pass to revise this finished draft's title, headings, paragraph heads, and transitions."

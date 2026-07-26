@@ -50,10 +50,11 @@ voice that the broad pass flattened. Then apply this skill's editing principles
 and evaluation checklist. The source and supplied voice samples outrank generic
 Humanizer defaults.
 
-Humanizer applies the sibling `better-usage`, `academic-voice`, and
-`writing-cadence` skills during its broad pass. Do not run those passes a
-second time. Judge the result against the writer's sample, then restore any
-deliberate irregularity that the broad pass smoothed away.
+Humanizer applies the sibling `better-usage`, `academic-voice`,
+`writing-cadence`, and `non-autoregressive-writing-pass` skills during its
+broad pass. Do not run those passes a second time. Judge the result against the
+writer's sample, then restore any deliberate irregularity that the broad pass
+smoothed away.
 
 For detection requests, use Humanizer's pattern catalog as additional evidence but
 do not run its rewrite loop. Report findings under the names used by either
@@ -80,6 +81,11 @@ prose. Read each element with the material it frames. A heading should name the
 actual topic or reader task; a caption should state what the figure shows or
 supports. Leave code, data, and link targets unchanged unless the user asks to
 edit them.
+
+After the body edit is final, return to the abstract. Confirm that it represents
+the work's final main points as a reader-facing argument, including the central
+answer, decisive support, and claim boundary. Remove stale claims and section
+inventory introduced by earlier drafts.
 
 ## Editing principles
 
@@ -286,7 +292,9 @@ alternatives.
 7. Read [eval.md](references/eval.md) and check the edited draft directly
    against every item.
 8. Fix every failed check and repeat the evaluation.
-9. Return the full edited draft and a short **What changed** section.
+9. If the artifact has an abstract, compare it once more with the final body
+   and revise any stale main point, evidence statement, boundary, or ending.
+10. Return the full edited draft and a short **What changed** section.
 
 This framework is adapted from Peter Yang's `no-ai-slop` skill under the MIT
 License. See `LICENSE`.

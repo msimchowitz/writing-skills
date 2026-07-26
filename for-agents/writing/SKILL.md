@@ -23,6 +23,7 @@ that skill before acting. Keep unrelated writing guidance out of context.
 | Write research exposition in a thoughtful, precise, reader-minded academic voice | `../academic-voice/SKILL.md` |
 | Draft, revise, or diagnose a research abstract as a reader-facing argument | `../abstract-writing/SKILL.md` |
 | Revise staccato, monotonous, or mechanically contrastive prose for purposeful cadence | `../writing-cadence/SKILL.md` |
+| Revisit a completed draft's title, subtitle, headings, paragraph heads, and transitions with global knowledge of the argument | `../non-autoregressive-writing-pass/SKILL.md` |
 | Repair grammatical but semantically mismatched word combinations or missing intermediate relations | `../better-usage/SKILL.md` |
 | Edit prose for clarity, voice, directness, or AI-sounding patterns; audit prose without rewriting | `../general-writing/SKILL.md` |
 | Create, revise, compile, or review a human-readable writing guide or its PDF | `../improve-human-writing-guide/SKILL.md` |

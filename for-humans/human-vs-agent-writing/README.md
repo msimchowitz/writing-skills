@@ -1,12 +1,14 @@
-# Human and agent writing
+# Human writing and agent defaults
 
-This directory contains an expository article about recurring differences
-between situated human prose and common language-agent defaults. It is for
-people, not an installable agent skill.
+This directory contains an expository comparison of good human prose and common
+agent defaults. It explains why agent writing can remain fluent while
+feeling choppy or semantically sloppy. It is for people, not an installable
+agent skill.
 
 The article draws on `for-agents/humanizer`, `for-agents/general-writing`,
 `for-agents/better-usage`, `for-agents/writing-cadence`, and
-`for-agents/academic-voice`. It treats agent-like patterns as properties of
+`for-agents/academic-voice`, together with the non-autoregressive, abstract,
+and paper writing skills. It treats agent-like patterns as properties of
 passages, then develops possible explanations in terms of audience
 specification, training, and local prediction. The patterns support analysis
 and revision; they do not establish authorship.

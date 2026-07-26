@@ -163,6 +163,11 @@ After the argument, claims, notation, citations, and section order are stable:
    applying the house-style check, so do not run Humanizer separately.
 5. Recheck every edited comparison, qualifier, number, citation, symbol, and
    claim boundary against the source.
+6. After the body, conclusion, and limitations are final, return to the
+   abstract and apply
+   [abstract-writing's end-of-document check](../abstract-writing/SKILL.md#return-to-the-abstract-after-the-body-is-final).
+   Confirm that it represents the paper's final main points rather than an
+   earlier draft or a section inventory.
 
 Use `general-writing` as the prose enforcer, not as authority to simplify away
 technical meaning. Preserve a term that is technically necessary even if it

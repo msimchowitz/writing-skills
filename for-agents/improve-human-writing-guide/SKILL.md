@@ -162,9 +162,12 @@ remains inspectable.
 2. Re-run the Humanizer pattern audit without accepting generic edits
    automatically.
 3. Run the complete general-writing evaluation and fix every failed check.
-4. Confirm that the README names the editable entry point, canonical PDF, build
+4. If the guide has an abstract, compare it with the final guide and confirm
+   that it represents the main points as one reader-facing argument rather
+   than a section inventory or an earlier draft.
+5. Confirm that the README names the editable entry point, canonical PDF, build
    command, and publication step.
-5. Run `python3 scripts/validate-repo.py` from the repository root when the
+6. Run `python3 scripts/validate-repo.py` from the repository root when the
    guide belongs to this writing-skills repository.
-6. Report the final PDF path, page count, build result, and any inherited
+7. Report the final PDF path, page count, build result, and any inherited
    template warnings.

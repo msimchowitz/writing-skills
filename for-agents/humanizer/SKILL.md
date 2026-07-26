@@ -9,7 +9,8 @@ description: |
   voice, negative parallelisms, question-word clause wrappers, mechanical
   relative clauses, readerless corporate shorthand, loose catalogs, list sprawl,
   semantically mismatched relations, uneven cadence, mechanical paragraph
-  endings, register mismatch, and filler phrases.
+  endings, weak topic sentences, broken paragraph transitions, register
+  mismatch, and filler phrases.
 license: MIT
 metadata:
   version: "2.15.0"
@@ -482,8 +483,10 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 3. Read and apply the sibling [better-usage skill](../better-usage/SKILL.md) to the draft. Name a missing intermediate when changing the verb alone does not repair the relation.
 4. Read and apply the sibling [academic-voice skill](../academic-voice/SKILL.md). Classify the genre first: apply its reader-minded precision and anti-corporate checks by default, but use a scholarly register only for academic or expository prose. Do not make casual, legal, technical, or personal writing sound like a journal article.
 5. Read and apply the sibling [writing-cadence skill](../writing-cadence/SKILL.md) last. Treat short runs, uniform lengths, repeated openings, repeated contrast frames, and mechanical paragraph endings as diagnostics rather than automatic failures. Do not let cadence edits change claims or uncertainty.
-6. Ask five questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"**, and **"Do the abstract, title, headings, captions, and important paragraph endings sound natural and accurately frame or complete the reasoning?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-7. Revise into a **final rewrite** that addresses them. Scan the abstract, structural text, and body once more for question-word clause wrappers, mechanical relative clauses, readerless corporate shorthand, mismatched relations, loose catalogs, repeated inventory syntax, mechanical paragraph endings, unnecessary lists, and em or en dashes (see §§14 and 34-39).
+6. Read and apply the sibling [non-autoregressive writing pass](../non-autoregressive-writing-pass/SKILL.md) after the complete draft is stable. Read the title, subtitle, headings, and paragraph heads as a spine, then read every paragraph ending beside the next opening. Revise stale display text, weak openings, and broken handoffs without adding formulaic transitions.
+7. Ask five questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"**, and **"Do the abstract, title, headings, captions, topic sentences, paragraph transitions, and important endings sound natural and accurately frame or complete the reasoning?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
+8. Revise into a **final rewrite** that addresses them. Scan the abstract, structural text, and body once more for question-word clause wrappers, mechanical relative clauses, readerless corporate shorthand, mismatched relations, loose catalogs, repeated inventory syntax, weak topic sentences, broken paragraph transitions, mechanical paragraph endings, unnecessary lists, and em or en dashes (see §§14 and 34-39).
+   If the artifact has an abstract, compare it with the completed body at the end of this pass. Confirm that it represents the final main points as one argument and that no earlier claim, boundary, or ending has become stale.
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
 

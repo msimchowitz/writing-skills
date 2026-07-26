@@ -77,12 +77,19 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
     callout titles, and other reader-visible labels reviewed in context? Do
     they name the actual topic, evidence, or reader task without generic
     slogans or awkward sentence structures?
-17. Was the abstract reviewed as its own argument? Does it establish the
+17. Was the abstract reviewed again after the body edit was final? Does it
+    represent the work's final main points as one argument, establishing the
     problem, central answer, decisive evidence, and claim boundary instead of
-    touring the document?
+    touring the document or preserving stale claims?
 18. Do important paragraphs end where their reasoning arrives? Fail an ending
     that fades out on setup or housekeeping, repeats the paragraph at a higher
     level of abstraction, or appends a slogan merely to sound complete.
+19. After the draft was complete, were its title, subtitle, headings, and
+    paragraph heads read together as an argument spine? Does each display
+    element still fit the material it frames, and does each opening naturally
+    establish or approach the point its paragraph actually develops?
+20. Was every paragraph ending read beside the next opening? Are the handoffs
+    natural and logically accurate without formulaic transition language?
 
 ## Final read
 

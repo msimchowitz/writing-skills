@@ -1,50 +1,65 @@
-\section{The passage is the unit of comparison}
+\section{Situated judgment}
 \label{sec:scope}
 
-I use \emph{situated} to describe prose shaped for a particular reader and
-purpose. Its author anticipates likely objections, selects facts according to
-what that reader already knows, and preserves uncertainty that the evidence
-cannot resolve. Language agents can imitate every one of these choices. When a
-prompt leaves the situation underspecified, however, their answers can
-converge on a portable middle register broad enough for many readers without
-being fully suited to any of them.
+The strongest difference between good human prose and common agent prose is
+not grammatical competence. Both can produce clean sentences. The difference
+appears in the decisions that organize those sentences: which fact deserves
+space, which comparison matters, how much confidence the evidence permits,
+and where the reasoning is complete. A thoughtful human writer makes
+these decisions for a particular reader. An agent often has to infer them from
+a prompt that leaves the reader and purpose only partly specified.
 
-The pattern catalog is descriptive: it records recurrent editorial problems
-but does not estimate their frequency. Comparisons based on the catalog are
-therefore probabilistic and properly made at the passage level. Grammar,
-formal vocabulary, and conventional punctuation provide weak evidence about
-provenance because each has ordinary explanations. A clean sentence
-establishes little about its author.
+This is a comparison of writing defaults, not a claim that every person writes
+well or every agent writes badly. People produce vague, mechanical prose, and
+agents can produce precise, situated prose when the task supplies enough
+context and the revision process is strong. The useful comparison is between
+passages organized by deliberate judgment about one situation and passages
+organized by portable patterns that could fit many.
 
-\subsection{Audience specification changes the choice of detail}
+\subsection{A particular reader}
 
-The intended reader determines which background matters and when a comparison
-becomes useful. A reviewer checking the evidence may look first for
-experimental controls; a student learning the mechanism may need conceptual
-setup before those controls have meaning. A collaborator choosing between
-methods faces a different question and needs the governing tradeoff early.
-The technical subject can remain the same even though the reader's purpose
-changes the explanation.
+A writer with a particular reader in view estimates what that person already
+knows, why they are reading, and which uncertainty will matter to their next
+inference. Those estimates govern the selection of detail. A reviewer checking
+a result may need the experimental controls early, while a student learning
+the mechanism may need conceptual setup before those controls have meaning.
 
-Generic management language obscures this dependence. ``Give each section one
-job'' works across many contexts because it does not identify a reading
-situation.
-``Each section should help a reviewer answer one question'' is narrower: it
-connects the section's organization to a particular act of evaluation. The
-review task determines the structure; merely adding the word \emph{reader}
-would not make the sentence specific.
+The same judgment governs emphasis. A surprising result receives more space
+than routine setup, and a limitation appears as soon as it changes the claim.
+An example remains when it reveals something the abstraction misses. Pace
+changes with these decisions: conditions may require a longer sentence, while
+routine connective material can move quickly. A short sentence can mark a
+conclusion.
 
-\subsection{Pattern claims remain properties of passages}
+\subsection{Local fluency}
 
-Stylistic labels are reliable only when they describe properties that can be
-checked against the passage. A statement about the person or system that
-produced it requires independent evidence. This distinction matters because
-style-based detection has familiar false positives: professional editing
-explains consistent grammar, word processors explain curly quotation marks,
-and a field's shared vocabulary explains many repeated terms.
+Agent prose can be excellent at the scale of a phrase or sentence while
+remaining weak at the scale of a paragraph. Each sentence sounds plausible,
+but the passage may not establish which idea governs the others. Background,
+evidence, caveats, examples, and conclusions can receive similar weight
+because familiar completion patterns supply the organization that the prompt
+did not.
 
-Clusters still matter, but for diagnosis rather than attribution. Inflated
-emphasis becomes more damaging when it coincides with generic attribution and
-a paragraph whose sentences all share one shape. Together, those choices can
-hide the claim and its support, yet their evidential value remains at the
-passage level.
+This local fluency explains why agent writing can feel strangely polished and
+unfinished at the same time. The document may look orderly in every visible
+respect, yet the reader still has to determine which claim matters and why the
+listed facts belong together. Its intellectual hierarchy remains unclear.
+
+\subsection{Choppiness and sloppiness}
+
+\emph{Choppiness} concerns movement. A passage feels choppy when its sentences
+do not inherit their pace from the relations among ideas. Several clipped
+sentences can give routine observations false drama, but a run of
+medium-length sentences can be equally mechanical when each follows the same
+grammatical path. Sentence length is only the most visible symptom.
+
+\emph{Sloppiness} concerns semantic fit. A grammatical sentence can still
+misstate the relation among its parts. Claims do not ``stop,'' evidence does
+not necessarily ``explain,'' and a section does not literally ``know'' an
+answer. Generic emphasis and vague attribution create a similar looseness:
+tone seems to provide support that the sentence never names.
+
+These defects often reinforce each other. When a writer has not identified the
+relation among the ideas, the prose tends to list them in separate,
+similarly shaped units. Once the relation is precise, the writer can choose
+syntax and cadence that express it.

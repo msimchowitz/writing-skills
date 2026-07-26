@@ -41,6 +41,9 @@ relation from context before borrowing a repair.
 | "the qualifications fix the claim's extent" | Qualifications state, narrow, or delimit scope; they do not repair it. | "the qualifications specify the extent of the claim" |
 | "the comparison recovers a lost detail" | Comparing drafts reveals the loss; an editor restores the detail. | "comparison with the source reveals a lost detail" |
 | "the categories support later references" | Categories supply labels; writers and readers use those labels to refer back to the groups. | "the categories give the writer stable labels for later reference" |
+| "an underspecified reader leaves priorities unclear" | The prompt's account of the reader is incomplete, not the person. | "missing reader context leaves priorities unclear" |
+| "the defaults settle into a middle register" | Prose adopts a register; defaults may make that register more likely. | "the prose settles into a portable middle register" |
+| "surface patterns identify their own causes" | Patterns can provide evidence about a cause; they do not perform the inference. | "surface patterns alone do not reveal their causes" |
 
 ## Models, methods, and data
 

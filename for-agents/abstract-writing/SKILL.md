@@ -102,6 +102,22 @@ After the claim audit, run the complete sibling
 Humanizer and the shared cadence pass. Recheck every comparison, qualifier,
 number, citation, and claim boundary after the prose edit.
 
+## Return To The Abstract After The Body Is Final
+
+For an abstract attached to a longer work, revisit it after the title, body,
+headline results, conclusion, and limitations are stable.
+
+1. Compare every abstract sentence with the final work.
+2. Confirm that the abstract represents the main points as one inferential arc,
+   not as a tour of sections.
+3. Remove claims that are no longer central, and add any central supported
+   result or limitation that the final revision made necessary.
+4. Rework the last sentence if the final body changes the implication, scope,
+   or most natural point of closure.
+
+For an abstract-only task, use the final evidence and notes as the completed
+body, then perform the same check.
+
 ## Final Abstract Audit
 
 - Can a reader state the problem and central answer after one reading?
