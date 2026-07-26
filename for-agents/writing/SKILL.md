@@ -1,6 +1,6 @@
 ---
 name: writing
-description: Route writing and editing work to the smallest relevant focused skill. Use when a request involves improving prompts, general prose, AI-pattern removal, human-readable writing guides, presentations, reviewer rebuttals, literature reviews, research papers, grant strategy, or grant proposals and no narrower writing skill has already been selected.
+description: Route writing and editing work to the smallest relevant focused skill. Use when a request involves prompts, general prose, AI-pattern removal, academic voice, research abstracts, cadence, semantic usage, human-readable writing guides, presentations, reviewer rebuttals, literature reviews, research papers, grant strategy, or grant proposals and no narrower writing skill has already been selected.
 ---
 
 # Writing Router
@@ -20,12 +20,16 @@ that skill before acting. Keep unrelated writing guidance out of context.
 | --- | --- |
 | Clarify and rewrite a prompt while preserving the user's natural prompting style | `../prompt-improving/SKILL.md` |
 | Run the standalone Wikipedia-derived AI-pattern removal pass or explicitly invoke Humanizer | `../humanizer/SKILL.md` |
+| Write research exposition in a thoughtful, precise, reader-minded academic voice | `../academic-voice/SKILL.md` |
+| Draft, revise, or diagnose a research abstract as a reader-facing argument | `../abstract-writing/SKILL.md` |
+| Revise staccato, monotonous, or mechanically contrastive prose for purposeful cadence | `../writing-cadence/SKILL.md` |
+| Repair grammatical but semantically mismatched word combinations or missing intermediate relations | `../better-usage/SKILL.md` |
 | Edit prose for clarity, voice, directness, or AI-sounding patterns; audit prose without rewriting | `../general-writing/SKILL.md` |
 | Create, revise, compile, or review a human-readable writing guide or its PDF | `../improve-human-writing-guide/SKILL.md` |
 | Plan, create, revise, or review slides, speaker notes, PowerPoint, Keynote, or Beamer decks | `../presentation-making/SKILL.md` |
 | Answer reviewer comments or write a response letter, author response, or point-by-point rebuttal | `../rebuttal-writing/SKILL.md` |
 | Research, structure, draft, or verify a literature review, survey, evidence map, or related-work synthesis | `../literature-review/SKILL.md` |
-| Plan, draft, or revise a research paper, abstract, introduction, related work, methods, results, or conclusion | `../paper-writing/SKILL.md` |
+| Plan, draft, or revise a full research paper, introduction, related work, methods, results, discussion, or conclusion | `../paper-writing/SKILL.md` |
 | Ideate, compare, reframe, or select grant stories, concept notes, scientific questions, team strategy, feasibility, or scope before application drafting | `../grant-planning/SKILL.md` |
 | Draft or revise grant or fellowship application prose, including aims, significance, approach, impact, broader impacts, and sponsor responses | `../grant-writing/SKILL.md` |
 

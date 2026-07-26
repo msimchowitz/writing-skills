@@ -1,12 +1,15 @@
-# Human vs. agent writing
+# Human and agent writing
 
-This directory contains a practical editing guide for writers and editors. It
-is for people, not an installable agent skill.
+This directory contains an expository article about recurring differences
+between situated human prose and common language-agent defaults. It is for
+people, not an installable agent skill.
 
-The guide distills the advice in `for-agents/humanizer` and
-`for-agents/general-writing`. It helps readers identify recurring agent-like
-habits and revise them without flattening meaning or voice. The patterns
-support revision; they do not establish authorship.
+The article draws on `for-agents/humanizer`, `for-agents/general-writing`,
+`for-agents/better-usage`, `for-agents/writing-cadence`, and
+`for-agents/academic-voice`. It treats agent-like patterns as properties of
+passages, then develops possible explanations in terms of audience
+specification, training, and local prediction. The patterns support analysis
+and revision; they do not establish authorship.
 
 The project inherits its preamble and running header from
 `../raw-latex-template`. The title card and public metadata commands come from
@@ -14,7 +17,7 @@ the same template. The preamble enters through
 `preamble/_preamble_includes.tex`; `preamble/commands.tex` defines only the two
 labels used for worked revisions.
 
-## Build the guide
+## Build the article
 
 The editable entry point is the top-level
 `human-vs-agent-writing-main.tex`. Build it from this directory:

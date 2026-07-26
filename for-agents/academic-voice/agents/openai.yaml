@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Voice"
+  short_description: "Write with precise, reader-minded purpose"
+  default_prompt: "Use $academic-voice to revise this passage in a clear, thoughtful academic voice."

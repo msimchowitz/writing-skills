@@ -1,99 +1,103 @@
 \section{Possible causes of recurring agent-like patterns}
 \label{sec:hypotheses}
 
-Patterns describe an output; they do not reveal its cause. A deployed language
-agent begins with pretraining and may later undergo post-training. System
-instructions and decoding also shape its response. Retrieval or tool use can
-change the available evidence. Any of these may affect the prose. The ideas
-below are starting points for experiments, and several may be true at once.
+Output patterns do not identify their own causes. I treat the explanations
+below as hypotheses about different stages of generation, not as settled
+accounts of why a model writes as it does. A deployed language agent begins
+with pretraining, may undergo several forms of post-training, and then
+generates under system instructions and a decoding procedure; retrieval or
+tool use can also change the evidence available at generation time. Several of
+these mechanisms may operate together.
 
 \subsection{Local prediction may weaken larger structures}
 
-During pretraining, a language model learns next-token prediction (NTP). This
-rewards a continuation that fits the immediate context. Later training changes
-the model's behavior, but familiar phrases and smooth word pairs may still win
-even when a sentence or paragraph needs a different construction.
+During pretraining, a language model learns to predict each next token from the
+available preceding context. Later training changes the model's behavior, but
+familiar phrases and locally smooth word sequences may remain attractive even
+when the sentence or paragraph requires a less common construction.
 
-Locally plausible continuations can still produce a sentence whose relation is
-hard to recover. The same pressure might contribute to stock transitions and
-repeated rhetorical frames. Penalties against repetition could create the
-opposite surface effect: synonym cycling.
+Local plausibility does not guarantee that a relation will remain clear across
+the full sentence. This pressure could produce stock transitions and repeated
+rhetorical frames; a penalty against lexical repetition could produce the
+opposite surface pattern, synonym cycling. The outputs look different, but in
+both cases a locally reasonable choice weakens the larger structure.
 
-If local prediction is part of the cause, agent prose should make more
-sentence-level relation errors and paragraph-level focus errors than local
-grammar errors. One test would compare the same model on sentence and
-paragraph edits, then repeat the paragraph task with a required outline. The
-comparison should track factual preservation and whether each edited sentence
-states its relation directly. It should also compare paragraph openings with
-their conclusions.
+If local prediction competes with paragraph structure, an explicit paragraph
+plan should reduce relation-level errors without changing the content to be
+expressed. A matched evaluation could compare outputs with and without that
+plan, measuring factual preservation and the clarity of the resulting
+relations. Such a result would test a behavioral consequence of the hypothesis,
+not identify the training stage that caused it.
 
 \subsection{An underspecified audience may produce generic prose}
 
-A prompt names a task, but it may not give the model a stable picture of the
-person using the answer. Generic helpfulness can fill the gap. The prose
-explains broadly, announces transitions, and calls something ``important''
-without selecting the consequence that matters.
+A prompt can specify a task without giving the model a stable representation
+of the person who will use the answer. Generic helpfulness then fills the gap:
+the response explains broadly, announces transitions, and labels ideas
+``important'' without selecting the consequence that matters in context.
 
 Readerless corporate shorthand fits this account. ``Give each section one
-job'' travels easily from one document to another. ``Ensure each section helps
-a reviewer answer one question'' depends on a particular reader and task.
+job'' transfers across genres because it presupposes almost nothing.
+``Each section should help a reviewer answer one question'' depends on a
+reader with a particular decision and may therefore produce a different
+selection of detail.
 
-This hypothesis predicts that a concrete audience will change the choice of
-detail. Compare a generic request with one that states the reader's prior
-knowledge and pending decision. The second prompt should also specify the
-reading conditions. Keep the subject and length constant, then ask members of
-that audience to rate each version's support for the stated use.
+Testing this account requires more than tone labels. A matched comparison
+could hold subject and length constant while varying the reader's prior
+knowledge and pending decision. Members of the named audience could then
+evaluate whether each version supports the stated use.
 
 \subsection{Mixed training data may favor a middle register}
 
-Training data spans many genres and institutions. It also crosses eras and
-levels of quality. Without a strong voice cue, a model may settle on language
-that is acceptable across much of that mixture. The result may rely on common
-evaluative words and regular paragraphs while avoiding risky specifics.
+Training corpora span genres, institutions, eras, and levels of editorial
+quality. Without a strong voice cue, a model may settle on language acceptable
+across much of that mixture. Common evaluative words and regular paragraph
+shapes are relatively portable, whereas unusual specifics create greater risk.
 
-Code and API documentation may add another influence. Issue trackers and
-technical manuals may contribute as well. Those sources favor modular headings
-and explicit labels. They also isolate edge cases and use procedural verbs.
-Carried into an essay, these habits can produce tiny sections and prose that
-resembles an interface. This is a proposal about transfer from coding data,
-not a claim that technical documentation makes writing worse.
+Code and API documentation may exert a more particular influence, as may issue
+trackers and technical manuals. These genres rely on modular headings and
+explicit labels; they also make edge cases and procedures easy to scan.
+Transferred into an essay, the same conventions can yield tiny sections and
+prose that resembles an interface. This is a conjecture about cross-genre
+transfer, not a claim that technical documentation is poorly written.
 
-Style examples offer a simple test. Compare output with no sample, one human
-sample, and several samples from the same genre. A separate comparison across
-models with different documented training emphases could test the
-coding-transfer account.
+Style conditioning offers one test. Output with no sample could be compared
+with output conditioned on one sample and then on several samples from the
+same genre. Differences among models with documented training emphases would
+provide another, less controlled comparison.
 
-\subsection{Post-training may reward visible helpfulness}
+\subsection{Post-training may favor answers that look complete}
 
-Instruction tuning and preference optimization may reward answers that look
-complete and cooperative. Headings and long lists make effort easy to see.
-Recaps and balanced caveats can do the same, as can an offer to continue. These
-devices can be useful in a chat and awkward in a finished document.
+Instruction tuning and preference optimization may favor features that make an
+answer easy to evaluate as helpful. In a chat interface, headings, long lists,
+recaps, balanced caveats, and offers to continue can look thorough even when
+they weaken a finished document. The same incentives may reward automatic
+agreement:
+``Great question'' and ``You're absolutely right'' preserve rapport without
+testing the underlying claim.
 
-These incentives may also reward automatic agreement. ``Great question'' and
-``You're absolutely right'' preserve rapport without testing the claim.
-Stacked hedges can sound cautious while hiding the uncertainty that matters.
+Stacked hedges can also present the appearance of caution while leaving the
+actual uncertainty unspecified. The cleanest comparison would pair a base
+model with an instruction-tuned model from the same family on a matched
+continuation task. A second factor, chat reply versus finished document, would
+test whether the model can condition those habits on genre.
 
-Compare a base model and an instruction-tuned model from the same family on
-the same continuation task. Then ask for a finished document rather than a
-reply to the user. A drop in chat residue or decorative organization would
-support this account.
+\subsection{Answer pressure may increase unsupported completion}
 
-\subsection{Answer pressure may increase guessing}
+Some prompts demand an answer that the supplied evidence cannot support.
+Vague attribution and plausible gap-filling allow generation to continue, and
+the absence of evidence may itself become material for a familiar story. A
+private person with little public documentation, for example, can acquire an
+invented preference for privacy.
 
-Sometimes the prompt and sources do not contain the needed fact, but the agent
-is still expected to answer. Vague attribution and plausible gap-filling let
-the prose continue. The model may even turn the absence of evidence into a
-familiar story.
+Retrieval and explicit permission to answer ``unknown'' provide direct
+interventions on this hypothesis. An experiment could vary both, then check
+every factual claim against the evidence supplied in that condition. Fluency
+would not compensate for an unsupported claim.
 
-Retrieval and permission to answer ``unknown'' should reduce this behavior if
-completion pressure is responsible. A useful test would ask matched questions
-with and without retrieval. One condition should allow abstention. The final
-audit should check every factual claim against the supplied evidence, with no
-credit for fluency.
-
-These explanations may overlap. Local prediction might supply a familiar
-phrase. Mixed training data could make the phrase generic, while post-training
-could place it in a helpful-looking list. A weak reader model might then leave
-irrelevant items in place. An experiment should change one factor at a time
-and measure a specific language outcome.
+These explanations can reinforce one another. A familiar phrase supplied by
+local prediction may survive because mixed training data make it broadly
+acceptable. Post-training can preserve it when it resembles a complete answer,
+and an underspecified reader gives the model no reason to remove irrelevant
+material. Experiments that vary one factor at a time would clarify which
+mechanism changes each language outcome.

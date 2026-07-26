@@ -50,6 +50,11 @@ voice that the broad pass flattened. Then apply this skill's editing principles
 and evaluation checklist. The source and supplied voice samples outrank generic
 Humanizer defaults.
 
+Humanizer applies the sibling `better-usage` and `writing-cadence` skills
+during its broad pass. Do not run either pass a second time. Judge the result
+against the writer's sample, then restore any deliberate irregularity that the
+broad pass smoothed away.
+
 For detection requests, use Humanizer's pattern catalog as additional evidence but
 do not run its rewrite loop. Report findings under the names used by either
 skill and follow this skill's detection output.
@@ -66,12 +71,15 @@ functional checklists. Do not expand the task to unrelated READMEs.
 ## Review structural text separately
 
 Do not treat display text as metadata. Review the document title and subtitle,
-then every section and subsection heading. Captions, callout titles, table or
-figure labels, list labels, and navigation text must pass the same Humanizer
-and house-style checks as body prose. Read each element with the material it
-frames. A heading should name the actual topic or reader task; a caption should
-state what the figure shows or supports. Leave code, data, and link targets
-unchanged unless the user asks to edit them.
+then read its abstract as a distinct argument. An abstract should give the
+reader the problem, central answer, decisive evidence, and claim boundary
+rather than summarize every section. Review every section and subsection
+heading too. Captions, callout titles, table or figure labels, list labels, and
+navigation text must pass the same Humanizer and house-style checks as body
+prose. Read each element with the material it frames. A heading should name the
+actual topic or reader task; a caption should state what the figure shows or
+supports. Leave code, data, and link targets unchanged unless the user asks to
+edit them.
 
 ## Editing principles
 
@@ -103,6 +111,10 @@ unchanged unless the user asks to edit them.
 - **Protect the specific fact.** Do not smooth a useful detail into generic
   importance.
 - **Use direct verbs.** Replace weak verb phrases with precise actions.
+- **Match words to the relation.** Claims can hold or apply under assumptions;
+  conditions can limit a claim's extent. Claims do not stop or do work.
+  Evidence can support or contradict a claim. Sections can state or explain an
+  idea.
 - **Preserve useful edge and character.** Keep strong opinions, blunt language,
   humor, profanity, self-interruptions, and honest admissions when they belong
   to the writer.
@@ -194,6 +206,13 @@ the actual question, inference, evidence, decision, or action supported by the
 passage. Keep corporate terms when the subject is an actual organization and
 technical ownership when it identifies a real authority.
 
+**Semantically mismatched relations.** Rewrite a grammatical sentence when its
+subject cannot perform the named action or the verb acts on the wrong object.
+Replacing "the point where the claim stops" with "conditions limit the claim"
+is still loose; write "the conditions that limit the claim's extent." Let
+Humanizer's `better-usage` pass name a missing intermediate when needed.
+Preserve deliberate metaphors that clarify the idea and belong to the writer.
+
 **Loose catalogs and list-packed sentences.** Require every series to have a
 governing relation that the reader can name. Flag loosely related objects even
 when each noun is concrete, the grammar is parallel, and the list has only
@@ -256,8 +275,9 @@ alternatives.
 3. For detection, read Humanizer for its pattern catalog, return the named
    findings with quoted lines and short fixes, then stop.
 4. For editing, run Humanizer in embedded mode. Apply the README coverage rule
-   above to every README in scope. Inventory and review the title, section and
-   subsection headings, captions, and other reader-visible labels separately.
+   above to every README in scope. Inventory and review the abstract, title,
+   section and subsection headings, captions, and other reader-visible labels
+   separately.
 5. Compare that pass with the source and restore any lost fact, distinction, or
    voice signal.
 6. Make the minimum effective house-style edit.

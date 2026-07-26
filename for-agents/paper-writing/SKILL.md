@@ -22,6 +22,12 @@ skill.
 
 ## Select The Workflow
 
+- For an abstract-only request, read and follow the sibling
+  [abstract-writing skill](../abstract-writing/SKILL.md). Let that skill own
+  the final general-writing pass so the prose pipeline runs once.
+- For other drafting or revision of scholarly prose, read the sibling
+  [academic-voice skill](../academic-voice/SKILL.md) before the relevant
+  paper-specific references.
 - For a new paper or major restructure, copy
   [paper-plan.md](assets/paper-plan.md) into the project and complete it before
   drafting.
@@ -86,6 +92,11 @@ directory, or copy private examples into this repository.
 8. Draft from the strongest evidence outward. Write the abstract and title only
    after the claim hierarchy is stable.
 
+Treat the abstract as a reader's first encounter with the argument, not as a
+compressed table of contents. It should establish the problem, central answer,
+decisive evidence, and the conditions that govern the extent of the claim. Do
+not give every section, benchmark, or implementation detail equal space.
+
 ## Use Claim-Led Sections
 
 - Prefer informative section titles that state the result or question.
@@ -130,6 +141,9 @@ directory, or copy private examples into this repository.
   claim.
 - Check that every abstract claim appears in the main paper and that every
   introduction contribution has visible evidence.
+- Check the abstract separately from the body. Verify its inferential arc,
+  evidence verbs, quantitative comparisons, and claim boundary against the
+  supporting sections.
 - Surface unresolved logical gaps or missing controls instead of writing around
   them.
 - Make the minimum structural change needed unless the user requests a larger

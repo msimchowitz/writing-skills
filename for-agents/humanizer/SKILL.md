@@ -8,10 +8,10 @@ description: |
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
   voice, negative parallelisms, question-word clause wrappers, mechanical
   relative clauses, readerless corporate shorthand, loose catalogs, list sprawl,
-  and filler phrases.
+  semantically mismatched relations, uneven cadence, and filler phrases.
 license: MIT
 metadata:
-  version: "2.13.0"
+  version: "2.14.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -28,7 +28,7 @@ When given text to humanize:
 4. **Match the voice** - Fit the intended tone (formal, casual, technical). Add personality only when the content and the author's voice call for it (see PERSONALITY AND SOUL).
 5. **Write for a particular reader** - Make structural advice and transitions state the understanding, decision, verification, or action they support. Do not use corporate shorthand as a substitute for that motivation.
 
-The scan covers more than body paragraphs. Review the document title and any subtitle first, then every section and subsection heading. Captions, callout titles, table or figure labels, list labels, and navigation text are also in scope. Treat these elements as writing and judge them in the context of the material they frame. Leave source code, data, and link targets alone unless the user asks to edit them.
+The scan covers more than body paragraphs. Review the document title and any subtitle first, then its abstract as a complete argument rather than a section summary. Review every section and subsection heading too. Captions, callout titles, table or figure labels, list labels, and navigation text are also in scope. Treat these elements as writing and judge them in the context of the material they frame. Leave source code, data, and link targets alone unless the user asks to edit them.
 
 The invocation mode determines the deliverable (see Invocation Modes). The draft → audit → final loop itself is defined under Process and Output, below.
 
@@ -417,6 +417,13 @@ The before sentence treats the result as if it requires setup and forces the rel
 
 Keep workplace terms when the text concerns an actual organization, and keep technical ownership when it identifies a real maintainer or authority. The problem is metaphorical corporate shorthand that hides motivation.
 
+### 38. Semantically Mismatched Relations
+**Problem:** A sentence can be grammatical while assigning its subject an action it cannot perform or naming the wrong object of that action. Claims do not stop, and saying that conditions "limit the claim" still leaves the affected dimension unnamed. Name the missing intermediate when a verb swap remains loose.
+**Before:**
+> A careful reader should understand the evidence behind the claim and the point where the claim stops.
+**After:**
+> A careful reader should understand the evidence supporting the claim and the conditions that limit its extent.
+
 ## DETECTION GUIDANCE
 
 ### False positives to leave alone
@@ -464,10 +471,12 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 
 ## Process and Output
 
-1. Read the input carefully and identify every instance of the patterns above. Inventory the title, subtitle, section and subsection headings, captions, callout titles, and other reader-visible labels before reviewing the body.
-2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length and structure, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces neither loose catalogs nor lists longer than five items unless the complete set matters. Mark list-shaped sentences. A paragraph with more than one fails, as do two adjacent marked sentences anywhere in the draft. Rewrite the marked series and count again before continuing. Review the structural text separately so a polished paragraph does not hide a generic title, awkward subsection heading, or empty caption.
-3. Ask five questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"**, and **"Do the title, every heading, and every caption sound natural and accurately frame what follows?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-4. Revise into a **final rewrite** that addresses them. Scan the structural text and body once more for question-word clause wrappers, mechanical relative clauses, readerless corporate shorthand, loose catalogs, repeated inventory syntax, unnecessary lists, and em or en dashes (see §§14 and 34-37).
+1. Read the input carefully and identify every instance of the patterns above. Inventory the title, subtitle, abstract, section and subsection headings, captions, callout titles, and other reader-visible labels before reviewing the body.
+2. Write a **draft rewrite**. Check that it reads naturally aloud, uses verbs their subjects can perform, prefers specific details and simple constructions (is/are/has), keeps the appropriate register, gives the intended reader a clear path through the material, and introduces neither loose catalogs nor lists longer than five items unless the complete set matters. Mark list-shaped sentences. A paragraph with more than one fails, as do two adjacent marked sentences anywhere in the draft. Rewrite the marked series and count again before continuing. Review the abstract and structural text separately so a polished body does not hide a section-summary abstract, generic title, awkward subsection heading, or empty caption.
+3. Read and apply the sibling [better-usage skill](../better-usage/SKILL.md) to the draft. Name a missing intermediate when changing the verb alone does not repair the relation.
+4. Read and apply the sibling [writing-cadence skill](../writing-cadence/SKILL.md) to the draft. Treat short runs, uniform lengths, repeated openings, and repeated contrast frames as diagnostics rather than automatic failures. Do not let cadence edits change claims or uncertainty.
+5. Ask five questions: **"What makes the below so obviously AI generated?"**, **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"**, **"What does each paragraph help the intended reader understand, verify, decide, or do?"**, **"Could the reader name why every item in each series belongs there, and are any two list-shaped sentences still adjacent?"**, and **"Do the abstract, title, every heading, and every caption sound natural and accurately frame what follows?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
+6. Revise into a **final rewrite** that addresses them. Scan the abstract, structural text, and body once more for question-word clause wrappers, mechanical relative clauses, readerless corporate shorthand, mismatched relations, loose catalogs, repeated inventory syntax, unnecessary lists, and em or en dashes (see §§14 and 34-38).
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
 

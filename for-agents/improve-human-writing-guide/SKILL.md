@@ -18,11 +18,14 @@ project; keep agent procedures in this skill.
 3. When the guide concerns research papers, read
    [sentence-style.md](../paper-writing/references/sentence-style.md) and
    [group-paper-conventions.md](../paper-writing/references/group-paper-conventions.md).
-4. When the guide covers another domain, read that sibling skill and only the
+4. When the guide contains an abstract, read the sibling
+   [abstract-writing skill](../abstract-writing/SKILL.md) and revise the
+   abstract for understanding rather than section-by-section coverage.
+5. When the guide covers another domain, read that sibling skill and only the
    references needed to understand its substantive conventions.
-5. Read representative source artifacts from the user's corpus. Treat those
+6. Read representative source artifacts from the user's corpus. Treat those
    artifacts as stronger voice evidence than generic style rules.
-6. For the bundled research-paper guide, read
+7. For the bundled research-paper guide, read
    [bundled-paper-guide.md](references/bundled-paper-guide.md) before editing
    its source, citations, template chapter, or published PDFs.
 
@@ -65,9 +68,10 @@ request to create, revise, compile, or review that human-readable guide.
    source files outside the repository.
 7. Run Humanizer in embedded mode as a broad pattern pass.
 8. Audit the title and any subtitle as their own writing layer. Do the same
-   for every section and subsection heading, caption, callout title, table or
-   figure label, and other reader-visible display text. Read each element with
-   the material it frames instead of assuming the body-prose pass caught it.
+   for the abstract, every section and subsection heading, caption, callout
+   title, table or figure label, and other reader-visible display text. Read
+   each element with the material it frames instead of assuming the body-prose
+   pass caught it.
 9. Apply general-writing afterward as the final house-style pass. Restore any
    technical distinction or personal cadence that Humanizer flattened.
 10. Pay particular attention to abstract wrappers such as "the X behind Y,"

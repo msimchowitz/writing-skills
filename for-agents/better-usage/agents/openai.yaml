@@ -1,0 +1,4 @@
+interface:
+  display_name: "Better Usage"
+  short_description: "Match words to the relations they express"
+  default_prompt: "Use $better-usage to repair semantically mismatched words in this prose."

@@ -43,6 +43,6 @@ pdftoppm -png -r 120 build/human-writing-guide-main.pdf build/rendered/page
 
 The project preserves the full preamble structure from the OGPO arXiv source.
 Its writing advice draws on the example papers described in
-`for-agents/paper-writing` and on contributor-derived worked examples. Private
-papers and source notes remain outside the repository. The
-[repository README](../../README.md) documents the optional corpus.
+`for-agents/paper-writing`. Private papers and source notes remain outside the
+repository. The [repository README](../../README.md) documents the optional
+corpus.

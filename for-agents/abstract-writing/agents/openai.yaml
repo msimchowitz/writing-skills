@@ -1,0 +1,4 @@
+interface:
+  display_name: "Abstract Writing"
+  short_description: "Draft research abstracts readers can follow"
+  default_prompt: "Use $abstract-writing to draft a research abstract around one clear argument."

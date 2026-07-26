@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Cadence"
+  short_description: "Shape varied, natural prose rhythm"
+  default_prompt: "Use $writing-cadence to revise this prose for varied, purposeful rhythm."

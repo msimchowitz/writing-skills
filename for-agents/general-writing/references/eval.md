@@ -29,6 +29,10 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
 3. Are verbs direct and agents clear where possible?
 4. Are unsupported abstractions replaced only when the draft supplies the
    needed specifics?
+5. Can each subject literally or technically perform its verb, and does the
+   object or complement fit the relation expressed by that verb? Are missing
+   intermediates such as a claim's extent or a theorem's consequences stated
+   when the relation needs them?
 
 ## Slop patterns
 
@@ -72,11 +76,15 @@ relevant line, and gives a short fix without rewriting or scoring the draft.
     callout titles, and other reader-visible labels reviewed in context? Do
     they name the actual topic, evidence, or reader task without generic
     slogans or awkward sentence structures?
+17. Was the abstract reviewed as its own argument? Does it establish the
+    problem, central answer, decisive evidence, and claim boundary instead of
+    touring the document?
 
 ## Final read
 
 1. Does the draft avoid robotic symmetry, repeated sentence shapes, and stacked
-   punchy fragments?
+   punchy fragments? Does it also avoid repeated contrast templates such as
+   "treats X as Y, not Z"?
 2. Would the writer recognize the edited draft as their own voice?
 3. Would it sound natural if read to a sharp colleague?
 4. Does the output include the full edited draft and a short **What changed**

@@ -111,14 +111,15 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 Rewrites follow a no-fabrication rule: they never add facts, names, dates, or citations that aren't in the source text. Specificity has to come from the source or the author, not from the rewrite.
 
 Humanizer reviews every reader-visible part of a document. The scan covers the
-title, section and subsection headings, captions, callout titles, labels, and
-body prose.
+title, abstract, section and subsection headings, captions, callout titles,
+labels, and body prose. Its cadence pass checks staccato runs, uniform syntax,
+and repeated contrast formulas in context.
 
 ### Key Insight from Wikipedia
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 37 Patterns Detected (with Before/After Examples)
+## 38 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -165,6 +166,7 @@ body prose.
 | 35 | **Loose catalogs / list sprawl** | "workshops, a library, mentoring, templates, and reports" | Name the relation, vary the syntax, or use separate claims |
 | 36 | **Mechanical relative clauses** | "Include only the setup that is required by the result" | "Include only the setup needed to interpret the result" |
 | 37 | **Readerless corporate shorthand** | "Give each section one job" | "Each section should help the reader answer one question" |
+| 38 | **Semantically mismatched relations** | "the point where the claim stops" | "the conditions that limit the claim's extent" |
 
 ### Communication Patterns
 
@@ -219,6 +221,7 @@ body prose.
 
 ## Version History
 
+- **2.14.0** - Added pattern #38 for word combinations that assign claims, evidence, sections, or prose actions they cannot perform, including cases where an intermediate such as extent or consequence is missing. Abstracts are now reviewed as complete arguments, and Humanizer invokes the shared better-usage and writing-cadence passes. This modified copy remains under the upstream MIT License.
 - **2.13.0** - Expanded every Humanizer pass to cover titles, section and subsection headings, captions, callout titles, and other reader-visible labels. Pattern #29 now catches generic or overbuilt headings, while pattern #36 replaces its forced passive example with a natural full-sentence recast. This modified copy remains under the upstream MIT License.
 - **2.12.1** - Expanded pattern #35 to catch short catalogs of loosely related objects, not only long bullet lists. A list now needs a governing relation. The final audit rejects ordinary paragraphs with more than one list-shaped sentence and adjacent list-shaped sentences anywhere in the draft, unless the series are complete reference sets. This modified copy remains under the upstream MIT License.
 - **2.12.0** - Added pattern #37 for corporate shorthand that assigns prose jobs, ownership, or deliverables without naming its effect on the intended reader. The editing loop now checks the reader outcome directly. This modified copy remains under the upstream MIT License.

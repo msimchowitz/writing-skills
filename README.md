@@ -49,6 +49,10 @@ Run `python3 scripts/install-skills.py --list` for the discovered names.
 | Skill | Purpose |
 | --- | --- |
 | [`writing`](for-agents/writing/SKILL.md) | Route a writing task to the smallest relevant skill. |
+| [`academic-voice`](for-agents/academic-voice/SKILL.md) | Write thoughtful, precise academic exposition for readers. |
+| [`abstract-writing`](for-agents/abstract-writing/SKILL.md) | Draft research abstracts as compact arguments readers can follow. |
+| [`writing-cadence`](for-agents/writing-cadence/SKILL.md) | Revise staccato or monotonous prose for purposeful rhythm. |
+| [`better-usage`](for-agents/better-usage/SKILL.md) | Repair word combinations that express the wrong semantic relation. |
 | [`general-writing`](for-agents/general-writing/SKILL.md) | Edit for clarity and natural cadence without flattening the writer's voice. |
 | [`humanizer`](for-agents/humanizer/SKILL.md) | Detect and remove broad AI-writing patterns. |
 | [`prompt-improving`](for-agents/prompt-improving/SKILL.md) | Clarify a prompt while preserving the user's prompting style. |
@@ -86,8 +90,8 @@ editable LaTeX guide to research-paper writing with a finished PDF.
 
 [`human-vs-agent-writing`](for-humans/human-vs-agent-writing/README.md)
 explains recurring differences between reader-centered prose and agent-like
-defaults. Its pattern map connects practical revision advice to testable
-hypotheses.
+defaults. Its passage-level taxonomy connects those differences to testable
+causal hypotheses.
 
 [`raw-latex-template`](for-humans/raw-latex-template/README.md) is a
 standalone paper project. Copy the directory to begin a draft. The project
