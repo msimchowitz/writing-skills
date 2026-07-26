@@ -1,6 +1,6 @@
 ---
 name: non-autoregressive-writing-pass
-description: Revisit a completed draft with global knowledge of its argument, then revise its title, subtitle, headings, paragraph heads, and paragraph-to-paragraph transitions. Use when display text no longer fits the finished work; when openings feel generic, abrupt, or weak; when paragraphs are individually clear but do not build on one another; when a finished abstract needs a stronger first sentence; or when final sentences do not close one paragraph naturally or prepare the relation to the next.
+description: Revisit a completed draft with global knowledge of its argument, then revise its title, subtitle, headings, paragraph heads, and paragraph-to-paragraph transitions. Use when display text no longer fits the finished work; when openings feel generic, abrupt, weak, or begin with a rejected alternative before reaching the point; when paragraphs are individually clear but do not build on one another; when a finished abstract needs a stronger first sentence; or when final sentences do not close one paragraph naturally or prepare the relation to the next.
 ---
 
 # Non-Autoregressive Writing Pass
@@ -45,6 +45,8 @@ For each abstract or paragraph head, ask:
   issues" when the referent should be named?
 - Does it repeat the heading, announce the document, or begin with a generic
   truth that could introduce many subjects?
+- Does it begin by rejecting an alternative before stating the substantive
+  claim?
 - Does it inherit the previous paragraph's syntax or vocabulary merely because
   that wording was locally available?
 - Does the abstract begin with the concrete problem or tension that organizes
@@ -55,6 +57,13 @@ bridge from the previous paragraph, establish necessary context, or create a
 natural opening before the main claim arrives in the second sentence. Revise
 the first two sentences together when forcing everything into the first would
 make the prose stiff.
+
+When the paragraph's main claim is positive, state it before explaining what
+it is not. An opening such as "The difference is not X. The difference appears
+in Y" makes the reader retain a rejected frame before reaching the point.
+State Y first, then mention X only if the contrast still matters. Keep a
+negative opening when an absence, failure, or limitation is itself the finding
+or claim boundary.
 
 ## Inspect Every Paragraph Boundary
 
